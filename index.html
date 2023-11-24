@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta name="description" content="Milionerzy gra" />
+        <meta
+            name="keywords"
+            content="Milionerzy, Millionaire, Gra, Teleturniej"
+        />
+        <meta name="author" content="Grzegorz Strzeszewski" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Milionerzy</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="/"><img src="images/logo.png" alt="" /></a>
+                </div>
+                <ul class="navbar__list">
+                    <button class="navbar__list-item logged-in button-style1">
+                        <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
+                    </button>
+
+                    <button class="navbar__list-item logged-in button-style1">
+                        <i class="fa-solid fa-user"></i>
+                        Twoje konto
+                    </button>
+
+                    <button class="navbar__list-item logged-in button-style1">
+                        <i
+                            class="fa-solid fa-right-from-bracket"
+                            id="logged-out-element"
+                        ></i>
+                        Wyloguj
+                    </button>
+                    <button
+                        class="navbar__list-item logged-out button-style1"
+                        onclick="switchDisplay(1)"
+                    >
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Zaloguj się
+                    </button>
+                    <button
+                        class="navbar__list-item logged-out button-style1"
+                        onclick="switchDisplay(2)"
+                    >
+                        <i class="fa-solid fa-user-plus"></i> Zarejestruj się
+                    </button>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="start-container main-container-activated">
+                <button class="button-style1" onclick="prepareGame()">
+                    Nowa gra !
+                </button>
+                <button class="button-style1">Najlepsze wyniki</button>
+            </div>
+            <div class="login-container">
+                <form action="#" autocomplete="off" id="login-form">
+                    <div class="form__icon" aria-hidden="true"></div>
+                    <div class="form__input--container">
+                        <input
+                            id="login-login"
+                            type="text"
+                            placeholder=""
+                            aria-label="Login-login"
+                            required
+                        />
+                        <label for="login-login">Login</label>
+                    </div>
+                    <div class="form__input--container">
+                        <input
+                            id="login-password"
+                            type="password"
+                            placeholder=""
+                            aria-label="Login-password"
+                        />
+                        <label for="login-password">Hasło</label>
+                    </div>
+                    <div class="form__spacer" aria-hidden="true"></div>
+                    <button id="login-button" class="button-style1">
+                        Zaloguj
+                    </button>
+                </form>
+            </div>
+            <div class="register-container">
+                <form action="#" autocomplete="off" id="register-form">
+                    <div class="form__icon" aria-hidden="true"></div>
+                    <div class="user-details">
+                        <div class="form__input--container">
+                            <input
+                                id="register-firstname"
+                                type="text"
+                                placeholder=""
+                                aria-label="Register-firstname"
+                                required
+                            />
+                            <label for="register-firstname">Imię</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                id="register-lastname"
+                                type="text"
+                                placeholder=""
+                                aria-label="Register-lastname"
+                                required
+                            />
+                            <label for="register-lastname">Nazwisko</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                id="register-login"
+                                type="text"
+                                placeholder=""
+                                aria-label="Register-login"
+                                required
+                            />
+                            <label for="register-login">Login</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                id="register-password"
+                                type="password"
+                                placeholder=""
+                                aria-label="Register-password"
+                                required
+                            />
+                            <label for="register-password">Hasło</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                id="register-confirm-password"
+                                type="password"
+                                placeholder=""
+                                aria-label="Register-confirm-password"
+                                required
+                            />
+                            <label for="register-confirm-password"
+                                >Potwierdź hasło</label
+                            >
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                id="register-email"
+                                type="email"
+                                placeholder=""
+                                aria-label="Register-email"
+                                required
+                            />
+                            <label for="register-email">Email</label>
+                        </div>
+                    </div>
+                    <div class="form__spacer" aria-hidden="true"></div>
+                    <button id="register-button" class="button-style1">
+                        Zarejestruj
+                    </button>
+                </form>
+            </div>
+            <div class="game-container">
+                <div class="game">
+                    <div id="buttons-price">
+                        <div id="game-buttons">
+                            <button id="50/50" class="button-style1">
+                                50/50
+                            </button>
+                            <button id="end-game" class="button-style1">
+                                Zakończ gre
+                            </button>
+                        </div>
+                        <div>
+                            <div id="price-label-container">
+                                <div class="price-label">12 - 1 000 000zł</div>
+                                <div class="price-label">11 - 500 000zł</div>
+                                <div class="price-label">10 - 250 000zł</div>
+                                <div class="price-label">9 - 125 000zł</div>
+                                <div class="price-label">8 - 75 000zł</div>
+                                <div class="price-label">7 - 40 000zł</div>
+                                <div class="price-label">6 - 20 000zł</div>
+                                <div class="price-label">5 - 10 000zł</div>
+                                <div class="price-label">4 - 5000zł</div>
+                                <div class="price-label">3 - 2000zł</div>
+                                <div class="price-label">2 - 1000zł</div>
+                                <div class="price-label">1 - 500zł</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="question-answers">
+                        <div id="question-number">Pytanie: 1</div>
+                        <div id="question-content">
+                            <div id="question-content-left"></div>
+                            <div id="question-content-mid">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. Officiis, maiores fugit harum
+                                eaque assumenda aspernatur, repellendus quaerat
+                                numquam facere, voluptate ipsum a atque veniam.
+                                Illum nam qui impedit voluptatibus culpa hic
+                                saepe dicta sit, obcaecati eos. Iste
+                                reprehenderit sint optio doloremque, voluptatem
+                                sunt veniam porro repudiandae, ratione suscipit
+                                temporibus minus!
+                            </div>
+                            <div id="question-content-right"></div>
+                        </div>
+                        <div id="answers">
+                            <div id="answer-a">
+                                <div class="left"></div>
+                                <button class="mid">
+                                    A: blabla blabla blabla
+                                </button>
+                                <div class="right"></div>
+                            </div>
+                            <div id="answer-b">
+                                <div class="left"></div>
+                                <button class="mid">B: blabla blabla</button>
+                                <div class="right"></div>
+                            </div>
+                            <div id="answer-c">
+                                <div class="left"></div>
+                                <button class="mid">
+                                    C: blabla blabla blabla blabla
+                                </button>
+                                <div class="right"></div>
+                            </div>
+                            <div id="answer-d">
+                                <div class="left"></div>
+                                <button class="mid">
+                                    D: blabla blabla blabla
+                                </button>
+                                <div class="right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div></div>
+        </footer>
+        <script type="module" src="index.js"></script>
+        <!-- <script type="text/javascript" src="index.js"></script> -->
+    </body>
+</html>
