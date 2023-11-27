@@ -6,22 +6,17 @@ async function sendHttpRequest(method, url, data) {
             headers: data ? { "Content-Type": "application/json" } : {},
         });
 
-        if (response.status === 404) {
-            throw new Error("Page not found");
-        } else if (response.status === 500) {
-            throw new Error("Server error");
-        } else if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        return await response.json();
+        return response;
     } catch (error) {
-        return error;
+        return new Error(error);
     }
 }
 
 const getData = async (url) => {
-    return await sendHttpRequest("GET", url);
+    const response = await sendHttpRequest("GET", url);
+    if (response.ok) {
+        return response.json();
+    }
 };
 
 const postData = async (url) => {
@@ -39,4 +34,4 @@ const deleteData = async (url) => {
     console.log(x);
 };
 
-export { sendHttpRequest, getData, postData, updateData, deleteData };
+export { getData, postData, updateData, deleteData };

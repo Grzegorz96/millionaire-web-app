@@ -1,29 +1,25 @@
-import * as requestsModule from "./requests.js";
-import * as configModule from "./config.js";
-import * as gameModule from "./game.js";
-window.switchDisplay = gameModule.switchDisplay;
-window.prepareGame = gameModule.prepareGame;
+import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
+import { elementsOfHtml, game, user } from "./config.js"; // Objects of application.
+import { switchDisplay, prepareGame } from "./game.js"; // Functions of game.
 
-if (!configModule.isUserLoggedIn) {
-    for (let element of configModule.loggedOutBtns) {
+window.switchDisplay = switchDisplay;
+window.prepareGame = prepareGame;
+
+// Checking if user is logged in.
+if (!user.isUserLoggedIn) {
+    for (let element of elementsOfHtml.loggedOutBtns) {
         element.classList.toggle("navbar-buttons-activated");
     }
 } else {
-    for (let element of configModule.loggedInBtns) {
+    for (let element of elementsOfHtml.loggedInBtns) {
         element.classList.toggle("navbar-buttons-activated");
     }
 }
 
-let questions;
-let loadingQuestions = true;
-
-requestsModule
-    .getData("https://Grzegorz96.pythonanywhere.com/questions")
-    .then((response) => {
-        if (response instanceof Error) {
-            console.log("błąd");
-        } else {
-            loadingQuestions = false;
-            questions = response.result;
-        }
-    });
+// Loading of questions.
+getData("https://Grzegorz96.pythonanywhere.com/questions").then((response) => {
+    if (response) {
+        game.questions = response.result; // basic version of questions
+        game.currentQuestions = [...game.questions]; // version of questions to modify
+    }
+});

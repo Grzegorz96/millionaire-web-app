@@ -171,72 +171,63 @@
                 <div class="game">
                     <div id="buttons-price">
                         <div id="game-buttons">
-                            <button id="50/50" class="button-style1">
-                                50/50
+                            <button id="fifty-fifty" class="button-style1">
+                                50:50
                             </button>
                             <button id="end-game" class="button-style1">
-                                Zakończ gre
+                                <i
+                                    class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"
+                                ></i>
+                                <i
+                                    class="fa-solid fa-person-running fa-flip-horizontal"
+                                ></i>
                             </button>
                         </div>
-                        <div>
-                            <div id="price-label-container">
-                                <div class="price-label">12 - 1 000 000zł</div>
-                                <div class="price-label">11 - 500 000zł</div>
-                                <div class="price-label">10 - 250 000zł</div>
-                                <div class="price-label">9 - 125 000zł</div>
-                                <div class="price-label">8 - 75 000zł</div>
-                                <div class="price-label">7 - 40 000zł</div>
-                                <div class="price-label">6 - 20 000zł</div>
-                                <div class="price-label">5 - 10 000zł</div>
-                                <div class="price-label">4 - 5000zł</div>
-                                <div class="price-label">3 - 2000zł</div>
-                                <div class="price-label">2 - 1000zł</div>
-                                <div class="price-label">1 - 500zł</div>
-                            </div>
+                        <div id="price-label-container">
+                            <div class="price-label">500zł</div>
+                            <div class="price-label">1000zł</div>
+                            <div class="price-label">2000zł</div>
+                            <div class="price-label">5000zł</div>
+                            <div class="price-label">10000zł</div>
+                            <div class="price-label">20000zł</div>
+                            <div class="price-label">75000zł</div>
+                            <div class="price-label">40000zł</div>
+                            <div class="price-label">125000zł</div>
+                            <div class="price-label">250000zł</div>
+                            <div class="price-label">500000zł</div>
+                            <div class="price-label">1000000zł</div>
                         </div>
                     </div>
                     <div id="question-answers">
-                        <div id="question-number">Pytanie: 1</div>
+                        <div id="question-number">
+                            <div id="question-number-left"></div>
+                            <div id="question-number-mid"></div>
+                            <div id="question-number-right"></div>
+                        </div>
                         <div id="question-content">
                             <div id="question-content-left"></div>
-                            <div id="question-content-mid">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Officiis, maiores fugit harum
-                                eaque assumenda aspernatur, repellendus quaerat
-                                numquam facere, voluptate ipsum a atque veniam.
-                                Illum nam qui impedit voluptatibus culpa hic
-                                saepe dicta sit, obcaecati eos. Iste
-                                reprehenderit sint optio doloremque, voluptatem
-                                sunt veniam porro repudiandae, ratione suscipit
-                                temporibus minus!
-                            </div>
+                            <div id="question-content-mid"></div>
                             <div id="question-content-right"></div>
                         </div>
                         <div id="answers">
                             <div id="answer-a">
                                 <div class="left"></div>
-                                <button class="mid">
-                                    A: blabla blabla blabla
-                                </button>
+                                <button class="mid"></button>
                                 <div class="right"></div>
                             </div>
                             <div id="answer-b">
                                 <div class="left"></div>
-                                <button class="mid">B: blabla blabla</button>
+                                <button class="mid"></button>
                                 <div class="right"></div>
                             </div>
                             <div id="answer-c">
                                 <div class="left"></div>
-                                <button class="mid">
-                                    C: blabla blabla blabla blabla
-                                </button>
+                                <button class="mid"></button>
                                 <div class="right"></div>
                             </div>
                             <div id="answer-d">
                                 <div class="left"></div>
-                                <button class="mid">
-                                    D: blabla blabla blabla
-                                </button>
+                                <button class="mid"></button>
                                 <div class="right"></div>
                             </div>
                         </div>
@@ -247,7 +238,6 @@
         <footer>
             <div></div>
         </footer>
-        <script type="module" src="index.js"></script>
-        <!-- <script type="text/javascript" src="index.js"></script> -->
+        <script type="module" src="index.js" defer></script>
     </body>
 </html>
