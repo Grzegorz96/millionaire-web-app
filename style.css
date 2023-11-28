@@ -1,3 +1,11 @@
+:root {
+    --A: rgb(24, 28, 46);
+    --B: rgb(24, 28, 46);
+    --C: rgb(24, 28, 46);
+    --D: rgb(24, 28, 46);
+    --selected-answer-background: none;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -335,12 +343,17 @@ input:focus,
 }
 
 .price-label {
+    color: rgb(255, 153, 0);
     font-size: 1rem;
     border-top: 2px solid white;
     border-inline: 2px solid white;
     background-color: rgb(24, 28, 46);
     height: 100%;
     padding: 3px;
+}
+
+.price-guaranteed {
+    color: white;
 }
 
 .price-label-activated {
@@ -464,10 +477,41 @@ input:focus,
 .left::before {
     content: "";
     position: absolute;
-    border-right: 47px solid rgb(24, 28, 46);
     border-top: 27px solid transparent;
     border-bottom: 27px solid transparent;
     left: 3px;
+}
+
+.l-A::before {
+    border-right: 47px solid var(--A);
+}
+
+.r-A::before {
+    border-left: 47px solid var(--A);
+}
+
+.l-B::before {
+    border-right: 47px solid var(--B);
+}
+
+.r-B::before {
+    border-left: 47px solid var(--B);
+}
+
+.l-C::before {
+    border-right: 47px solid var(--C);
+}
+
+.r-C::before {
+    border-left: 47px solid var(--C);
+}
+
+.l-D::before {
+    border-right: 47px solid var(--D);
+}
+
+.r-D::before {
+    border-left: 47px solid var(--D);
 }
 
 .mid {
@@ -486,6 +530,18 @@ input:focus,
     border-block: 3px solid rgb(219, 223, 10);
 }
 
+.selected-answer {
+    background-color: var(--selected-answer-background);
+    color: black;
+    font-weight: 600;
+}
+
+.right-answer {
+    background-color: rgb(5, 255, 13);
+    color: black;
+    font-weight: 600;
+}
+
 .right {
     position: relative;
     border-left: 50px solid white;
@@ -496,7 +552,6 @@ input:focus,
 .right::before {
     content: "";
     position: absolute;
-    border-left: 47px solid rgb(24, 28, 46);
     border-top: 27px solid transparent;
     border-bottom: 27px solid transparent;
     right: 3px;

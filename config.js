@@ -6,6 +6,9 @@ const game = {
     numberOfQuestion: 0,
     questions: undefined,
     currentQuestions: undefined,
+    currentQuestion: undefined,
+    priceQuaranteed: 0,
+    currentWon: 0,
 };
 
 const elementsOfHtml = {
@@ -16,6 +19,7 @@ const elementsOfHtml = {
     questionNumber: document.getElementById("question-number-mid"),
     questionContent: document.getElementById("question-content-mid"),
     answers: document.getElementsByClassName("mid"),
+    gameBtns: document.getElementById("game-buttons").children,
 };
 
 export { elementsOfHtml, game, user };

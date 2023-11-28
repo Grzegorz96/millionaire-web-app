@@ -1,9 +1,10 @@
 import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
 import { elementsOfHtml, game, user } from "./config.js"; // Objects of application.
-import { switchDisplay, prepareGame } from "./game.js"; // Functions of game.
+import { switchDisplay, prepareGame, checkAnswer } from "./game.js"; // Functions of game.
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
+window.checkAnswer = checkAnswer;
 
 // Checking if user is logged in.
 if (!user.isUserLoggedIn) {
