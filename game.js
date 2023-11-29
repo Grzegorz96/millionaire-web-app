@@ -12,6 +12,7 @@ function prepareGame() {
 function inGame() {
     drawQuestion();
     displayQuestion();
+    changeStanOfButtons(false);
 }
 
 function drawQuestion() {
@@ -54,17 +55,16 @@ function displayQuestion() {
     elementsOfHtml.questionContent.innerText = game.currentQuestion.content;
 
     // Displaying current answers.
-    const abcdList = ["A", "B", "C", "D"];
-    for (let i = 0; i < elementsOfHtml.answers.length; i++) {
-        elementsOfHtml.answers[
-            i
-        ].innerHTML = `<b style="color:rgb(240, 236, 10);">${
-            abcdList[i]
-        }: </b>${game.currentQuestion[abcdList[i]]}`;
+    for (let answer of elementsOfHtml.answers) {
+        answer.innerHTML = `<b style="color:rgb(240, 236, 10);">${
+            answer.classList[1]
+        }: </b>${game.currentQuestion[answer.classList[1]]}`;
     }
 }
 
-async function checkAnswer(selectedButton, answer) {
+async function checkAnswer(selectedButton) {
+    const answer = selectedButton.classList[1];
+
     changeStanOfButtons(true);
     setSelectedAnswer(selectedButton, answer, "rgb(199, 125, 14)");
     await awaitTimeout(4500);
@@ -90,7 +90,7 @@ async function checkAnswer(selectedButton, answer) {
         game.numberOfQuestion += 1;
         setDefaultValues(selectedButton, answer);
         if (game.numberOfQuestion == 11) {
-            // endGame();
+            endGame();
         }
         inGame();
     } else {
@@ -105,7 +105,7 @@ async function checkAnswer(selectedButton, answer) {
         setRightAnswer(rightButton);
         await awaitTimeout(4000);
         setDefaultValues(selectedButton, answer, rightButton);
-        // endGame()
+        endGame();
     }
 }
 
@@ -114,7 +114,18 @@ function awaitTimeout(delay) {
 }
 
 function endGame() {
-    console.log("Tu bedzie funkcja końca gry");
+    game.numberOfQuestion = 0;
+    game.currentQuestion = undefined;
+    // game.priceQuaranteed = 0,
+    // game.currentWon = 0
+    elementsOfHtml.questionNumber.innerTexttext = "";
+    elementsOfHtml.questionContent.innerText = "";
+    Array.from(elementsOfHtml.answers).map((button) => {
+        button.innerHTML = "";
+    });
+    elementsOfHtml.containers[3].classList.toggle("main-container-activated");
+    elementsOfHtml.containers[4].classList.toggle("main-container-activated");
+    document.body.style.backgroundImage = "url(images/background.png)";
 }
 
 function changeStanOfButtons(disabled) {
@@ -179,8 +190,6 @@ function setDefaultValues(selectedButton, beforeVariable, rightButton = null) {
 
         rightButton.classList.remove("right-answer");
     }
-
-    changeStanOfButtons(false);
 }
 
 function loadGameContainer() {
@@ -196,6 +205,12 @@ function loadGameContainer() {
     elementsOfHtml.containers[3].classList.toggle("main-container-activated");
     document.body.style.backgroundImage = "url(images/in-game.jpg)";
 }
+
+// function loadEndGameContainer() {
+//     elementsOfHtml.containers[3].classList.toggle("main-container-activated");
+//     elementsOfHtml.containers[4].classList.toggle("main-container-activated");
+//     document.body.style.backgroundImage = "url(images/background.png)";
+// }
 
 function switchDisplay(indexOfContainer) {
     for (let container of elementsOfHtml.containers) {

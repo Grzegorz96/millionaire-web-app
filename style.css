@@ -102,7 +102,8 @@ main {
 
 .login-container,
 .register-container,
-.game-container {
+.game-container,
+.end-game-container {
     display: none;
     justify-content: center;
     align-items: center;
@@ -320,7 +321,7 @@ input:focus,
 }
 
 #fifty-fifty,
-#end-game {
+#finish-game {
     border: 2px solid white;
     background-color: rgb(24, 28, 46);
     border-radius: 50%;
@@ -616,6 +617,97 @@ input:focus,
     border-bottom: 57px solid transparent;
     left: -70px;
     top: -57px;
+}
+
+/* END GAME */
+.end-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.05),
+        rgba(56, 46, 46, 0.35)
+    );
+    border-radius: 15px;
+    box-shadow: 0px 0px 24px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#end-game__logo {
+    width: 100%;
+    border-radius: 15px;
+}
+
+#amount-and-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#won-amount {
+    padding: 5px;
+    font-size: 2rem;
+    border-bottom: 2px solid white;
+}
+
+#amount-and-result div:last-child {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+#results-container {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px 2px rgba(255, 255, 255, 0.603);
+}
+
+#top-players {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.results,
+#top-players {
+    display: flex;
+    justify-content: space-around;
+    border-inline: 2px solid white;
+    border-top: 2px solid white;
+    padding: 5px;
+}
+
+.person {
+    overflow: hidden;
+    width: calc(100% - 70px);
+}
+
+.points {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 70px;
+    border-left: 2px solid white;
+}
+
+#best-player {
+    background-color: rgb(240, 236, 10);
+}
+
+#best-player div {
+    color: black;
+    font-weight: 600;
+}
+
+.results:last-child {
+    border-bottom: 2px solid white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 @media screen and (max-width: 700px) {

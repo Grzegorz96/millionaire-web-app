@@ -24,7 +24,9 @@
         <header>
             <nav class="navbar">
                 <div class="navbar__logo">
-                    <a href="/"><img src="images/logo.png" alt="" /></a>
+                    <a href="/"
+                        ><img src="images/logo.png" alt="program logo"
+                    /></a>
                 </div>
                 <ul class="navbar__list">
                     <button class="navbar__list-item logged-in button-style1">
@@ -43,7 +45,7 @@
                         ></i>
                         Wyloguj
                     </button>
-                    <button
+                    <!-- <button
                         class="navbar__list-item logged-out button-style1"
                         onclick="switchDisplay(1)"
                     >
@@ -55,7 +57,7 @@
                         onclick="switchDisplay(2)"
                     >
                         <i class="fa-solid fa-user-plus"></i> Zarejestruj się
-                    </button>
+                    </button> -->
                 </ul>
             </nav>
         </header>
@@ -171,10 +173,18 @@
                 <div class="game">
                     <div id="buttons-price">
                         <div id="game-buttons">
-                            <button id="fifty-fifty" class="button-style1">
+                            <button
+                                id="fifty-fifty"
+                                class="button-style1"
+                                disabled
+                            >
                                 50:50
                             </button>
-                            <button id="end-game" class="button-style1">
+                            <button
+                                id="finish-game"
+                                class="button-style1"
+                                disabled
+                            >
                                 <i
                                     class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"
                                 ></i>
@@ -220,7 +230,8 @@
                                 <div class="left l-A"></div>
                                 <button
                                     class="mid A"
-                                    onclick="checkAnswer(this, 'A')"
+                                    onclick="checkAnswer(this)"
+                                    disabled
                                 ></button>
                                 <div class="right r-A"></div>
                             </div>
@@ -228,7 +239,8 @@
                                 <div class="left l-B"></div>
                                 <button
                                     class="mid B"
-                                    onclick="checkAnswer(this, 'B')"
+                                    onclick="checkAnswer(this)"
+                                    disabled
                                 ></button>
                                 <div class="right r-B"></div>
                             </div>
@@ -236,7 +248,8 @@
                                 <div class="left l-C"></div>
                                 <button
                                     class="mid C"
-                                    onclick="checkAnswer(this, 'C')"
+                                    onclick="checkAnswer(this)"
+                                    disabled
                                 ></button>
                                 <div class="right r-C"></div>
                             </div>
@@ -244,12 +257,50 @@
                                 <div class="left l-D"></div>
                                 <button
                                     class="mid D"
-                                    onclick="checkAnswer(this, 'D')"
+                                    onclick="checkAnswer(this)"
+                                    disabled
                                 ></button>
                                 <div class="right r-D"></div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="end-game-container">
+                <div class="end-game">
+                    <img
+                        id="end-game__logo"
+                        src="images/logo frontend.png"
+                        alt="millionaire logo"
+                    />
+                    <div id="amount-and-result">
+                        <div id="won-amount">Wygrana kwota: 1000zł</div>
+                        <div id="result">Twój wynik: 5040pkt</div>
+                    </div>
+                    <div id="results-container">
+                        <div id="top-players">Top 5 graczy:</div>
+                        <div class="results" id="best-player">
+                            <div class="person">Marek Mostowiak</div>
+                            <div class="points">5697pkt</div>
+                        </div>
+                        <div class="results">
+                            <div class="person">Krzysztof Marlik</div>
+                            <div class="points">4000pkt</div>
+                        </div>
+                        <div class="results">
+                            <div class="person">Eustachy motyka</div>
+                            <div class="points">3800pkt</div>
+                        </div>
+                        <div class="results">
+                            <div class="person">Marian Paździoch</div>
+                            <div class="points">3354pkt</div>
+                        </div>
+                        <div class="results">
+                            <div class="person">Stefan Borowiec</div>
+                            <div class="points">25pkt</div>
+                        </div>
+                    </div>
+                    <button class="button-style1">Wyjdź do menu</button>
                 </div>
             </div>
         </main>
