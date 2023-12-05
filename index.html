@@ -45,7 +45,7 @@
                         ></i>
                         Wyloguj
                     </button>
-                    <!-- <button
+                    <button
                         class="navbar__list-item logged-out button-style1"
                         onclick="switchDisplay(1)"
                     >
@@ -57,7 +57,7 @@
                         onclick="switchDisplay(2)"
                     >
                         <i class="fa-solid fa-user-plus"></i> Zarejestruj się
-                    </button> -->
+                    </button>
                 </ul>
             </nav>
         </header>
@@ -70,6 +70,12 @@
             </div>
             <div class="login-container">
                 <form action="#" autocomplete="off" id="login-form">
+                    <div
+                        class="back-from-login-register"
+                        onclick="backFromLogin()"
+                    >
+                        <i class="fa-solid fa-x"></i>
+                    </div>
                     <div class="form__icon" aria-hidden="true"></div>
                     <div class="form__input--container">
                         <input
@@ -98,6 +104,12 @@
             </div>
             <div class="register-container">
                 <form action="#" autocomplete="off" id="register-form">
+                    <div
+                        class="back-from-login-register"
+                        onclick="backFromRegister()"
+                    >
+                        <i class="fa-solid fa-x"></i>
+                    </div>
                     <div class="form__icon" aria-hidden="true"></div>
                     <div class="user-details">
                         <div class="form__input--container">
@@ -177,6 +189,7 @@
                                 id="fifty-fifty"
                                 class="button-style1"
                                 disabled
+                                onclick="fiftyFifty()"
                             >
                                 50:50
                             </button>
@@ -184,6 +197,7 @@
                                 id="finish-game"
                                 class="button-style1"
                                 disabled
+                                onclick="endGame(true)"
                             >
                                 <i
                                     class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"
@@ -274,33 +288,45 @@
                         alt="millionaire logo"
                     />
                     <div id="amount-and-result">
-                        <div id="won-amount">Wygrana kwota: 1000zł</div>
-                        <div id="result">Twój wynik: 5040pkt</div>
+                        <div id="won-amount"></div>
+                        <div id="result"></div>
                     </div>
                     <div id="results-container">
                         <div id="top-players">Top 5 graczy:</div>
                         <div class="results" id="best-player">
-                            <div class="person">Marek Mostowiak</div>
-                            <div class="points">5697pkt</div>
+                            <div class="person">
+                                Błąd podczas pobierania graczy
+                            </div>
+                            <div class="points">0pkt</div>
                         </div>
                         <div class="results">
-                            <div class="person">Krzysztof Marlik</div>
-                            <div class="points">4000pkt</div>
+                            <div class="person">
+                                Błąd podczas pobierania graczy
+                            </div>
+                            <div class="points">0pkt</div>
                         </div>
                         <div class="results">
-                            <div class="person">Eustachy motyka</div>
-                            <div class="points">3800pkt</div>
+                            <div class="person">
+                                Błąd podczas pobierania graczy
+                            </div>
+                            <div class="points">0pkt</div>
                         </div>
                         <div class="results">
-                            <div class="person">Marian Paździoch</div>
-                            <div class="points">3354pkt</div>
+                            <div class="person">
+                                Błąd podczas pobierania graczy
+                            </div>
+                            <div class="points">0pkt</div>
                         </div>
                         <div class="results">
-                            <div class="person">Stefan Borowiec</div>
-                            <div class="points">25pkt</div>
+                            <div class="person">
+                                Błąd podczas pobierania graczy
+                            </div>
+                            <div class="points">0pkt</div>
                         </div>
                     </div>
-                    <button class="button-style1">Wyjdź do menu</button>
+                    <button class="button-style1" onclick="loadMainContainer()">
+                        Wyjdź do menu
+                    </button>
                 </div>
             </div>
         </main>

@@ -144,6 +144,13 @@ footer {
     text-align: center;
 }
 
+.back-from-login-register {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
 .form__input--container {
     position: relative;
     margin-bottom: 32px;

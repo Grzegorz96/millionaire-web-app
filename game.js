@@ -1,8 +1,12 @@
-import { elementsOfHtml, game } from "./config.js";
+import { elementsOfHtml, game, user } from "./config.js";
+import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
+import { switchDisplay } from "./generalFunctions.js";
 
 function prepareGame() {
     if (game.questions) {
         loadGameContainer();
+        getBestPlayers();
+        game.startTime = new Date();
         inGame();
     } else {
         alert("Nie udało się pobrać pytań, spróbuj później.");
@@ -58,7 +62,7 @@ function displayQuestion() {
     for (let answer of elementsOfHtml.answers) {
         answer.innerHTML = `<b style="color:rgb(240, 236, 10);">${
             answer.classList[1]
-        }: </b>${game.currentQuestion[answer.classList[1]]}`;
+        }:</b> ${game.currentQuestion[answer.classList[1]]}`;
     }
 }
 
@@ -87,12 +91,13 @@ async function checkAnswer(selectedButton) {
             )
         );
 
-        game.numberOfQuestion += 1;
         setDefaultValues(selectedButton, answer);
-        if (game.numberOfQuestion == 11) {
-            endGame();
+        if (game.numberOfQuestion != 11) {
+            game.numberOfQuestion += 1;
+            inGame();
+        } else {
+            endGame(false);
         }
-        inGame();
     } else {
         let rightButton;
         for (let button of elementsOfHtml.answers) {
@@ -100,12 +105,11 @@ async function checkAnswer(selectedButton) {
                 rightButton = button;
             }
         }
-
         setSelectedAnswer(selectedButton, answer, "rgb(255, 30, 0)");
         setRightAnswer(rightButton);
         await awaitTimeout(4000);
         setDefaultValues(selectedButton, answer, rightButton);
-        endGame();
+        endGame(false);
     }
 }
 
@@ -113,19 +117,35 @@ function awaitTimeout(delay) {
     return new Promise((resolve) => setTimeout(resolve, delay));
 }
 
-function endGame() {
+function endGame(isFrombutton) {
+    const gameDuration = (new Date() - game.startTime) / 1000; // time of game duration in seconds.
+
+    let amountWon;
+    if (isFrombutton) {
+        amountWon = game.currentWon;
+        Array.from(elementsOfHtml.priceLabels).map((label) => {
+            label.classList.remove("price-label-activated");
+        });
+        changeStanOfButtons(true);
+    } else {
+        amountWon = game.priceQuaranteed;
+    }
+
+    game.isFiftyFiftyAvailable = true;
+    elementsOfHtml.gameBtns[0].style.backgroundColor = "rgb(24, 28, 46)";
     game.numberOfQuestion = 0;
     game.currentQuestion = undefined;
-    // game.priceQuaranteed = 0,
-    // game.currentWon = 0
-    elementsOfHtml.questionNumber.innerTexttext = "";
+    game.priceQuaranteed = 0;
+    game.currentWon = 0;
+    game.startTime = undefined;
+    elementsOfHtml.questionNumber.innerText = "";
     elementsOfHtml.questionContent.innerText = "";
     Array.from(elementsOfHtml.answers).map((button) => {
         button.innerHTML = "";
     });
-    elementsOfHtml.containers[3].classList.toggle("main-container-activated");
-    elementsOfHtml.containers[4].classList.toggle("main-container-activated");
-    document.body.style.backgroundImage = "url(images/background.png)";
+
+    const result = Math.floor(amountWon / gameDuration);
+    loadEndGameContainer(amountWon, result);
 }
 
 function changeStanOfButtons(disabled) {
@@ -133,9 +153,13 @@ function changeStanOfButtons(disabled) {
         button.disabled = disabled;
     });
 
-    Array.from(elementsOfHtml.gameBtns).map((button) => {
-        button.disabled = disabled;
-    });
+    if (game.isFiftyFiftyAvailable) {
+        Array.from(elementsOfHtml.gameBtns).map((button) => {
+            button.disabled = disabled;
+        });
+    } else {
+        elementsOfHtml.gameBtns[1].disabled = disabled;
+    }
 }
 
 function setRightAnswer(rightButton) {
@@ -200,25 +224,84 @@ function loadGameContainer() {
     for (let element of elementsOfHtml.loggedOutBtns) {
         element.classList.remove("navbar-buttons-activated");
     }
-
-    elementsOfHtml.containers[0].classList.toggle("main-container-activated");
-    elementsOfHtml.containers[3].classList.toggle("main-container-activated");
     document.body.style.backgroundImage = "url(images/in-game.jpg)";
+    switchDisplay(3);
 }
 
-// function loadEndGameContainer() {
-//     elementsOfHtml.containers[3].classList.toggle("main-container-activated");
-//     elementsOfHtml.containers[4].classList.toggle("main-container-activated");
-//     document.body.style.backgroundImage = "url(images/background.png)";
-// }
-
-function switchDisplay(indexOfContainer) {
-    for (let container of elementsOfHtml.containers) {
-        container.classList.remove("main-container-activated");
+function loadMainContainer() {
+    elementsOfHtml.amountAndResult[0].innerText = "";
+    elementsOfHtml.amountAndResult[1].innerText = "";
+    if (!user.isUserLoggedIn) {
+        for (let element of elementsOfHtml.loggedOutBtns) {
+            element.classList.add("navbar-buttons-activated");
+        }
+    } else {
+        for (let element of elementsOfHtml.loggedInBtns) {
+            element.classList.add("navbar-buttons-activated");
+        }
     }
-    elementsOfHtml.containers[indexOfContainer].classList.add(
-        "main-container-activated"
+    switchDisplay(0);
+}
+
+function loadEndGameContainer(amountWon, result) {
+    elementsOfHtml.amountAndResult[0].innerText = `Wygrana kwota: ${amountWon}zł`;
+    elementsOfHtml.amountAndResult[1].innerText = `Twój wynik: ${result}pkt`;
+    if (game.bestFivePlayers) {
+        for (let i = 0; i < game.bestFivePlayers.length; i++) {
+            elementsOfHtml.resultlabels[
+                i
+            ].children[0].innerText = `${game.bestFivePlayers[i].first_name} ${game.bestFivePlayers[i].last_name}`;
+            elementsOfHtml.resultlabels[
+                i
+            ].children[1].innerText = `${game.bestFivePlayers[i].points}pkt`;
+        }
+    }
+
+    if (result > 1000 && user.isUserLoggedIn) {
+        const data = {
+            user_id: 999,
+            points: result,
+        };
+        sendScore(data);
+    }
+
+    document.body.style.backgroundImage = "url(images/background.png)";
+    switchDisplay(4);
+}
+
+function fiftyFifty() {
+    game.isFiftyFiftyAvailable = false;
+    elementsOfHtml.gameBtns[0].disabled = true;
+    elementsOfHtml.gameBtns[0].style.backgroundColor = "#4d0004";
+
+    let badAnswers = ["A", "B", "C", "D"].filter(
+        (answer) => answer != game.currentQuestion.right_answer
+    );
+
+    badAnswers.splice(Math.floor(Math.random() * badAnswers.length), 1);
+
+    Array.from(elementsOfHtml.answers).map((button) => {
+        if (badAnswers.includes(button.classList[1])) {
+            button.innerHTML = "";
+            button.disabled = true;
+        }
+    });
+}
+
+function sendScore(data) {
+    // Sending score.
+    postData("https://Grzegorz96.pythonanywhere.com/scores", data);
+}
+
+function getBestPlayers() {
+    // Loading of best scores.
+    getData("https://Grzegorz96.pythonanywhere.com/scores?limit=5").then(
+        (response) => {
+            if (response) {
+                game.bestFivePlayers = response.result;
+            }
+        }
     );
 }
 
-export { prepareGame, switchDisplay, checkAnswer };
+export { prepareGame, checkAnswer, endGame, loadMainContainer, fiftyFifty };

@@ -15,13 +15,13 @@ async function sendHttpRequest(method, url, data) {
 const getData = async (url) => {
     const response = await sendHttpRequest("GET", url);
     if (response.ok) {
-        return response.json();
+        return await response.json();
     }
 };
 
-const postData = async (url) => {
-    let x = await sendHttpRequest("POST", url);
-    console.log(x);
+const postData = async (url, data) => {
+    const response = await sendHttpRequest("POST", url, data);
+    console.log(response);
 };
 
 const updateData = async (url) => {

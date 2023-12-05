@@ -3,10 +3,13 @@ const user = {
 };
 
 const game = {
-    numberOfQuestion: 0,
+    isFiftyFiftyAvailable: true,
+    startTime: undefined,
     questions: undefined,
     currentQuestions: undefined,
     currentQuestion: undefined,
+    bestFivePlayers: undefined,
+    numberOfQuestion: 0,
     priceQuaranteed: 0,
     currentWon: 0,
 };
@@ -20,6 +23,8 @@ const elementsOfHtml = {
     questionContent: document.getElementById("question-content-mid"),
     answers: document.getElementsByClassName("mid"),
     gameBtns: document.getElementById("game-buttons").children,
+    amountAndResult: document.getElementById("amount-and-result").children,
+    resultlabels: document.getElementsByClassName("results"),
 };
 
 export { elementsOfHtml, game, user };

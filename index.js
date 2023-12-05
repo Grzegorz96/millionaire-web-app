@@ -1,19 +1,33 @@
 import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
 import { elementsOfHtml, game, user } from "./config.js"; // Objects of application.
-import { switchDisplay, prepareGame, checkAnswer } from "./game.js"; // Functions of game.
+import {
+    prepareGame,
+    checkAnswer,
+    endGame,
+    loadMainContainer,
+    fiftyFifty,
+} from "./game.js"; // Functions of game.
+import { switchDisplay } from "./generalFunctions.js";
+import { backFromLogin } from "./login.js";
+import { backFromRegister } from "./register.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
 window.checkAnswer = checkAnswer;
+window.endGame = endGame;
+window.loadMainContainer = loadMainContainer;
+window.fiftyFifty = fiftyFifty;
+window.backFromLogin = backFromLogin;
+window.backFromRegister = backFromRegister;
 
 // Checking if user is logged in.
 if (!user.isUserLoggedIn) {
     for (let element of elementsOfHtml.loggedOutBtns) {
-        element.classList.toggle("navbar-buttons-activated");
+        element.classList.add("navbar-buttons-activated");
     }
 } else {
     for (let element of elementsOfHtml.loggedInBtns) {
-        element.classList.toggle("navbar-buttons-activated");
+        element.classList.add("navbar-buttons-activated");
     }
 }
 
