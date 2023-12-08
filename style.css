@@ -151,6 +151,30 @@ footer {
     cursor: pointer;
 }
 
+.login-popup {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    top: 48%;
+    width: 90%;
+    height: 145px;
+    z-index: 1;
+    border-radius: 15px;
+    position: absolute;
+    background-color: rgb(24, 28, 46);
+    font-size: 1.5rem;
+}
+
+.login-popup p {
+    width: 90%;
+}
+
+.active-popup {
+    display: flex;
+}
+
 .form__input--container {
     position: relative;
     margin-bottom: 32px;

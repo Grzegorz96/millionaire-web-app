@@ -1,6 +1,6 @@
 import { elementsOfHtml, game, user } from "./config.js";
 import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
-import { switchDisplay } from "./generalFunctions.js";
+import { switchDisplay, setNavbarButtons } from "./generalFunctions.js";
 
 function prepareGame() {
     if (game.questions) {
@@ -99,10 +99,9 @@ async function checkAnswer(selectedButton) {
             endGame(false);
         }
     } else {
-        let rightButton;
         for (let button of elementsOfHtml.answers) {
             if (button.classList.contains(game.currentQuestion.right_answer)) {
-                rightButton = button;
+                var rightButton = button;
             }
         }
         setSelectedAnswer(selectedButton, answer, "rgb(255, 30, 0)");
@@ -120,15 +119,14 @@ function awaitTimeout(delay) {
 function endGame(isFrombutton) {
     const gameDuration = (new Date() - game.startTime) / 1000; // time of game duration in seconds.
 
-    let amountWon;
     if (isFrombutton) {
-        amountWon = game.currentWon;
+        var amountWon = game.currentWon;
         Array.from(elementsOfHtml.priceLabels).map((label) => {
             label.classList.remove("price-label-activated");
         });
         changeStanOfButtons(true);
     } else {
-        amountWon = game.priceQuaranteed;
+        var amountWon = game.priceQuaranteed;
     }
 
     game.isFiftyFiftyAvailable = true;
@@ -189,7 +187,7 @@ function setSelectedAnswer(selectedButton, beforeVariable, currentColor) {
         .style.setProperty(`--selected-answer-background`, currentColor);
 }
 
-function setDefaultValues(selectedButton, beforeVariable, rightButton = null) {
+function setDefaultValues(selectedButton, beforeVariable, rightButton) {
     Array.from(elementsOfHtml.priceLabels).map((label) => {
         label.classList.remove("price-label-activated");
     });
@@ -231,15 +229,7 @@ function loadGameContainer() {
 function loadMainContainer() {
     elementsOfHtml.amountAndResult[0].innerText = "";
     elementsOfHtml.amountAndResult[1].innerText = "";
-    if (!user.isUserLoggedIn) {
-        for (let element of elementsOfHtml.loggedOutBtns) {
-            element.classList.add("navbar-buttons-activated");
-        }
-    } else {
-        for (let element of elementsOfHtml.loggedInBtns) {
-            element.classList.add("navbar-buttons-activated");
-        }
-    }
+    setNavbarButtons();
     switchDisplay(0);
 }
 
@@ -257,7 +247,7 @@ function loadEndGameContainer(amountWon, result) {
         }
     }
 
-    if (result > 1000 && user.isUserLoggedIn) {
+    if (result > 1000 && localStorage.getItem("accessToken")) {
         const data = {
             user_id: 999,
             points: result,
@@ -274,7 +264,7 @@ function fiftyFifty() {
     elementsOfHtml.gameBtns[0].disabled = true;
     elementsOfHtml.gameBtns[0].style.backgroundColor = "#4d0004";
 
-    let badAnswers = ["A", "B", "C", "D"].filter(
+    const badAnswers = ["A", "B", "C", "D"].filter(
         (answer) => answer != game.currentQuestion.right_answer
     );
 
@@ -293,15 +283,15 @@ function sendScore(data) {
     postData("https://Grzegorz96.pythonanywhere.com/scores", data);
 }
 
-function getBestPlayers() {
+async function getBestPlayers() {
     // Loading of best scores.
-    getData("https://Grzegorz96.pythonanywhere.com/scores?limit=5").then(
-        (response) => {
-            if (response) {
-                game.bestFivePlayers = response.result;
-            }
-        }
+    const response = await getData(
+        "https://Grzegorz96.pythonanywhere.com/scores?limit=5"
     );
+
+    if (response.status == 200) {
+        game.bestFivePlayers = (await response.json()).result;
+    }
 }
 
 export { prepareGame, checkAnswer, endGame, loadMainContainer, fiftyFifty };

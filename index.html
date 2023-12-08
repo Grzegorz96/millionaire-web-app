@@ -38,7 +38,10 @@
                         Twoje konto
                     </button>
 
-                    <button class="navbar__list-item logged-in button-style1">
+                    <button
+                        class="navbar__list-item logged-in button-style1"
+                        onclick="logout()"
+                    >
                         <i
                             class="fa-solid fa-right-from-bracket"
                             id="logged-out-element"
@@ -69,12 +72,25 @@
                 <button class="button-style1">Najlepsze wyniki</button>
             </div>
             <div class="login-container">
-                <form action="#" autocomplete="off" id="login-form">
+                <form
+                    autocomplete="off"
+                    id="login-form"
+                    onsubmit="login(); return false;"
+                >
                     <div
                         class="back-from-login-register"
                         onclick="backFromLogin()"
                     >
                         <i class="fa-solid fa-x"></i>
+                    </div>
+                    <div class="login-popup">
+                        <div
+                            class="back-from-login-register"
+                            onclick="closePopup(this)"
+                        >
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <p></p>
                     </div>
                     <div class="form__icon" aria-hidden="true"></div>
                     <div class="form__input--container">
@@ -83,6 +99,9 @@
                             type="text"
                             placeholder=""
                             aria-label="Login-login"
+                            pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9]+"
+                            minlength="5"
+                            maxlength="45"
                             required
                         />
                         <label for="login-login">Login</label>
@@ -93,6 +112,10 @@
                             type="password"
                             placeholder=""
                             aria-label="Login-password"
+                            pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9!@#$%^&*]+"
+                            minlength="7"
+                            maxlength="45"
+                            required
                         />
                         <label for="login-password">Hasło</label>
                     </div>
@@ -103,7 +126,11 @@
                 </form>
             </div>
             <div class="register-container">
-                <form action="#" autocomplete="off" id="register-form">
+                <form
+                    autocomplete="off"
+                    id="register-form"
+                    onsubmit="register(); return false;"
+                >
                     <div
                         class="back-from-login-register"
                         onclick="backFromRegister()"

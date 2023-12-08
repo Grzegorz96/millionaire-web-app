@@ -1,6 +1,4 @@
-const user = {
-    isUserLoggedIn: false,
-};
+const user = { userData: undefined };
 
 const game = {
     isFiftyFiftyAvailable: true,
@@ -25,6 +23,14 @@ const elementsOfHtml = {
     gameBtns: document.getElementById("game-buttons").children,
     amountAndResult: document.getElementById("amount-and-result").children,
     resultlabels: document.getElementsByClassName("results"),
+    loginEntries: Array.from(document.getElementsByTagName("input")).slice(
+        0,
+        2
+    ),
+    registerEntries: Array.from(document.getElementsByTagName("input")).slice(
+        2,
+        8
+    ),
 };
 
 export { elementsOfHtml, game, user };

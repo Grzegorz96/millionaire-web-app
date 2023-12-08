@@ -7,9 +7,14 @@ import {
     loadMainContainer,
     fiftyFifty,
 } from "./game.js"; // Functions of game.
-import { switchDisplay } from "./generalFunctions.js";
-import { backFromLogin } from "./login.js";
-import { backFromRegister } from "./register.js";
+import {
+    switchDisplay,
+    setNavbarButtons,
+    closePopup,
+    parseJwt,
+} from "./generalFunctions.js";
+import { backFromLogin, login, logout } from "./login.js";
+import { backFromRegister, register } from "./register.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -19,22 +24,37 @@ window.loadMainContainer = loadMainContainer;
 window.fiftyFifty = fiftyFifty;
 window.backFromLogin = backFromLogin;
 window.backFromRegister = backFromRegister;
+window.login = login;
+window.logout = logout;
+window.register = register;
+window.closePopup = closePopup;
 
-// Checking if user is logged in.
-if (!user.isUserLoggedIn) {
-    for (let element of elementsOfHtml.loggedOutBtns) {
-        element.classList.add("navbar-buttons-activated");
-    }
-} else {
-    for (let element of elementsOfHtml.loggedInBtns) {
-        element.classList.add("navbar-buttons-activated");
+// Loading of questions.
+async function getQuestions() {
+    const response = await getData(
+        "https://Grzegorz96.pythonanywhere.com/questions"
+    );
+
+    if (response.status == 200) {
+        game.questions = (await response.json()).result; // basic version of questions
+        game.currentQuestions = [...game.questions]; // version of questions to modify
     }
 }
 
-// Loading of questions.
-getData("https://Grzegorz96.pythonanywhere.com/questions").then((response) => {
-    if (response) {
-        game.questions = response.result; // basic version of questions
-        game.currentQuestions = [...game.questions]; // version of questions to modify
+getQuestions();
+// getLoggedInUserInfo();
+setNavbarButtons();
+
+if (
+    localStorage.getItem("accessToken") &&
+    localStorage.getItem("refreshToken")
+) {
+    const jwtRefreshToken = parseJwt(localStorage.getItem("refreshToken"));
+    if (jwtRefreshToken) {
+        if (Date.now() >= jwtRefreshToken.exp * 1000) {
+            logout();
+        }
+    } else {
+        logout();
     }
-});
+}

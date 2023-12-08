@@ -1,9 +1,13 @@
-async function sendHttpRequest(method, url, data) {
+async function sendHttpRequest(method, url, data, accessToken, refreshToken) {
     try {
+        const headers = new Headers();
+        data ? headers.append("Content-Type", "application/json") : null;
+        accessToken ? headers.append("access-token", accessToken) : null;
+        refreshToken ? headers.append("refresh-token", refreshToken) : null;
         const response = await fetch(url, {
             method: method,
             body: JSON.stringify(data),
-            headers: data ? { "Content-Type": "application/json" } : {},
+            headers: headers,
         });
 
         return response;
@@ -12,25 +16,27 @@ async function sendHttpRequest(method, url, data) {
     }
 }
 
-const getData = async (url) => {
-    const response = await sendHttpRequest("GET", url);
-    if (response.ok) {
-        return await response.json();
-    }
+const getData = async (url, accessToken, refreshToken) => {
+    return await sendHttpRequest(
+        "GET",
+        url,
+        undefined,
+        accessToken,
+        refreshToken
+    );
 };
 
-const postData = async (url, data) => {
-    const response = await sendHttpRequest("POST", url, data);
-    console.log(response);
+const postData = async (url, data, accessToken, refreshToken) => {
+    return await sendHttpRequest("POST", url, data, accessToken, refreshToken);
 };
 
-const updateData = async (url) => {
-    let x = await sendHttpRequest("PATCH", url);
+const updateData = async (url, data) => {
+    let x = await sendHttpRequest("PATCH", url, data);
     console.log(x);
 };
 
-const deleteData = async (url) => {
-    let x = await sendHttpRequest("DELETE", url);
+const deleteData = async (url, data) => {
+    let x = await sendHttpRequest("DELETE", url, data);
     console.log(x);
 };
 

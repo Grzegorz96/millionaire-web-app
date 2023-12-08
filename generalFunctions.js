@@ -9,4 +9,55 @@ function switchDisplay(indexOfContainer) {
     );
 }
 
-export { switchDisplay };
+const parseJwt = (token) => {
+    try {
+        return JSON.parse(atob(token.split(".")[1]));
+    } catch (error) {
+        return null;
+    }
+};
+
+function getLoggedInUserInfo() {}
+
+function setNavbarButtons() {
+    // Checking if user is logged in.
+    if (!localStorage.getItem("accessToken")) {
+        for (let element of elementsOfHtml.loggedOutBtns) {
+            element.classList.add("navbar-buttons-activated");
+        }
+    } else {
+        for (let element of elementsOfHtml.loggedInBtns) {
+            element.classList.add("navbar-buttons-activated");
+        }
+    }
+}
+
+function toggleNavbarButtons() {
+    for (let element of elementsOfHtml.loggedInBtns) {
+        element.classList.toggle("navbar-buttons-activated");
+    }
+
+    for (let element of elementsOfHtml.loggedOutBtns) {
+        element.classList.toggle("navbar-buttons-activated");
+    }
+}
+
+function loginPopup(text) {
+    const loginPopup = document.querySelector(".login-popup");
+
+    loginPopup.children[1].innerText = text;
+
+    loginPopup.classList.add("active-popup");
+}
+
+function closePopup(element) {
+    element.parentElement.classList.remove("active-popup");
+}
+export {
+    switchDisplay,
+    setNavbarButtons,
+    toggleNavbarButtons,
+    closePopup,
+    loginPopup,
+    parseJwt,
+};
