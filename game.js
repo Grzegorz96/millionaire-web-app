@@ -1,4 +1,4 @@
-import { elementsOfHtml, game, user } from "./config.js";
+import { elementsOfHtml, game } from "./config.js";
 import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
 import { switchDisplay, setNavbarButtons } from "./generalFunctions.js";
 
@@ -223,7 +223,7 @@ function loadGameContainer() {
         element.classList.remove("navbar-buttons-activated");
     }
     document.body.style.backgroundImage = "url(images/in-game.jpg)";
-    switchDisplay(3);
+    switchDisplay(4);
 }
 
 function loadMainContainer() {
@@ -247,7 +247,11 @@ function loadEndGameContainer(amountWon, result) {
         }
     }
 
-    if (result > 1000 && localStorage.getItem("accessToken")) {
+    if (
+        result > 1000 &&
+        localStorage.getItem("accessToken") &&
+        localStorage.getItem("refreshToken")
+    ) {
         const data = {
             user_id: 999,
             points: result,
@@ -256,7 +260,7 @@ function loadEndGameContainer(amountWon, result) {
     }
 
     document.body.style.backgroundImage = "url(images/background.png)";
-    switchDisplay(4);
+    switchDisplay(5);
 }
 
 function fiftyFifty() {
@@ -278,6 +282,18 @@ function fiftyFifty() {
     });
 }
 
+// Loading of questions.
+async function getQuestions() {
+    const response = await getData(
+        "https://Grzegorz96.pythonanywhere.com/questions"
+    );
+
+    if (response.status == 200) {
+        game.questions = (await response.json()).result; // basic version of questions
+        game.currentQuestions = [...game.questions]; // version of questions to modify
+    }
+}
+
 function sendScore(data) {
     // Sending score.
     postData("https://Grzegorz96.pythonanywhere.com/scores", data);
@@ -294,4 +310,11 @@ async function getBestPlayers() {
     }
 }
 
-export { prepareGame, checkAnswer, endGame, loadMainContainer, fiftyFifty };
+export {
+    prepareGame,
+    checkAnswer,
+    endGame,
+    loadMainContainer,
+    fiftyFifty,
+    getQuestions,
+};

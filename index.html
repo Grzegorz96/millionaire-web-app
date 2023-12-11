@@ -95,6 +95,7 @@
                     <div class="form__icon" aria-hidden="true"></div>
                     <div class="form__input--container">
                         <input
+                            class="login-input"
                             id="login-login"
                             type="text"
                             placeholder=""
@@ -108,6 +109,7 @@
                     </div>
                     <div class="form__input--container">
                         <input
+                            class="login-input"
                             id="login-password"
                             type="password"
                             placeholder=""
@@ -141,51 +143,73 @@
                     <div class="user-details">
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-firstname"
                                 type="text"
                                 placeholder=""
                                 aria-label="Register-firstname"
+                                pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń]+"
+                                minlength="2"
+                                maxlength="45"
                                 required
                             />
                             <label for="register-firstname">Imię</label>
                         </div>
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-lastname"
                                 type="text"
                                 placeholder=""
                                 aria-label="Register-lastname"
+                                pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń]+"
+                                minlength="2"
+                                maxlength="45"
                                 required
                             />
                             <label for="register-lastname">Nazwisko</label>
                         </div>
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-login"
                                 type="text"
                                 placeholder=""
                                 aria-label="Register-login"
+                                pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9]+"
+                                minlength="5"
+                                maxlength="45"
                                 required
                             />
                             <label for="register-login">Login</label>
                         </div>
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-password"
                                 type="password"
                                 placeholder=""
                                 aria-label="Register-password"
+                                pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9!@#$%^&*]+"
+                                minlength="7"
+                                maxlength="45"
                                 required
+                                oninput="checkPassword()"
                             />
                             <label for="register-password">Hasło</label>
                         </div>
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-confirm-password"
                                 type="password"
                                 placeholder=""
                                 aria-label="Register-confirm-password"
+                                pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9!@#$%^&*]+"
+                                minlength="7"
+                                maxlength="45"
                                 required
+                                oninput="checkPassword()"
                             />
                             <label for="register-confirm-password"
                                 >Potwierdź hasło</label
@@ -193,10 +217,12 @@
                         </div>
                         <div class="form__input--container">
                             <input
+                                class="register-input"
                                 id="register-email"
                                 type="email"
                                 placeholder=""
                                 aria-label="Register-email"
+                                pattern="([A-Za-z0-9]+|[A-Za-z0-9][A-Za-z0-9._\-]+[A-Za-z0-9])@([A-Za-z0-9]+|[A-Za-z0-9.\-]+[A-Za-z0-9])\.[A-Za-z0-9]+"
                                 required
                             />
                             <label for="register-email">Email</label>
@@ -205,6 +231,32 @@
                     <div class="form__spacer" aria-hidden="true"></div>
                     <button id="register-button" class="button-style1">
                         Zarejestruj
+                    </button>
+                </form>
+            </div>
+            <div class="activate-account-container">
+                <form
+                    autocomplete="off"
+                    id="authorization-form"
+                    onsubmit="activate(); return false;"
+                >
+                    <div class="form__input--container">
+                        <input
+                            id="authorization-account"
+                            type="text"
+                            placeholder=""
+                            aria-label="Authorization-account"
+                            required
+                            minlength="6"
+                            maxlength="6"
+                            oninput="checkActivationNumber()"
+                        />
+                        <label for="authorization-account"
+                            >Wprowadź numer aktywacyjny</label
+                        >
+                    </div>
+                    <button id="authorization-button" class="button-style1">
+                        Aktywuj
                     </button>
                 </form>
             </div>

@@ -102,6 +102,7 @@ main {
 
 .login-container,
 .register-container,
+.activate-account-container,
 .game-container,
 .end-game-container {
     display: none;
@@ -323,6 +324,27 @@ input:focus,
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     column-gap: 1rem;
+}
+
+/* ACTIVATE-WINDOW */
+#authorization-form {
+    position: relative;
+    font-family: Helvetica, sans-serif;
+    backdrop-filter: blur(8px);
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.35)
+    );
+    font-size: 24px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+    max-height: 100%;
+    padding: 36px 24px;
+    text-align: center;
+    overflow: hidden;
 }
 
 /* GAME */

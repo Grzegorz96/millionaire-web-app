@@ -1,10 +1,13 @@
-import { switchDisplay } from "./generalFunctions.js";
+import {
+    switchDisplay,
+    toggleNavbarButtons,
+    loginPopup,
+} from "./generalFunctions.js";
 import { elementsOfHtml, user } from "./config.js";
 import { getData, postData } from "./requests.js";
-import { toggleNavbarButtons, loginPopup } from "./generalFunctions.js";
 
 function backFromLogin() {
-    elementsOfHtml.loginEntries.map((input) => {
+    Array.from(elementsOfHtml.loginEntries).map((input) => {
         input.value = "";
     });
     switchDisplay(0);
@@ -61,4 +64,55 @@ function logout() {
     toggleNavbarButtons();
 }
 
-export { backFromLogin, login, logout };
+const parseJwt = (token) => {
+    try {
+        return JSON.parse(atob(token.split(".")[1]));
+    } catch (error) {
+        return null;
+    }
+};
+
+async function getLoggedInUserInfo(userId) {
+    const getUserDataResponse = await getData(
+        `https://Grzegorz96.pythonanywhere.com/users/${userId}`,
+        localStorage.getItem("accessToken"),
+        localStorage.getItem("refreshToken")
+    );
+
+    if (getUserDataResponse.status == 200) {
+        user.userData = (await getUserDataResponse.json()).result[0];
+    } else if (getUserDataResponse.status == 201) {
+        localStorage.setItem(
+            "accessToken",
+            getUserDataResponse.headers.get("access-token")
+        );
+
+        getLoggedInUserInfo(userId);
+    } else if (
+        getUserDataResponse.status == 401 ||
+        getUserDataResponse.status == 500 ||
+        getUserDataResponse.status == 404
+    ) {
+        logout();
+    }
+}
+
+function checkSessionOfUser() {
+    if (
+        localStorage.getItem("accessToken") &&
+        localStorage.getItem("refreshToken")
+    ) {
+        const jwtRefreshToken = parseJwt(localStorage.getItem("refreshToken"));
+        if (jwtRefreshToken) {
+            if (Date.now() >= jwtRefreshToken.exp * 1000) {
+                logout();
+            } else {
+                getLoggedInUserInfo(jwtRefreshToken.sub);
+            }
+        } else {
+            logout();
+        }
+    }
+}
+
+export { backFromLogin, login, logout, checkSessionOfUser };

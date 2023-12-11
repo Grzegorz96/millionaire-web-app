@@ -9,24 +9,17 @@ function switchDisplay(indexOfContainer) {
     );
 }
 
-const parseJwt = (token) => {
-    try {
-        return JSON.parse(atob(token.split(".")[1]));
-    } catch (error) {
-        return null;
-    }
-};
-
-function getLoggedInUserInfo() {}
-
 function setNavbarButtons() {
     // Checking if user is logged in.
-    if (!localStorage.getItem("accessToken")) {
-        for (let element of elementsOfHtml.loggedOutBtns) {
+    if (
+        localStorage.getItem("accessToken") &&
+        localStorage.getItem("refreshToken")
+    ) {
+        for (let element of elementsOfHtml.loggedInBtns) {
             element.classList.add("navbar-buttons-activated");
         }
     } else {
-        for (let element of elementsOfHtml.loggedInBtns) {
+        for (let element of elementsOfHtml.loggedOutBtns) {
             element.classList.add("navbar-buttons-activated");
         }
     }
@@ -59,5 +52,4 @@ export {
     toggleNavbarButtons,
     closePopup,
     loginPopup,
-    parseJwt,
 };
