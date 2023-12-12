@@ -1,5 +1,3 @@
-const dataToRegister = {};
-
 const user = { userData: undefined };
 
 const game = {
@@ -27,6 +25,8 @@ const elementsOfHtml = {
     resultlabels: document.getElementsByClassName("results"),
     loginEntries: document.getElementsByClassName("login-input"),
     registerEntries: document.getElementsByClassName("register-input"),
+    authorizationEntry: document.getElementById("authorization-account"),
+    popups: document.getElementsByClassName("popup"),
 };
 
-export { elementsOfHtml, game, user, dataToRegister };
+export { elementsOfHtml, game, user };

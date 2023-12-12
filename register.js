@@ -1,5 +1,5 @@
-import { switchDisplay } from "./generalFunctions.js";
-import { elementsOfHtml, user, dataToRegister } from "./config.js";
+import { switchDisplay, displayPopup } from "./generalFunctions.js";
+import { elementsOfHtml } from "./config.js";
 import { postData } from "./requests.js";
 
 function backFromRegister() {
@@ -13,15 +13,6 @@ function checkPassword() {
     const input = elementsOfHtml.registerEntries[4];
     if (input.value != elementsOfHtml.registerEntries[3].value) {
         input.setCustomValidity("Hasła muszą się zgadzać.");
-    } else {
-        input.setCustomValidity("");
-    }
-}
-
-function checkActivationNumber() {
-    const input = document.getElementById("authorization-account");
-    if (input.value != dataToRegister.activationNumber) {
-        input.setCustomValidity("Numer aktywacyjny jest błędny.");
     } else {
         input.setCustomValidity("");
     }
@@ -47,69 +38,74 @@ async function register() {
         );
 
         if (sendActivationNumberResponse.status == 200) {
-            dataToRegister.activationNumber = (
-                await sendActivationNumberResponse.json()
-            ).result.activation_number;
+            const activationNumber = (await sendActivationNumberResponse.json())
+                .result.activation_number;
+            document.getElementById(
+                "email-info"
+            ).innerText = `Numer aktywacyjny został wysłany na adres: ${email}`;
+            elementsOfHtml.authorizationEntry.value = "";
+            elementsOfHtml.authorizationEntry.oninput = () => {
+                if (
+                    elementsOfHtml.authorizationEntry.value != activationNumber
+                ) {
+                    elementsOfHtml.authorizationEntry.setCustomValidity(
+                        "Numer aktywacyjny jest błędny."
+                    );
+                } else {
+                    elementsOfHtml.authorizationEntry.setCustomValidity("");
+                }
+            };
+            document.getElementById("authorization-form").onsubmit = async (
+                event
+            ) => {
+                event.preventDefault();
+                document.getElementById("authorization-button").disabled = true;
+                const registerResponse = await postData(
+                    "https://Grzegorz96.pythonanywhere.com/users/register",
+                    {
+                        first_name: firstName,
+                        last_name: lastName,
+                        login: login,
+                        password: password,
+                        email: email,
+                    }
+                );
 
-            dataToRegister.firstName = firstName;
-            dataToRegister.lastName = lastName;
-            dataToRegister.login = login;
-            dataToRegister.password = password;
-            dataToRegister.email = email;
+                if (registerResponse.status == 201) {
+                    displayPopup(
+                        "Pomyślnie zarejestrowano i aktywowano konto, możesz się zalogować.",
+                        0
+                    );
+                    switchDisplay(0);
+                } else {
+                    displayPopup(
+                        "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
+                        0
+                    );
+                    switchDisplay(0);
+                }
+                document.getElementById(
+                    "authorization-button"
+                ).disabled = false;
+            };
 
             backFromRegister();
             switchDisplay(3);
         } else {
-            console.log("Nie udało się wysłać kodu aktywacyjnego.");
+            displayPopup(
+                "Wystąpił błąd podczas wysyłania kodu aktywacyjnego, spróbuj ponownie później.",
+                2
+            );
         }
     } else if (checkUserDataResponse.status == 226) {
-        console.log("login lub email są niedostępne.");
+        displayPopup("Login lub email są niedostępne.", 2);
     } else {
-        console.log(
-            "Wystąpił błąd podczas rejestracji spróbuj ponownie później."
+        displayPopup(
+            "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
+            2
         );
     }
     document.getElementById("register-button").disabled = false;
 }
 
-async function activate() {
-    document.getElementById("authorization-button").disabled = true;
-    const registerResponse = await postData(
-        "https://Grzegorz96.pythonanywhere.com/users/register",
-        {
-            first_name: dataToRegister.firstName,
-            last_name: dataToRegister.lastName,
-            login: dataToRegister.login,
-            password: dataToRegister.password,
-            email: dataToRegister.email,
-        }
-    );
-
-    if (registerResponse.status == 201) {
-        console.log(dataToRegister);
-        console.log("zarejerstrowany i aktywowany");
-        for (let key in dataToRegister) {
-            console.log(key);
-            delete dataToRegister[key];
-        }
-        document.getElementById("authorization-account").value = "";
-        switchDisplay(0);
-        console.log(dataToRegister);
-    } else {
-        console.log("NIeudalo sie zarejestrować");
-        for (let key in dataToRegister) {
-            delete dataToRegister[key];
-        }
-        document.getElementById("authorization-account").value = "";
-        switchDisplay(0);
-    }
-    document.getElementById("authorization-button").disabled = false;
-}
-
-export {
-    backFromRegister,
-    register,
-    checkPassword,
-    activate,
-    checkActivationNumber,
-};
+export { backFromRegister, register, checkPassword };

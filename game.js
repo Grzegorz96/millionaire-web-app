@@ -1,5 +1,5 @@
 import { elementsOfHtml, game } from "./config.js";
-import { getData, postData, updateData, deleteData } from "./requests.js"; // CRUD functions on database.
+import { getData, postData } from "./requests.js"; // CRUD functions on database.
 import { switchDisplay, setNavbarButtons } from "./generalFunctions.js";
 
 function prepareGame() {

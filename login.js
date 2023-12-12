@@ -1,7 +1,7 @@
 import {
     switchDisplay,
     toggleNavbarButtons,
-    loginPopup,
+    displayPopup,
 } from "./generalFunctions.js";
 import { elementsOfHtml, user } from "./config.js";
 import { getData, postData } from "./requests.js";
@@ -45,14 +45,18 @@ async function login() {
             toggleNavbarButtons();
             backFromLogin();
         } else {
-            loginPopup(
-                "Wystąpił niespodziewany błąd, spróbuj ponownie później."
+            displayPopup(
+                "Wystąpił błąd podczas logowania, spróbuj ponownie później.",
+                1
             );
         }
     } else if (loginResponse.status == 401) {
-        loginPopup("Użytkownik o podanym loginie lub haśle nie istnieje!");
+        displayPopup("Użytkownik o podanym loginie lub haśle nie istnieje!", 1);
     } else {
-        loginPopup("Wystąpił niespodziewany błąd, spróbuj ponownie później.");
+        displayPopup(
+            "Wystąpił błąd podczas logowania, spróbuj ponownie później.",
+            1
+        );
     }
     document.getElementById("login-button").disabled = false;
 }
@@ -95,6 +99,9 @@ async function getLoggedInUserInfo(userId) {
     ) {
         logout();
     }
+    // else if (getUserDataResponse.message == "TypeError: Failed to fetch") {
+    //     localStorage.setItem("klucz", getUserDataResponse);
+    // }
 }
 
 function checkSessionOfUser() {

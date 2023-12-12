@@ -35,21 +35,19 @@ function toggleNavbarButtons() {
     }
 }
 
-function loginPopup(text) {
-    const loginPopup = document.querySelector(".login-popup");
-
-    loginPopup.children[1].innerText = text;
-
-    loginPopup.classList.add("active-popup");
+function displayPopup(text, indexOfPopup) {
+    elementsOfHtml.popups[indexOfPopup].children[1].innerText = text;
+    elementsOfHtml.popups[indexOfPopup].classList.add("active-popup");
 }
 
 function closePopup(element) {
     element.parentElement.classList.remove("active-popup");
 }
+
 export {
     switchDisplay,
     setNavbarButtons,
     toggleNavbarButtons,
     closePopup,
-    loginPopup,
+    displayPopup,
 };

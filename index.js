@@ -12,13 +12,8 @@ import {
     closePopup,
 } from "./generalFunctions.js";
 import { backFromLogin, login, logout, checkSessionOfUser } from "./login.js";
-import {
-    backFromRegister,
-    register,
-    checkPassword,
-    activate,
-    checkActivationNumber,
-} from "./register.js";
+import { backFromRegister, register, checkPassword } from "./register.js";
+import { bestScores } from "./bestScores.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -33,8 +28,7 @@ window.logout = logout;
 window.register = register;
 window.closePopup = closePopup;
 window.checkPassword = checkPassword;
-window.activate = activate;
-window.checkActivationNumber = checkActivationNumber;
+window.bestScores = bestScores;
 
 getQuestions();
 setNavbarButtons();

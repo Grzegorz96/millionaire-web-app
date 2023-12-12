@@ -66,10 +66,18 @@
         </header>
         <main>
             <div class="start-container main-container-activated">
+                <div class="popup popup--start-container">
+                    <div class="back" onclick="closePopup(this)">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <p>ssssssss</p>
+                </div>
                 <button class="button-style1" onclick="prepareGame()">
                     Nowa gra !
                 </button>
-                <button class="button-style1">Najlepsze wyniki</button>
+                <button class="button-style1" onclick="bestScores()">
+                    Najlepsze wyniki
+                </button>
             </div>
             <div class="login-container">
                 <form
@@ -77,17 +85,11 @@
                     id="login-form"
                     onsubmit="login(); return false;"
                 >
-                    <div
-                        class="back-from-login-register"
-                        onclick="backFromLogin()"
-                    >
+                    <div class="back" onclick="backFromLogin()">
                         <i class="fa-solid fa-x"></i>
                     </div>
-                    <div class="login-popup">
-                        <div
-                            class="back-from-login-register"
-                            onclick="closePopup(this)"
-                        >
+                    <div class="popup">
+                        <div class="back" onclick="closePopup(this)">
                             <i class="fa-solid fa-x"></i>
                         </div>
                         <p></p>
@@ -133,11 +135,14 @@
                     id="register-form"
                     onsubmit="register(); return false;"
                 >
-                    <div
-                        class="back-from-login-register"
-                        onclick="backFromRegister()"
-                    >
+                    <div class="back" onclick="backFromRegister()">
                         <i class="fa-solid fa-x"></i>
+                    </div>
+                    <div class="popup">
+                        <div class="back" onclick="closePopup(this)">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <p></p>
                     </div>
                     <div class="form__icon" aria-hidden="true"></div>
                     <div class="user-details">
@@ -235,11 +240,7 @@
                 </form>
             </div>
             <div class="activate-account-container">
-                <form
-                    autocomplete="off"
-                    id="authorization-form"
-                    onsubmit="activate(); return false;"
-                >
+                <form autocomplete="off" id="authorization-form">
                     <div class="form__input--container">
                         <input
                             id="authorization-account"
@@ -249,7 +250,6 @@
                             required
                             minlength="6"
                             maxlength="6"
-                            oninput="checkActivationNumber()"
                         />
                         <label for="authorization-account"
                             >Wprowadź numer aktywacyjny</label
@@ -258,6 +258,7 @@
                     <button id="authorization-button" class="button-style1">
                         Aktywuj
                     </button>
+                    <p id="email-info"></p>
                 </form>
             </div>
             <div class="game-container">
@@ -407,6 +408,9 @@
                         Wyjdź do menu
                     </button>
                 </div>
+            </div>
+            <div class="best-scores-container">
+                <div id="best-scores"></div>
             </div>
         </main>
         <footer>
