@@ -41,7 +41,6 @@ async function login() {
             user.userData = (await getUserDataResponse.json()).result[0];
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("refreshToken", refreshToken);
-
             toggleNavbarButtons();
             backFromLogin();
         } else {
@@ -62,64 +61,8 @@ async function login() {
 }
 
 function logout() {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-    user.userData = undefined;
-    toggleNavbarButtons();
+    localStorage.clear();
+    location.reload();
 }
 
-const parseJwt = (token) => {
-    try {
-        return JSON.parse(atob(token.split(".")[1]));
-    } catch (error) {
-        return null;
-    }
-};
-
-async function getLoggedInUserInfo(userId) {
-    const getUserDataResponse = await getData(
-        `https://Grzegorz96.pythonanywhere.com/users/${userId}`,
-        localStorage.getItem("accessToken"),
-        localStorage.getItem("refreshToken")
-    );
-
-    if (getUserDataResponse.status == 200) {
-        user.userData = (await getUserDataResponse.json()).result[0];
-    } else if (getUserDataResponse.status == 201) {
-        localStorage.setItem(
-            "accessToken",
-            getUserDataResponse.headers.get("access-token")
-        );
-
-        getLoggedInUserInfo(userId);
-    } else if (
-        getUserDataResponse.status == 401 ||
-        getUserDataResponse.status == 500 ||
-        getUserDataResponse.status == 404
-    ) {
-        logout();
-    }
-    // else if (getUserDataResponse.message == "TypeError: Failed to fetch") {
-    //     localStorage.setItem("klucz", getUserDataResponse);
-    // }
-}
-
-function checkSessionOfUser() {
-    if (
-        localStorage.getItem("accessToken") &&
-        localStorage.getItem("refreshToken")
-    ) {
-        const jwtRefreshToken = parseJwt(localStorage.getItem("refreshToken"));
-        if (jwtRefreshToken) {
-            if (Date.now() >= jwtRefreshToken.exp * 1000) {
-                logout();
-            } else {
-                getLoggedInUserInfo(jwtRefreshToken.sub);
-            }
-        } else {
-            logout();
-        }
-    }
-}
-
-export { backFromLogin, login, logout, checkSessionOfUser };
+export { backFromLogin, login, logout };

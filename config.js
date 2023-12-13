@@ -1,4 +1,4 @@
-const user = { userData: undefined };
+const user = { userData: undefined, jwtRefreshToken: undefined };
 
 const game = {
     isFiftyFiftyAvailable: true,
@@ -25,6 +25,7 @@ const elementsOfHtml = {
     resultlabels: document.getElementsByClassName("results"),
     loginEntries: document.getElementsByClassName("login-input"),
     registerEntries: document.getElementsByClassName("register-input"),
+    userPanelEntries: document.getElementsByClassName("user-data-input"),
     authorizationEntry: document.getElementById("authorization-account"),
     popups: document.getElementsByClassName("popup"),
 };

@@ -1,6 +1,10 @@
 import { elementsOfHtml, game } from "./config.js";
 import { getData, postData } from "./requests.js"; // CRUD functions on database.
-import { switchDisplay, setNavbarButtons } from "./generalFunctions.js";
+import {
+    switchDisplay,
+    setNavbarButtons,
+    displayPopup,
+} from "./generalFunctions.js";
 
 function prepareGame() {
     if (game.questions) {
@@ -9,7 +13,10 @@ function prepareGame() {
         game.startTime = new Date();
         inGame();
     } else {
-        alert("Nie udało się pobrać pytań, spróbuj później.");
+        displayPopup(
+            "Wystąpił błąd podczas pobierania pytań, spróbuj ponownie później.",
+            0
+        );
     }
 }
 
@@ -47,7 +54,7 @@ function drawQuestion() {
 function displayQuestion() {
     // highlighting the current div with the amount to be won.
     elementsOfHtml.priceLabels[game.numberOfQuestion].classList.add(
-        "price-label-activated"
+        "price-label--activated"
     );
 
     // Displaying number of current question.
@@ -122,7 +129,7 @@ function endGame(isFrombutton) {
     if (isFrombutton) {
         var amountWon = game.currentWon;
         Array.from(elementsOfHtml.priceLabels).map((label) => {
-            label.classList.remove("price-label-activated");
+            label.classList.remove("price-label--activated");
         });
         changeStanOfButtons(true);
     } else {
@@ -189,7 +196,7 @@ function setSelectedAnswer(selectedButton, beforeVariable, currentColor) {
 
 function setDefaultValues(selectedButton, beforeVariable, rightButton) {
     Array.from(elementsOfHtml.priceLabels).map((label) => {
-        label.classList.remove("price-label-activated");
+        label.classList.remove("price-label--activated");
     });
 
     document
@@ -216,11 +223,11 @@ function setDefaultValues(selectedButton, beforeVariable, rightButton) {
 
 function loadGameContainer() {
     for (let element of elementsOfHtml.loggedInBtns) {
-        element.classList.remove("navbar-buttons-activated");
+        element.classList.remove("navbar-buttons--activated");
     }
 
     for (let element of elementsOfHtml.loggedOutBtns) {
-        element.classList.remove("navbar-buttons-activated");
+        element.classList.remove("navbar-buttons--activated");
     }
     document.body.style.backgroundImage = "url(images/in-game.jpg)";
     switchDisplay(4);

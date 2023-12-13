@@ -1,5 +1,5 @@
 import { getData } from "./requests.js";
-import { switchDisplay } from "./generalFunctions.js";
+import { switchDisplay, displayPopup } from "./generalFunctions.js";
 
 async function bestScores() {
     const response = await getData(
@@ -7,25 +7,38 @@ async function bestScores() {
     );
 
     if (response.status == 200) {
-        const bestScoresWindow = document.getElementById("best-scores");
-        console.log(bestScoresWindow);
         const scores = (await response.json()).result;
-        bestScoresWindow.appendChild(document.createElement("div"));
+        let newInnerHtml = `<div class="back back--modifier" onclick="switchDisplay(0)">
+                                <i class="fa-solid fa-x"></i>
+                            </div>
+                            <div class="top-players">Lista najlepszych wyników:</div>`;
+
         for (let i = 0; i < scores.length; i++) {
-            const element = document.createElement("div");
-            const text = document.createTextNode(
-                `Miejsce ${i + 1}: ${scores[i].first_name} ${
-                    scores[i].last_name
-                } - ${scores[i].points}pkt`
-            );
-            element.style.fontSize = "1.2rem";
-            element.style.border = "1px solid white";
-            element.style.width = "100%";
-            element.appendChild(text);
-            bestScoresWindow.appendChild(element);
+            if (i == 0) {
+                newInnerHtml += `<div class="results best-player">
+                                    <div class="person">
+                                        ${scores[i].first_name} ${scores[i].last_name}
+                                    </div>
+                                    <div class="points">${scores[i].points}pkt</div>
+                                </div>`;
+            } else {
+                newInnerHtml += `<div class="results">
+                                    <div class="person">
+                                        ${scores[i].first_name} ${scores[i].last_name}
+                                    </div>
+                                    <div class="points">${scores[i].points}pkt</div>
+                                </div>`;
+            }
         }
+
+        document.getElementById("best-scores").innerHTML = newInnerHtml;
+        switchDisplay(6);
+    } else {
+        displayPopup(
+            "Wystąpił błąd podczas pobierania najlepszych wyników, spróbuj ponownie później.",
+            0
+        );
     }
-    switchDisplay(6);
 }
 
 export { bestScores };

@@ -33,7 +33,10 @@
                         <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
                     </button>
 
-                    <button class="navbar__list-item logged-in button-style1">
+                    <button
+                        class="navbar__list-item logged-in button-style1"
+                        onclick="userPanel()"
+                    >
                         <i class="fa-solid fa-user"></i>
                         Twoje konto
                     </button>
@@ -65,12 +68,12 @@
             </nav>
         </header>
         <main>
-            <div class="start-container main-container-activated">
+            <div class="start-container container--activated">
                 <div class="popup popup--start-container">
                     <div class="back" onclick="closePopup(this)">
                         <i class="fa-solid fa-x"></i>
                     </div>
-                    <p>ssssssss</p>
+                    <p></p>
                 </div>
                 <button class="button-style1" onclick="prepareGame()">
                     Nowa gra !
@@ -371,9 +374,9 @@
                         <div id="won-amount"></div>
                         <div id="result"></div>
                     </div>
-                    <div id="results-container">
-                        <div id="top-players">Top 5 graczy:</div>
-                        <div class="results" id="best-player">
+                    <div class="results-container">
+                        <div class="top-players">Top 5 graczy:</div>
+                        <div class="results best-player">
                             <div class="person">
                                 Błąd podczas pobierania graczy
                             </div>
@@ -410,7 +413,130 @@
                 </div>
             </div>
             <div class="best-scores-container">
-                <div id="best-scores"></div>
+                <div class="results-container" id="best-scores"></div>
+            </div>
+            <div class="user-container">
+                <div id="user-forms">
+                    <div class="back" onclick="backFromUserPanel()">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <form
+                        autocomplete="off"
+                        class="change-user-form"
+                        onsubmit="updateUser(); return false;"
+                    >
+                        <div
+                            class="form__input--container form__input--container--modifier"
+                        >
+                            <input
+                                class="user-data-input first_name"
+                                id="change-firstname"
+                                type="text"
+                                placeholder=""
+                                aria-label="Change-firstname"
+                                required
+                            />
+                            <label for="change-firstname">Imię</label>
+                        </div>
+                        <button class="user-button button-style1">
+                            Aktualizuj
+                        </button>
+                    </form>
+                    <form
+                        autocomplete="off"
+                        class="change-user-form"
+                        onsubmit="updateUser(); return false;"
+                    >
+                        <div
+                            class="form__input--container form__input--container--modifier"
+                        >
+                            <input
+                                class="user-data-input last_name"
+                                id="change-lastname"
+                                type="text"
+                                placeholder=""
+                                aria-label="Change-lastname"
+                                required
+                            />
+                            <label for="change-lastname">Nazwisko</label>
+                        </div>
+
+                        <button class="user-button button-style1">
+                            Aktualizuj
+                        </button>
+                    </form>
+                    <form
+                        autocomplete="off"
+                        class="change-user-form"
+                        onsubmit="updateUser(); return false;"
+                    >
+                        <div
+                            class="form__input--container form__input--container--modifier"
+                        >
+                            <input
+                                class="user-data-input password"
+                                id="change-password"
+                                type="password"
+                                placeholder=""
+                                aria-label="Change-password"
+                                required
+                            />
+                            <label for="change-password">Hasło</label>
+                        </div>
+
+                        <button class="user-button button-style1">
+                            Aktualizuj
+                        </button>
+                    </form>
+                    <form
+                        autocomplete="off"
+                        class="change-user-form"
+                        onsubmit="updateUser(); return false;"
+                    >
+                        <div
+                            class="form__input--container form__input--container--modifier"
+                        >
+                            <input
+                                disabled
+                                class="user-data-input login"
+                                id="change-login"
+                                type="text"
+                                placeholder=""
+                                aria-label="Change-login"
+                                required
+                            />
+                            <label for="change-login">Login</label>
+                        </div>
+
+                        <button class="user-button button-style1" disabled>
+                            Aktualizuj
+                        </button>
+                    </form>
+                    <form
+                        autocomplete="off"
+                        class="change-user-form"
+                        onsubmit="updateUser(); return false;"
+                    >
+                        <div
+                            class="form__input--container form__input--container--modifier"
+                        >
+                            <input
+                                disabled
+                                class="user-data-input email"
+                                id="change-email"
+                                type="text"
+                                placeholder=""
+                                aria-label="Change-email"
+                                required
+                            />
+                            <label for="change-email">Email</label>
+                        </div>
+
+                        <button class="user-button button-style1" disabled>
+                            Aktualizuj
+                        </button>
+                    </form>
+                </div>
             </div>
         </main>
         <footer>
