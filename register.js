@@ -2,11 +2,11 @@ import { switchDisplay, displayPopup } from "./generalFunctions.js";
 import { elementsOfHtml } from "./config.js";
 import { postData } from "./requests.js";
 
-function backFromRegister() {
+function enterToRegister() {
     Array.from(elementsOfHtml.registerEntries).map((input) => {
         input.value = "";
     });
-    switchDisplay(0);
+    switchDisplay(2);
 }
 
 function checkPassword() {
@@ -72,24 +72,23 @@ async function register() {
                 );
 
                 if (registerResponse.status == 201) {
+                    switchDisplay(0);
                     displayPopup(
                         "Pomyślnie zarejestrowano i aktywowano konto, możesz się zalogować.",
                         0
                     );
-                    switchDisplay(0);
                 } else {
+                    switchDisplay(0);
                     displayPopup(
                         "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
                         0
                     );
-                    switchDisplay(0);
                 }
                 document.getElementById(
                     "authorization-button"
                 ).disabled = false;
             };
 
-            backFromRegister();
             switchDisplay(3);
         } else {
             displayPopup(
@@ -108,4 +107,4 @@ async function register() {
     document.getElementById("register-button").disabled = false;
 }
 
-export { backFromRegister, register, checkPassword };
+export { enterToRegister, register, checkPassword };

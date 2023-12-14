@@ -12,10 +12,16 @@ import {
     closePopup,
     checkSessionOfUser,
 } from "./generalFunctions.js";
-import { backFromLogin, login, logout } from "./login.js";
-import { backFromRegister, register, checkPassword } from "./register.js";
+import { enterToLogin, login, logout } from "./login.js";
+import { enterToRegister, register, checkPassword } from "./register.js";
 import { bestScores } from "./bestScores.js";
-import { updateUser, backFromUserPanel, userPanel } from "./userPanel.js";
+import {
+    updateUser,
+    userPanel,
+    deleteUser,
+    checkUserData,
+} from "./userPanel.js";
+import { addQuestion } from "./addQuestions.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -23,18 +29,20 @@ window.checkAnswer = checkAnswer;
 window.endGame = endGame;
 window.loadMainContainer = loadMainContainer;
 window.fiftyFifty = fiftyFifty;
-window.backFromLogin = backFromLogin;
-window.backFromRegister = backFromRegister;
+window.enterToLogin = enterToLogin;
+window.enterToRegister = enterToRegister;
 window.login = login;
 window.logout = logout;
 window.register = register;
 window.closePopup = closePopup;
 window.checkPassword = checkPassword;
 window.bestScores = bestScores;
-window.updateUser = updateUser;
-window.backFromUserPanel = backFromUserPanel;
 window.userPanel = userPanel;
+window.updateUser = updateUser;
+window.deleteUser = deleteUser;
+window.checkUserData = checkUserData;
+window.addQuestion = addQuestion;
 
 getQuestions();
-setNavbarButtons();
 checkSessionOfUser(true);
+setNavbarButtons();

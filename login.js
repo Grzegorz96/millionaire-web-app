@@ -6,11 +6,11 @@ import {
 import { elementsOfHtml, user } from "./config.js";
 import { getData, postData } from "./requests.js";
 
-function backFromLogin() {
+function enterToLogin() {
     Array.from(elementsOfHtml.loginEntries).map((input) => {
         input.value = "";
     });
-    switchDisplay(0);
+    switchDisplay(1);
 }
 
 async function login() {
@@ -39,10 +39,11 @@ async function login() {
 
         if (getUserDataResponse.status == 200) {
             user.userData = (await getUserDataResponse.json()).result[0];
+            user.userId = user.userData.user_id;
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("refreshToken", refreshToken);
             toggleNavbarButtons();
-            backFromLogin();
+            switchDisplay(0);
         } else {
             displayPopup(
                 "Wystąpił błąd podczas logowania, spróbuj ponownie później.",
@@ -65,4 +66,4 @@ function logout() {
     location.reload();
 }
 
-export { backFromLogin, login, logout };
+export { enterToLogin, login, logout };

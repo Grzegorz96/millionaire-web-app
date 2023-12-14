@@ -30,14 +30,18 @@ const postData = async (url, data, accessToken, refreshToken) => {
     return await sendHttpRequest("POST", url, data, accessToken, refreshToken);
 };
 
-const updateData = async (url, data) => {
-    let x = await sendHttpRequest("PATCH", url, data);
-    console.log(x);
+const updateData = async (url, data, accessToken, refreshToken) => {
+    return await sendHttpRequest("PATCH", url, data, accessToken, refreshToken);
 };
 
-const deleteData = async (url, data) => {
-    let x = await sendHttpRequest("DELETE", url, data);
-    console.log(x);
+const deleteData = async (url, accessToken, refreshToken) => {
+    return await sendHttpRequest(
+        "DELETE",
+        url,
+        undefined,
+        accessToken,
+        refreshToken
+    );
 };
 
 export { getData, postData, updateData, deleteData };

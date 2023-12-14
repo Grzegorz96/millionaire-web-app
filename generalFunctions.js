@@ -1,4 +1,4 @@
-import { elementsOfHtml } from "./config.js"; // Objects of application.
+import { elementsOfHtml, user } from "./config.js"; // Objects of application.
 import { logout } from "./login.js";
 
 function switchDisplay(indexOfContainer) {
@@ -67,6 +67,9 @@ function checkSessionOfUser(firstInit) {
         if (jwtRefreshToken) {
             if (Date.now() >= jwtRefreshToken.exp * 1000) {
                 logout();
+            } else {
+                if (firstInit) user.userId = jwtRefreshToken.sub;
+                return true;
             }
         } else {
             logout();
@@ -78,15 +81,6 @@ function checkSessionOfUser(firstInit) {
     }
 }
 
-function getUserIdFromJwt() {
-    const jwtRefreshToken = parseJwt(localStorage.getItem("refreshToken"));
-    if (jwtRefreshToken) {
-        return jwtRefreshToken.sub;
-    } else {
-        logout();
-    }
-}
-
 export {
     switchDisplay,
     setNavbarButtons,
@@ -94,5 +88,4 @@ export {
     closePopup,
     displayPopup,
     checkSessionOfUser,
-    getUserIdFromJwt,
 };

@@ -29,7 +29,10 @@
                     /></a>
                 </div>
                 <ul class="navbar__list">
-                    <button class="navbar__list-item logged-in button-style1">
+                    <button
+                        class="navbar__list-item logged-in button-style1"
+                        onclick="addQuestion()"
+                    >
                         <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
                     </button>
 
@@ -53,14 +56,14 @@
                     </button>
                     <button
                         class="navbar__list-item logged-out button-style1"
-                        onclick="switchDisplay(1)"
+                        onclick="enterToLogin()"
                     >
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Zaloguj się
                     </button>
                     <button
                         class="navbar__list-item logged-out button-style1"
-                        onclick="switchDisplay(2)"
+                        onclick="enterToRegister()"
                     >
                         <i class="fa-solid fa-user-plus"></i> Zarejestruj się
                     </button>
@@ -88,7 +91,7 @@
                     id="login-form"
                     onsubmit="login(); return false;"
                 >
-                    <div class="back" onclick="backFromLogin()">
+                    <div class="back" onclick="switchDisplay(0)">
                         <i class="fa-solid fa-x"></i>
                     </div>
                     <div class="popup">
@@ -138,7 +141,7 @@
                     id="register-form"
                     onsubmit="register(); return false;"
                 >
-                    <div class="back" onclick="backFromRegister()">
+                    <div class="back" onclick="switchDisplay(0)">
                         <i class="fa-solid fa-x"></i>
                     </div>
                     <div class="popup">
@@ -417,125 +420,166 @@
             </div>
             <div class="user-container">
                 <div id="user-forms">
-                    <div class="back" onclick="backFromUserPanel()">
+                    <button
+                        class="delete-account button-style1 user-button"
+                        onclick="deleteUser()"
+                    >
+                        <i class="fa-solid fa-user-slash"></i>Usuń konto
+                    </button>
+                    <div class="form__icon" aria-hidden="true"></div>
+                    <div class="back" onclick="switchDisplay(0)">
                         <i class="fa-solid fa-x"></i>
                     </div>
-                    <form
-                        autocomplete="off"
-                        class="change-user-form"
-                        onsubmit="updateUser(); return false;"
-                    >
-                        <div
-                            class="form__input--container form__input--container--modifier"
-                        >
-                            <input
-                                class="user-data-input first_name"
-                                id="change-firstname"
-                                type="text"
-                                placeholder=""
-                                aria-label="Change-firstname"
-                                required
-                            />
-                            <label for="change-firstname">Imię</label>
+                    <div class="popup">
+                        <div class="back" onclick="closePopup(this)">
+                            <i class="fa-solid fa-x"></i>
                         </div>
-                        <button class="user-button button-style1">
-                            Aktualizuj
-                        </button>
-                    </form>
-                    <form
-                        autocomplete="off"
-                        class="change-user-form"
-                        onsubmit="updateUser(); return false;"
-                    >
-                        <div
-                            class="form__input--container form__input--container--modifier"
+                        <p></p>
+                    </div>
+                    <div class="h-form">
+                        <h5>Imię</h5>
+                        <form
+                            autocomplete="off"
+                            class="change-user-form"
+                            onsubmit="updateUser(0); return false;"
                         >
-                            <input
-                                class="user-data-input last_name"
-                                id="change-lastname"
-                                type="text"
-                                placeholder=""
-                                aria-label="Change-lastname"
-                                required
-                            />
-                            <label for="change-lastname">Nazwisko</label>
-                        </div>
+                            <div
+                                class="form__input--container form__input--container--modifier"
+                            >
+                                <input
+                                    class="user-data-input first_name"
+                                    id="change-firstname"
+                                    type="text"
+                                    placeholder=""
+                                    aria-label="Change-firstname"
+                                    pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń]+"
+                                    minlength="2"
+                                    maxlength="45"
+                                    required
+                                    oninput="checkUserData(0)"
+                                />
+                                <label for="change-firstname">Imię</label>
+                            </div>
+                            <button class="user-button button-style1">
+                                Aktualizuj
+                            </button>
+                        </form>
+                    </div>
+                    <div class="h-form">
+                        <h5>Nazwisko</h5>
+                        <form
+                            autocomplete="off"
+                            class="change-user-form"
+                            onsubmit="updateUser(1); return false;"
+                        >
+                            <div
+                                class="form__input--container form__input--container--modifier"
+                            >
+                                <input
+                                    class="user-data-input last_name"
+                                    id="change-lastname"
+                                    type="text"
+                                    placeholder=""
+                                    aria-label="Change-lastname"
+                                    pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń]+"
+                                    minlength="2"
+                                    maxlength="45"
+                                    required
+                                    oninput="checkUserData(1)"
+                                />
+                                <label for="change-lastname">Nazwisko</label>
+                            </div>
 
-                        <button class="user-button button-style1">
-                            Aktualizuj
-                        </button>
-                    </form>
-                    <form
-                        autocomplete="off"
-                        class="change-user-form"
-                        onsubmit="updateUser(); return false;"
-                    >
-                        <div
-                            class="form__input--container form__input--container--modifier"
+                            <button class="user-button button-style1">
+                                Aktualizuj
+                            </button>
+                        </form>
+                    </div>
+                    <div class="h-form">
+                        <h5>Hasło</h5>
+                        <form
+                            autocomplete="off"
+                            class="change-user-form"
+                            onsubmit="updateUser(2); return false;"
                         >
-                            <input
-                                class="user-data-input password"
-                                id="change-password"
-                                type="password"
-                                placeholder=""
-                                aria-label="Change-password"
-                                required
-                            />
-                            <label for="change-password">Hasło</label>
-                        </div>
+                            <div
+                                class="form__input--container form__input--container--modifier"
+                            >
+                                <input
+                                    class="user-data-input password"
+                                    id="change-password"
+                                    type="text"
+                                    placeholder=""
+                                    aria-label="Change-password"
+                                    pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9!@#$%^&*]+"
+                                    minlength="7"
+                                    maxlength="45"
+                                    required
+                                    oninput="checkUserData(2)"
+                                />
+                                <label for="change-password">Hasło</label>
+                            </div>
 
-                        <button class="user-button button-style1">
-                            Aktualizuj
-                        </button>
-                    </form>
-                    <form
-                        autocomplete="off"
-                        class="change-user-form"
-                        onsubmit="updateUser(); return false;"
-                    >
-                        <div
-                            class="form__input--container form__input--container--modifier"
-                        >
-                            <input
+                            <button class="user-button button-style1">
+                                Aktualizuj
+                            </button>
+                        </form>
+                    </div>
+                    <div class="h-form">
+                        <h5>Login (Nie możesz zmienić tych danych)</h5>
+                        <form autocomplete="off" class="change-user-form">
+                            <div
+                                class="form__input--container form__input--container--modifier"
+                            >
+                                <input
+                                    disabled
+                                    class="user-data-input login"
+                                    id="change-login"
+                                    type="text"
+                                    placeholder=""
+                                    aria-label="Change-login"
+                                    pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9]+"
+                                    minlength="5"
+                                    maxlength="45"
+                                    required
+                                />
+                                <label for="change-login">Login</label>
+                            </div>
+
+                            <button
+                                class="user-button--disabled button-style1"
                                 disabled
-                                class="user-data-input login"
-                                id="change-login"
-                                type="text"
-                                placeholder=""
-                                aria-label="Change-login"
-                                required
-                            />
-                            <label for="change-login">Login</label>
-                        </div>
-
-                        <button class="user-button button-style1" disabled>
-                            Aktualizuj
-                        </button>
-                    </form>
-                    <form
-                        autocomplete="off"
-                        class="change-user-form"
-                        onsubmit="updateUser(); return false;"
-                    >
-                        <div
-                            class="form__input--container form__input--container--modifier"
-                        >
-                            <input
+                            >
+                                Aktualizuj
+                            </button>
+                        </form>
+                    </div>
+                    <div class="h-form">
+                        <h5>Email (Nie możesz zmienić tych danych)</h5>
+                        <form autocomplete="off" class="change-user-form">
+                            <div
+                                class="form__input--container form__input--container--modifier"
+                            >
+                                <input
+                                    disabled
+                                    class="user-data-input email"
+                                    id="change-email"
+                                    type="email"
+                                    placeholder=""
+                                    aria-label="Change-email"
+                                    pattern="([A-Za-z0-9]+|[A-Za-z0-9][A-Za-z0-9._\-]+[A-Za-z0-9])@([A-Za-z0-9]+|[A-Za-z0-9.\-]+[A-Za-z0-9])\.[A-Za-z0-9]+"
+                                    required
+                                />
+                                <label for="change-email">Email</label>
+                            </div>
+                            <button
+                                class="user-button--disabled button-style1"
                                 disabled
-                                class="user-data-input email"
-                                id="change-email"
-                                type="text"
-                                placeholder=""
-                                aria-label="Change-email"
-                                required
-                            />
-                            <label for="change-email">Email</label>
-                        </div>
-
-                        <button class="user-button button-style1" disabled>
-                            Aktualizuj
-                        </button>
-                    </form>
+                            >
+                                Aktualizuj
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </main>
