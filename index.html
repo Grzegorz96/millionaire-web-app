@@ -31,14 +31,16 @@
                 <ul class="navbar__list">
                     <button
                         class="navbar__list-item logged-in button-style1"
-                        onclick="addQuestion()"
+                        onclick="enterToAddQuestionPanel()"
+                        type="button"
                     >
                         <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
                     </button>
 
                     <button
                         class="navbar__list-item logged-in button-style1"
-                        onclick="userPanel()"
+                        onclick="enterToUserPanel()"
+                        type="button"
                     >
                         <i class="fa-solid fa-user"></i>
                         Twoje konto
@@ -47,6 +49,7 @@
                     <button
                         class="navbar__list-item logged-in button-style1"
                         onclick="logout()"
+                        type="button"
                     >
                         <i
                             class="fa-solid fa-right-from-bracket"
@@ -57,6 +60,7 @@
                     <button
                         class="navbar__list-item logged-out button-style1"
                         onclick="enterToLogin()"
+                        type="button"
                     >
                         <i class="fa-solid fa-right-from-bracket"></i>
                         Zaloguj się
@@ -64,6 +68,7 @@
                     <button
                         class="navbar__list-item logged-out button-style1"
                         onclick="enterToRegister()"
+                        type="button"
                     >
                         <i class="fa-solid fa-user-plus"></i> Zarejestruj się
                     </button>
@@ -73,15 +78,27 @@
         <main>
             <div class="start-container container--activated">
                 <div class="popup popup--start-container">
-                    <div class="back" onclick="closePopup(this)">
+                    <button
+                        class="back"
+                        type="button"
+                        onclick="closePopup(this)"
+                    >
                         <i class="fa-solid fa-x"></i>
-                    </div>
+                    </button>
                     <p></p>
                 </div>
-                <button class="button-style1" onclick="prepareGame()">
+                <button
+                    class="button-style1"
+                    type="button"
+                    onclick="prepareGame()"
+                >
                     Nowa gra !
                 </button>
-                <button class="button-style1" onclick="bestScores()">
+                <button
+                    class="button-style1"
+                    type="button"
+                    onclick="bestScores()"
+                >
                     Najlepsze wyniki
                 </button>
             </div>
@@ -91,13 +108,21 @@
                     id="login-form"
                     onsubmit="login(); return false;"
                 >
-                    <div class="back" onclick="switchDisplay(0)">
+                    <button
+                        class="back"
+                        type="button"
+                        onclick="switchDisplay(0)"
+                    >
                         <i class="fa-solid fa-x"></i>
-                    </div>
+                    </button>
                     <div class="popup">
-                        <div class="back" onclick="closePopup(this)">
+                        <button
+                            class="back"
+                            type="button"
+                            onclick="closePopup(this)"
+                        >
                             <i class="fa-solid fa-x"></i>
-                        </div>
+                        </button>
                         <p></p>
                     </div>
                     <div class="form__icon" aria-hidden="true"></div>
@@ -130,7 +155,11 @@
                         <label for="login-password">Hasło</label>
                     </div>
                     <div class="form__spacer" aria-hidden="true"></div>
-                    <button id="login-button" class="button-style1">
+                    <button
+                        id="login-button"
+                        type="submit"
+                        class="button-style1"
+                    >
                         Zaloguj
                     </button>
                 </form>
@@ -141,13 +170,21 @@
                     id="register-form"
                     onsubmit="register(); return false;"
                 >
-                    <div class="back" onclick="switchDisplay(0)">
+                    <button
+                        class="back"
+                        type="button"
+                        onclick="switchDisplay(0)"
+                    >
                         <i class="fa-solid fa-x"></i>
-                    </div>
+                    </button>
                     <div class="popup">
-                        <div class="back" onclick="closePopup(this)">
+                        <button
+                            class="back"
+                            type="button"
+                            onclick="closePopup(this)"
+                        >
                             <i class="fa-solid fa-x"></i>
-                        </div>
+                        </button>
                         <p></p>
                     </div>
                     <div class="form__icon" aria-hidden="true"></div>
@@ -240,7 +277,11 @@
                         </div>
                     </div>
                     <div class="form__spacer" aria-hidden="true"></div>
-                    <button id="register-button" class="button-style1">
+                    <button
+                        id="register-button"
+                        type="submit"
+                        class="button-style1"
+                    >
                         Zarejestruj
                     </button>
                 </form>
@@ -261,7 +302,11 @@
                             >Wprowadź numer aktywacyjny</label
                         >
                     </div>
-                    <button id="authorization-button" class="button-style1">
+                    <button
+                        id="authorization-button"
+                        type="submit"
+                        class="button-style1"
+                    >
                         Aktywuj
                     </button>
                     <p id="email-info"></p>
@@ -276,6 +321,7 @@
                                 class="button-style1"
                                 disabled
                                 onclick="fiftyFifty()"
+                                type="button"
                             >
                                 50:50
                             </button>
@@ -284,6 +330,7 @@
                                 class="button-style1"
                                 disabled
                                 onclick="endGame(true)"
+                                type="button"
                             >
                                 <i
                                     class="fa-solid fa-arrow-right-to-bracket fa-rotate-180"
@@ -332,6 +379,7 @@
                                     class="mid A"
                                     onclick="checkAnswer(this)"
                                     disabled
+                                    type="button"
                                 ></button>
                                 <div class="right r-A"></div>
                             </div>
@@ -341,6 +389,7 @@
                                     class="mid B"
                                     onclick="checkAnswer(this)"
                                     disabled
+                                    type="button"
                                 ></button>
                                 <div class="right r-B"></div>
                             </div>
@@ -350,6 +399,7 @@
                                     class="mid C"
                                     onclick="checkAnswer(this)"
                                     disabled
+                                    type="button"
                                 ></button>
                                 <div class="right r-C"></div>
                             </div>
@@ -359,6 +409,7 @@
                                     class="mid D"
                                     onclick="checkAnswer(this)"
                                     disabled
+                                    type="button"
                                 ></button>
                                 <div class="right r-D"></div>
                             </div>
@@ -410,7 +461,11 @@
                             <div class="points">0pkt</div>
                         </div>
                     </div>
-                    <button class="button-style1" onclick="loadMainContainer()">
+                    <button
+                        class="button-style1"
+                        onclick="loadMainContainer()"
+                        type="button"
+                    >
                         Wyjdź do menu
                     </button>
                 </div>
@@ -423,17 +478,26 @@
                     <button
                         class="delete-account button-style1 user-button"
                         onclick="deleteUser()"
+                        type="button"
                     >
                         <i class="fa-solid fa-user-slash"></i>Usuń konto
                     </button>
                     <div class="form__icon" aria-hidden="true"></div>
-                    <div class="back" onclick="switchDisplay(0)">
+                    <button
+                        class="back"
+                        type="button"
+                        onclick="switchDisplay(0)"
+                    >
                         <i class="fa-solid fa-x"></i>
-                    </div>
+                    </button>
                     <div class="popup">
-                        <div class="back" onclick="closePopup(this)">
+                        <button
+                            class="back"
+                            type="button"
+                            onclick="closePopup(this)"
+                        >
                             <i class="fa-solid fa-x"></i>
-                        </div>
+                        </button>
                         <p></p>
                     </div>
                     <div class="h-form">
@@ -460,7 +524,10 @@
                                 />
                                 <label for="change-firstname">Imię</label>
                             </div>
-                            <button class="user-button button-style1">
+                            <button
+                                class="user-button button-style1"
+                                type="submit"
+                            >
                                 Aktualizuj
                             </button>
                         </form>
@@ -490,13 +557,23 @@
                                 <label for="change-lastname">Nazwisko</label>
                             </div>
 
-                            <button class="user-button button-style1">
+                            <button
+                                class="user-button button-style1"
+                                type="submit"
+                            >
                                 Aktualizuj
                             </button>
                         </form>
                     </div>
                     <div class="h-form">
                         <h5>Hasło</h5>
+                        <button
+                            class="back back--modifier2"
+                            type="button"
+                            onclick="changeTypeOfPasswordInput(this)"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
                         <form
                             autocomplete="off"
                             class="change-user-form"
@@ -508,7 +585,7 @@
                                 <input
                                     class="user-data-input password"
                                     id="change-password"
-                                    type="text"
+                                    type="password"
                                     placeholder=""
                                     aria-label="Change-password"
                                     pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9!@#$%^&*]+"
@@ -519,8 +596,10 @@
                                 />
                                 <label for="change-password">Hasło</label>
                             </div>
-
-                            <button class="user-button button-style1">
+                            <button
+                                class="user-button button-style1"
+                                type="submit"
+                            >
                                 Aktualizuj
                             </button>
                         </form>
@@ -549,6 +628,7 @@
                             <button
                                 class="user-button--disabled button-style1"
                                 disabled
+                                type="submit"
                             >
                                 Aktualizuj
                             </button>
@@ -575,12 +655,147 @@
                             <button
                                 class="user-button--disabled button-style1"
                                 disabled
+                                type="submit"
                             >
                                 Aktualizuj
                             </button>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="add-question-container">
+                <form
+                    autocomplete="off"
+                    id="add-question-form"
+                    onsubmit="sendQuestion(); return false;"
+                >
+                    <button
+                        class="back"
+                        type="button"
+                        onclick="switchDisplay(0)"
+                    >
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                    <div class="popup">
+                        <button
+                            class="back"
+                            type="button"
+                            onclick="closePopup(this)"
+                        >
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                        <p></p>
+                    </div>
+                    <div id="question-mark-wrap">
+                        <div id="question-mark">
+                            <i class="fa-solid fa-question"></i>
+                        </div>
+                    </div>
+                    <div class="form__input--container">
+                        <input
+                            class="add-question-input"
+                            id="content"
+                            type="text"
+                            placeholder=""
+                            aria-label="Content"
+                            minlength="5"
+                            maxlength="120"
+                            required
+                        />
+                        <label for="content">Treść pytania</label>
+                    </div>
+                    <div class="user-details">
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-a"
+                                type="text"
+                                placeholder=""
+                                aria-label="Add-question-a"
+                                minlength="2"
+                                maxlength="45"
+                                required
+                            />
+                            <label for="add-question-a">Odpowiedź A</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-b"
+                                type="text"
+                                placeholder=""
+                                aria-label="Add-question-b"
+                                minlength="2"
+                                maxlength="45"
+                                required
+                            />
+                            <label for="add-question-b">Odpowiedź B</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-c"
+                                type="text"
+                                placeholder=""
+                                aria-label="Add-question-c"
+                                minlength="2"
+                                maxlength="45"
+                                required
+                            />
+                            <label for="add-question-c">Odpowiedź C</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-d"
+                                type="text"
+                                placeholder=""
+                                aria-label="Add-question-d"
+                                minlength="2"
+                                maxlength="45"
+                                required
+                            />
+                            <label for="add-question-d">Odpowiedź D</label>
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-right-answer"
+                                type="text"
+                                placeholder=""
+                                aria-label="Add-question-right-answer"
+                                pattern="[ABCD]"
+                                required
+                            />
+                            <label for="add-question-right-answer"
+                                >Poprawna odp...</label
+                            >
+                        </div>
+                        <div class="form__input--container">
+                            <input
+                                class="add-question-input"
+                                id="add-question-difficulty"
+                                type="number"
+                                placeholder=""
+                                aria-label="Add-question-difficulty"
+                                min="0"
+                                max="11"
+                                required
+                            />
+                            <label for="add-question-difficulty"
+                                >Trudność (0-11)</label
+                            >
+                        </div>
+                    </div>
+                    <div class="form__spacer" aria-hidden="true"></div>
+                    <button
+                        id="add-question-button"
+                        class="button-style1"
+                        type="submit"
+                    >
+                        Dodaj pytanie !
+                    </button>
+                </form>
             </div>
         </main>
         <footer>

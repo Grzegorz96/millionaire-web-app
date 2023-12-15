@@ -16,12 +16,13 @@ import { enterToLogin, login, logout } from "./login.js";
 import { enterToRegister, register, checkPassword } from "./register.js";
 import { bestScores } from "./bestScores.js";
 import {
-    updateUser,
-    userPanel,
-    deleteUser,
+    enterToUserPanel,
+    changeTypeOfPasswordInput,
     checkUserData,
+    updateUser,
+    deleteUser,
 } from "./userPanel.js";
-import { addQuestion } from "./addQuestions.js";
+import { enterToAddQuestionPanel, sendQuestion } from "./addQuestions.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -37,11 +38,13 @@ window.register = register;
 window.closePopup = closePopup;
 window.checkPassword = checkPassword;
 window.bestScores = bestScores;
-window.userPanel = userPanel;
+window.enterToUserPanel = enterToUserPanel;
 window.updateUser = updateUser;
 window.deleteUser = deleteUser;
 window.checkUserData = checkUserData;
-window.addQuestion = addQuestion;
+window.enterToAddQuestionPanel = enterToAddQuestionPanel;
+window.sendQuestion = sendQuestion;
+window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
 
 getQuestions();
 checkSessionOfUser(true);

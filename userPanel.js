@@ -7,6 +7,24 @@ import {
 import { logout } from "./login.js";
 import { getData, updateData, deleteData } from "./requests.js";
 
+function changeTypeOfPasswordInput(button) {
+    const input = elementsOfHtml.userPanelEntries[2];
+
+    if (input.type == "password") {
+        input.type = "text";
+        button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    } else {
+        input.type = "password";
+        button.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
+}
+
+function changeStanOfUserPanelButtons(disabled) {
+    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
+        button.disabled = disabled;
+    });
+}
+
 function checkUserData(indexOfEntry) {
     const input = elementsOfHtml.userPanelEntries[indexOfEntry];
 
@@ -17,7 +35,7 @@ function checkUserData(indexOfEntry) {
     }
 }
 
-async function userPanel() {
+async function enterToUserPanel() {
     if (!checkSessionOfUser(false)) return;
 
     if (!user.userData) {
@@ -61,9 +79,7 @@ async function getLoggedInUserInfo() {
 }
 
 async function updateUser(indexOfEntry) {
-    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
-        button.disabled = true;
-    });
+    changeStanOfUserPanelButtons(true);
 
     if (!checkSessionOfUser(false)) return;
     const input = elementsOfHtml.userPanelEntries[indexOfEntry];
@@ -72,9 +88,7 @@ async function updateUser(indexOfEntry) {
         [input.classList[1]]: input.value,
     });
 
-    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
-        button.disabled = false;
-    });
+    changeStanOfUserPanelButtons(false);
 }
 
 async function patchLoggedInUserInfo(data) {
@@ -109,17 +123,13 @@ async function patchLoggedInUserInfo(data) {
 }
 
 async function deleteUser() {
-    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
-        button.disabled = true;
-    });
+    changeStanOfUserPanelButtons(true);
 
     if (!checkSessionOfUser(false)) return;
 
     await deleteLoggedInUser();
 
-    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
-        button.disabled = false;
-    });
+    changeStanOfUserPanelButtons(false);
 }
 
 async function deleteLoggedInUser() {
@@ -146,4 +156,10 @@ async function deleteLoggedInUser() {
     }
 }
 
-export { updateUser, userPanel, deleteUser, checkUserData };
+export {
+    updateUser,
+    enterToUserPanel,
+    deleteUser,
+    checkUserData,
+    changeTypeOfPasswordInput,
+};

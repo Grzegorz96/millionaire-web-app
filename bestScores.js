@@ -8,9 +8,9 @@ async function bestScores() {
 
     if (response.status == 200) {
         const scores = (await response.json()).result;
-        let newInnerHtml = `<div class="back back--modifier" onclick="switchDisplay(0)">
+        let newInnerHtml = `<button class="back back--modifier1" onclick="switchDisplay(0)" type="button">
                                 <i class="fa-solid fa-x"></i>
-                            </div>
+                            </button>
                             <div class="top-players">Lista najlepszych wyników:</div>`;
 
         for (let i = 0; i < scores.length; i++) {

@@ -29,6 +29,7 @@ const elementsOfHtml = {
     userPanelBtns: document.getElementsByClassName("user-button"),
     authorizationEntry: document.getElementById("authorization-account"),
     popups: document.getElementsByClassName("popup"),
+    addQuestionEntries: document.getElementsByClassName("add-question-input"),
 };
 
 export { elementsOfHtml, game, user };

@@ -20,21 +20,24 @@ function checkPassword() {
 
 async function register() {
     document.getElementById("register-button").disabled = true;
-    const firstName = elementsOfHtml.registerEntries[0].value;
-    const lastName = elementsOfHtml.registerEntries[1].value;
-    const login = elementsOfHtml.registerEntries[2].value;
-    const password = elementsOfHtml.registerEntries[3].value;
-    const email = elementsOfHtml.registerEntries[5].value;
+
+    const data = {
+        first_name: elementsOfHtml.registerEntries[0].value,
+        last_name: elementsOfHtml.registerEntries[1].value,
+        login: elementsOfHtml.registerEntries[2].value,
+        password: elementsOfHtml.registerEntries[3].value,
+        email: elementsOfHtml.registerEntries[5].value,
+    };
 
     const checkUserDataResponse = await postData(
         "https://Grzegorz96.pythonanywhere.com/users/register/check-data",
-        { login: login, email: email }
+        { login: data.login, email: data.email }
     );
 
     if (checkUserDataResponse.status == 200) {
         const sendActivationNumberResponse = await postData(
             "https://Grzegorz96.pythonanywhere.com/users/send-activation-number",
-            { email_receiver: email }
+            { email_receiver: data.email }
         );
 
         if (sendActivationNumberResponse.status == 200) {
@@ -42,7 +45,7 @@ async function register() {
                 .result.activation_number;
             document.getElementById(
                 "email-info"
-            ).innerText = `Numer aktywacyjny został wysłany na adres: ${email}`;
+            ).innerText = `Numer aktywacyjny został wysłany na adres: ${data.email}`;
             elementsOfHtml.authorizationEntry.value = "";
             elementsOfHtml.authorizationEntry.oninput = () => {
                 if (
@@ -62,13 +65,7 @@ async function register() {
                 document.getElementById("authorization-button").disabled = true;
                 const registerResponse = await postData(
                     "https://Grzegorz96.pythonanywhere.com/users/register",
-                    {
-                        first_name: firstName,
-                        last_name: lastName,
-                        login: login,
-                        password: password,
-                        email: email,
-                    }
+                    data
                 );
 
                 if (registerResponse.status == 201) {

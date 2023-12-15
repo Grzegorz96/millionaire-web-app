@@ -15,15 +15,15 @@ function enterToLogin() {
 
 async function login() {
     document.getElementById("login-button").disabled = true;
-    const login = elementsOfHtml.loginEntries[0].value;
-    const password = elementsOfHtml.loginEntries[1].value;
+
+    const data = {
+        login: elementsOfHtml.loginEntries[0].value,
+        password: elementsOfHtml.loginEntries[1].value,
+    };
 
     const loginResponse = await postData(
         "https://Grzegorz96.pythonanywhere.com/users/login",
-        {
-            login: login,
-            password: password,
-        }
+        data
     );
 
     if (loginResponse.status == 200) {
