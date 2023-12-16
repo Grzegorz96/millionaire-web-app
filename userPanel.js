@@ -7,18 +7,6 @@ import {
 import { logout } from "./login.js";
 import { getData, updateData, deleteData } from "./requests.js";
 
-function changeTypeOfPasswordInput(button) {
-    const input = elementsOfHtml.userPanelEntries[2];
-
-    if (input.type == "password") {
-        input.type = "text";
-        button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
-    } else {
-        input.type = "password";
-        button.innerHTML = '<i class="fa-solid fa-eye"></i>';
-    }
-}
-
 function changeStanOfUserPanelButtons(disabled) {
     Array.from(elementsOfHtml.userPanelBtns).map((button) => {
         button.disabled = disabled;
@@ -106,7 +94,7 @@ async function patchLoggedInUserInfo(data) {
             checkUserData(i);
         }
 
-        displayPopup("Użytkownik pomyślnie zaktualizowany.", 3);
+        displayPopup("Użytkownik pomyślnie zaktualizowany.", 4);
     } else if (updateUserDataResponse.status == 201) {
         localStorage.setItem(
             "accessToken",
@@ -117,7 +105,7 @@ async function patchLoggedInUserInfo(data) {
     } else {
         displayPopup(
             "Wystąpił błąd podczas wysyłania danych użytkownika, spróbuj ponownie później.",
-            3
+            4
         );
     }
 }
@@ -151,15 +139,9 @@ async function deleteLoggedInUser() {
     } else {
         displayPopup(
             "Wystąpił błąd podczas usuwania użytkownika, spróbuj ponownie później.",
-            3
+            4
         );
     }
 }
 
-export {
-    updateUser,
-    enterToUserPanel,
-    deleteUser,
-    checkUserData,
-    changeTypeOfPasswordInput,
-};
+export { updateUser, enterToUserPanel, deleteUser, checkUserData };

@@ -11,13 +11,15 @@ import {
     setNavbarButtons,
     closePopup,
     checkSessionOfUser,
+    changeTypeOfPasswordInput,
+    turnOfSounds,
+    changeVolume,
 } from "./generalFunctions.js";
 import { enterToLogin, login, logout } from "./login.js";
 import { enterToRegister, register, checkPassword } from "./register.js";
-import { bestScores } from "./bestScores.js";
+import { getBestScores } from "./bestScores.js";
 import {
     enterToUserPanel,
-    changeTypeOfPasswordInput,
     checkUserData,
     updateUser,
     deleteUser,
@@ -37,7 +39,7 @@ window.logout = logout;
 window.register = register;
 window.closePopup = closePopup;
 window.checkPassword = checkPassword;
-window.bestScores = bestScores;
+window.getBestScores = getBestScores;
 window.enterToUserPanel = enterToUserPanel;
 window.updateUser = updateUser;
 window.deleteUser = deleteUser;
@@ -45,6 +47,8 @@ window.checkUserData = checkUserData;
 window.enterToAddQuestionPanel = enterToAddQuestionPanel;
 window.sendQuestion = sendQuestion;
 window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
+window.turnOfSounds = turnOfSounds;
+window.changeVolume = changeVolume;
 
 getQuestions();
 checkSessionOfUser(true);

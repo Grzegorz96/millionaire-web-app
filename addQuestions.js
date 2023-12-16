@@ -59,12 +59,12 @@ async function postQuestion(data) {
                 input.value = "";
             });
 
-            displayPopup("Pomyślnie dodano pytanie.", 4);
+            displayPopup("Pomyślnie dodano pytanie.", 5);
         }
     } else {
         displayPopup(
             "Wystąpił błąd podczas dodawania pytania, spróbuj ponownie później.",
-            4
+            5
         );
     }
 }

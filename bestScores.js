@@ -1,13 +1,13 @@
 import { getData } from "./requests.js";
 import { switchDisplay, displayPopup } from "./generalFunctions.js";
 
-async function bestScores() {
-    const response = await getData(
+async function getBestScores() {
+    const getBestScoresResponse = await getData(
         "https://Grzegorz96.pythonanywhere.com/scores"
     );
 
-    if (response.status == 200) {
-        const scores = (await response.json()).result;
+    if (getBestScoresResponse.status == 200) {
+        const scores = (await getBestScoresResponse.json()).result;
         let newInnerHtml = `<button class="back back--modifier1" onclick="switchDisplay(0)" type="button">
                                 <i class="fa-solid fa-x"></i>
                             </button>
@@ -41,4 +41,4 @@ async function bestScores() {
     }
 }
 
-export { bestScores };
+export { getBestScores };

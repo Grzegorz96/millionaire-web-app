@@ -1,4 +1,4 @@
-import { elementsOfHtml, user } from "./config.js"; // Objects of application.
+import { elementsOfHtml, user, sounds } from "./config.js"; // Objects of application.
 import { logout } from "./login.js";
 
 function switchDisplay(indexOfContainer) {
@@ -81,6 +81,33 @@ function checkSessionOfUser(firstInit) {
     }
 }
 
+function changeTypeOfPasswordInput(button, entryElement) {
+    const input = document.getElementById(entryElement);
+
+    if (input.type == "password") {
+        input.type = "text";
+        button.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    } else {
+        input.type = "password";
+        button.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    }
+}
+
+function turnOfSounds(soundButton) {
+    if (sounds.turnON) {
+        sounds.turnON = false;
+        soundButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    } else {
+        sounds.turnON = true;
+        soundButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
+}
+
+function changeVolume(slider) {
+    elementsOfHtml.progressBar.value = slider.value;
+    elementsOfHtml.sliderValue.innerText = slider.value;
+}
+
 export {
     switchDisplay,
     setNavbarButtons,
@@ -88,4 +115,7 @@ export {
     closePopup,
     displayPopup,
     checkSessionOfUser,
+    changeTypeOfPasswordInput,
+    turnOfSounds,
+    changeVolume,
 };

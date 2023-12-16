@@ -97,7 +97,7 @@
                 <button
                     class="button-style1"
                     type="button"
-                    onclick="bestScores()"
+                    onclick="getBestScores()"
                 >
                     Najlepsze wyniki
                 </button>
@@ -141,6 +141,13 @@
                         <label for="login-login">Login</label>
                     </div>
                     <div class="form__input--container">
+                        <button
+                            class="back back--modifier2"
+                            type="button"
+                            onclick="changeTypeOfPasswordInput(this, 'login-password')"
+                        >
+                            <i class="fa-solid fa-eye-slash"></i>
+                        </button>
                         <input
                             class="login-input"
                             id="login-password"
@@ -232,6 +239,13 @@
                             <label for="register-login">Login</label>
                         </div>
                         <div class="form__input--container">
+                            <button
+                                class="back back--modifier2"
+                                type="button"
+                                onclick="changeTypeOfPasswordInput(this, 'register-password')"
+                            >
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </button>
                             <input
                                 class="register-input"
                                 id="register-password"
@@ -247,6 +261,13 @@
                             <label for="register-password">Hasło</label>
                         </div>
                         <div class="form__input--container">
+                            <button
+                                class="back back--modifier2"
+                                type="button"
+                                onclick="changeTypeOfPasswordInput(this, 'register-confirm-password')"
+                            >
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </button>
                             <input
                                 class="register-input"
                                 id="register-confirm-password"
@@ -419,6 +440,16 @@
             </div>
             <div class="end-game-container">
                 <div class="end-game">
+                    <div class="popup">
+                        <button
+                            class="back"
+                            type="button"
+                            onclick="closePopup(this)"
+                        >
+                            <i class="fa-solid fa-x"></i>
+                        </button>
+                        <p></p>
+                    </div>
                     <img
                         id="end-game__logo"
                         src="images/logo frontend.png"
@@ -567,13 +598,6 @@
                     </div>
                     <div class="h-form">
                         <h5>Hasło</h5>
-                        <button
-                            class="back back--modifier2"
-                            type="button"
-                            onclick="changeTypeOfPasswordInput(this)"
-                        >
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
                         <form
                             autocomplete="off"
                             class="change-user-form"
@@ -582,6 +606,13 @@
                             <div
                                 class="form__input--container form__input--container--modifier"
                             >
+                                <button
+                                    class="back back--modifier2"
+                                    type="button"
+                                    onclick="changeTypeOfPasswordInput(this, 'change-password')"
+                                >
+                                    <i class="fa-solid fa-eye-slash"></i>
+                                </button>
                                 <input
                                     class="user-data-input password"
                                     id="change-password"
@@ -801,6 +832,27 @@
         <footer>
             <div></div>
         </footer>
+        <div id="sound-controller">
+            <button
+                class="back back--modifier3"
+                type="button"
+                onclick="turnOfSounds(this)"
+            >
+                <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <div id="slider">
+                <input
+                    id="volume"
+                    oninput="changeVolume(this)"
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                />
+                <progress id="progress" min="0" max="100" value="50"></progress>
+            </div>
+            <div id="slider-value">50</div>
+        </div>
         <script type="module" src="index.js" defer></script>
     </body>
 </html>

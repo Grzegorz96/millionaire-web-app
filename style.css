@@ -182,13 +182,13 @@ footer {
     background: none;
     color: inherit;
     border: none;
-    padding: 0;
+    padding: 2px;
     font: inherit;
-    cursor: pointer;
     outline: transparent;
 }
 
 .popup {
+    text-align: center;
     display: none;
     align-items: center;
     justify-content: center;
@@ -209,7 +209,6 @@ footer {
 }
 
 .popup--start-container {
-    text-align: center;
     width: 50%;
 }
 
@@ -730,6 +729,7 @@ input:focus,
 
 /* END GAME */
 .end-game {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -823,7 +823,7 @@ input:focus,
 }
 
 .back--modifier1 {
-    top: 8px;
+    top: 6px;
     right: 6px;
 }
 
@@ -878,7 +878,8 @@ h5 {
 }
 
 .back--modifier2 {
-    position: static;
+    top: -29px;
+    right: 0;
 }
 
 /* ADD QUESTION  */
@@ -926,8 +927,86 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
+/* SOUND CONTROLLER */
+#sound-controller {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+#slider {
+    position: relative;
+    width: 200px;
+    height: 20px;
+}
+
+.back--modifier3 {
+    position: static;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.back--modifier3 i {
+    font-size: 1.5rem;
+    color: rgb(73, 73, 73);
+}
+
+#volume {
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 212px;
+    height: 20px;
+    -webkit-appearance: none;
+    background-color: transparent;
+    z-index: 99;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progress {
+    width: 200px;
+    height: 20px;
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress::-webkit-progress-bar {
+    background-color: rgb(219, 219, 219);
+}
+
+#progress::-webkit-progress-value {
+    background-color: rgb(73, 73, 73);
+}
+
+#slider-value {
+    color: black;
+    width: 28px;
+    height: 20px;
+    margin-left: 10px;
+    text-align: center;
 }
 
 @media screen and (max-width: 700px) {

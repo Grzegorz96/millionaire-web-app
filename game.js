@@ -1,4 +1,4 @@
-import { elementsOfHtml, game } from "./config.js";
+import { elementsOfHtml, game, user } from "./config.js";
 import { getData, postData } from "./requests.js"; // CRUD functions on database.
 import {
     switchDisplay,
@@ -9,7 +9,7 @@ import {
 function prepareGame() {
     if (game.questions) {
         loadGameContainer();
-        getBestPlayers();
+        getBestFiveScores();
         game.startTime = new Date();
         inGame();
     } else {
@@ -236,6 +236,7 @@ function loadGameContainer() {
 function loadMainContainer() {
     elementsOfHtml.amountAndResult[0].innerText = "";
     elementsOfHtml.amountAndResult[1].innerText = "";
+    // W tym miejscu sprawdzać czy sesja dalej trwa i albo przelaczyc ekran na główny albo wylogować
     setNavbarButtons();
     switchDisplay(0);
 }
@@ -259,11 +260,7 @@ function loadEndGameContainer(amountWon, result) {
         localStorage.getItem("accessToken") &&
         localStorage.getItem("refreshToken")
     ) {
-        const data = {
-            user_id: 999,
-            points: result,
-        };
-        sendScore(data);
+        postScore({ user_id: user.userId, points: result });
     }
 
     document.body.style.backgroundImage = "url(images/background.png)";
@@ -291,29 +288,55 @@ function fiftyFifty() {
 
 // Loading of questions.
 async function getQuestions() {
-    const response = await getData(
+    const getQuestionsResponse = await getData(
         "https://Grzegorz96.pythonanywhere.com/questions"
     );
 
-    if (response.status == 200) {
-        game.questions = (await response.json()).result; // basic version of questions
+    if (getQuestionsResponse.status == 200) {
+        game.questions = (await getQuestionsResponse.json()).result; // basic version of questions
         game.currentQuestions = [...game.questions]; // version of questions to modify
     }
 }
 
-function sendScore(data) {
+async function postScore(data) {
     // Sending score.
-    postData("https://Grzegorz96.pythonanywhere.com/scores", data);
+    const postScoreResponse = await postData(
+        "https://Grzegorz96.pythonanywhere.com/scores",
+        data,
+        localStorage.getItem("accessToken"),
+        localStorage.getItem("refreshToken")
+    );
+
+    if (postScoreResponse.status == 201) {
+        if (postScoreResponse.headers.get("access-token")) {
+            localStorage.setItem(
+                "accessToken",
+                postScoreResponse.headers.get("access-token")
+            );
+
+            await postScore(data);
+        } else {
+            displayPopup(
+                `Twój wynik: ${data.points}pkt, został dodany do listy najlepszych wyników !`,
+                3
+            );
+        }
+    } else {
+        displayPopup(
+            "Wystąpił błąd podczas dodawania punktów do listy najlepszych wyników.",
+            3
+        );
+    }
 }
 
-async function getBestPlayers() {
+async function getBestFiveScores() {
     // Loading of best scores.
-    const response = await getData(
+    const getBestFiveScoresResponse = await getData(
         "https://Grzegorz96.pythonanywhere.com/scores?limit=5"
     );
 
-    if (response.status == 200) {
-        game.bestFivePlayers = (await response.json()).result;
+    if (getBestFiveScoresResponse.status == 200) {
+        game.bestFivePlayers = (await getBestFiveScoresResponse.json()).result;
     }
 }
 
