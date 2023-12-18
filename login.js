@@ -7,7 +7,7 @@ import { elementsOfHtml, user } from "./config.js";
 import { getData, postData } from "./requests.js";
 
 function enterToLogin() {
-    Array.from(elementsOfHtml.loginEntries).map((input) => {
+    Array.from(elementsOfHtml.loginEntries).forEach((input) => {
         input.value = "";
     });
     switchDisplay(1);

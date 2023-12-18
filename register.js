@@ -3,7 +3,7 @@ import { elementsOfHtml } from "./config.js";
 import { postData } from "./requests.js";
 
 function enterToRegister() {
-    Array.from(elementsOfHtml.registerEntries).map((input) => {
+    Array.from(elementsOfHtml.registerEntries).forEach((input) => {
         input.value = "";
     });
     switchDisplay(2);

@@ -13,7 +13,7 @@ const game = {
 };
 
 const sounds = {
-    checkinQuestion: new Audio("sounds/checking_question_mp3.mp3"),
+    checkingQuestion: new Audio("sounds/checking_question_mp3.mp3"),
     fiftyFifty: new Audio("sounds/fifty_fifty_wav.wav"),
     mainTheme: new Audio("sounds/main_theme_mp3.mp3"),
     millioner: new Audio("sounds/millioner_mp3.mp3"),
@@ -22,8 +22,11 @@ const sounds = {
     startSoundrack: new Audio("sounds/start_soundtrack_mp3.mp3"),
     win: new Audio("sounds/win_mp3.mp3"),
     fail: new Audio("sounds/fail_mp3.mp3"),
-    volume: 1,
-    turnON: true,
+};
+
+const mixer = {
+    currentSound: sounds.startSoundrack,
+    previousVolume: undefined,
 };
 
 const elementsOfHtml = {
@@ -44,8 +47,9 @@ const elementsOfHtml = {
     authorizationEntry: document.getElementById("authorization-account"),
     popups: document.getElementsByClassName("popup"),
     addQuestionEntries: document.getElementsByClassName("add-question-input"),
+    soundButton: document.getElementById("sound-button"),
+    sliderVolume: document.getElementById("volume"),
     progressBar: document.getElementById("progress"),
-    sliderValue: document.getElementById("slider-value"),
 };
 
-export { elementsOfHtml, game, user, sounds };
+export { elementsOfHtml, game, user, sounds, mixer };

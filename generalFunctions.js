@@ -1,4 +1,4 @@
-import { elementsOfHtml, user, sounds } from "./config.js"; // Objects of application.
+import { elementsOfHtml, user, sounds, mixer } from "./config.js"; // Objects of application.
 import { logout } from "./login.js";
 
 function switchDisplay(indexOfContainer) {
@@ -93,19 +93,78 @@ function changeTypeOfPasswordInput(button, entryElement) {
     }
 }
 
-function turnOfSounds(soundButton) {
-    if (sounds.turnON) {
-        sounds.turnON = false;
-        soundButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+function changeSoundState() {
+    if (elementsOfHtml.sliderVolume.value > 0) {
+        mixer.previousVolume = elementsOfHtml.sliderVolume.value;
+        elementsOfHtml.sliderVolume.value = 0;
+        changeVolume();
     } else {
-        sounds.turnON = true;
-        soundButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        elementsOfHtml.sliderVolume.value = mixer.previousVolume;
+        changeVolume();
     }
 }
 
-function changeVolume(slider) {
-    elementsOfHtml.progressBar.value = slider.value;
-    elementsOfHtml.sliderValue.innerText = slider.value;
+function changeVolume() {
+    if (elementsOfHtml.sliderVolume.value > 0) {
+        if (
+            elementsOfHtml.soundButton.innerHTML.includes(
+                '<i class="fa-solid fa-slash"></i>'
+            )
+        )
+            elementsOfHtml.soundButton.innerHTML =
+                '<i class="fa-solid fa-volume-high"></i>';
+    } else {
+        if (
+            !elementsOfHtml.soundButton.innerHTML.includes(
+                '<i class="fa-solid fa-slash"></i>'
+            )
+        )
+            elementsOfHtml.soundButton.innerHTML =
+                '<i class="fa-solid fa-volume-high"></i><i class="fa-solid fa-slash"></i>';
+    }
+
+    elementsOfHtml.progressBar.value = elementsOfHtml.sliderVolume.value;
+
+    for (let sound in sounds) {
+        sounds[sound].volume = elementsOfHtml.sliderVolume.value / 100;
+    }
+}
+
+function setupSounds() {
+    for (let sound in sounds) {
+        sounds[sound].volume = elementsOfHtml.sliderVolume.value / 100;
+    }
+
+    sounds.mainTheme.loop = true;
+    sounds.questionTheme.loop = true;
+
+    sounds.startQuestion.onended = () => {
+        mixer.currentSound = sounds.questionTheme;
+        mixer.currentSound.play();
+    };
+
+    sounds.startSoundrack.onended = () => {
+        mixer.currentSound = sounds.mainTheme;
+        mixer.currentSound.play();
+    };
+
+    sounds.millioner.onended = () => {
+        mixer.currentSound = sounds.mainTheme;
+        mixer.currentSound.play();
+    };
+}
+
+function playSound(sound) {
+    mixer.currentSound.pause();
+    mixer.currentSound.currentTime = 0;
+    mixer.currentSound = sounds[sound];
+    mixer.currentSound.play();
+}
+
+function playFiftyFiftySoundEffect() {
+    sounds.fiftyFifty.pause();
+    sounds.fiftyFifty.currentTime = 0;
+    sounds.fiftyFifty.play();
 }
 
 export {
@@ -116,6 +175,9 @@ export {
     displayPopup,
     checkSessionOfUser,
     changeTypeOfPasswordInput,
-    turnOfSounds,
+    changeSoundState,
     changeVolume,
+    setupSounds,
+    playSound,
+    playFiftyFiftySoundEffect,
 };

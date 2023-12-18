@@ -8,7 +8,7 @@ import { logout } from "./login.js";
 import { getData, updateData, deleteData } from "./requests.js";
 
 function changeStanOfUserPanelButtons(disabled) {
-    Array.from(elementsOfHtml.userPanelBtns).map((button) => {
+    Array.from(elementsOfHtml.userPanelBtns).forEach((button) => {
         button.disabled = disabled;
     });
 }
@@ -30,7 +30,7 @@ async function enterToUserPanel() {
         if (!(await getLoggedInUserInfo())) return;
     }
 
-    Array.from(elementsOfHtml.userPanelEntries).map((input) => {
+    Array.from(elementsOfHtml.userPanelEntries).forEach((input) => {
         input.value = user.userData[input.classList[1]];
     });
 

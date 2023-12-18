@@ -9,7 +9,7 @@ import { postData } from "./requests.js";
 function enterToAddQuestionPanel() {
     if (!checkSessionOfUser(false)) return;
 
-    Array.from(elementsOfHtml.addQuestionEntries).map((input) => {
+    Array.from(elementsOfHtml.addQuestionEntries).forEach((input) => {
         input.value = "";
     });
 
@@ -55,7 +55,7 @@ async function postQuestion(data) {
 
             await postQuestion(data);
         } else {
-            Array.from(elementsOfHtml.addQuestionEntries).map((input) => {
+            Array.from(elementsOfHtml.addQuestionEntries).forEach((input) => {
                 input.value = "";
             });
 

@@ -4,6 +4,8 @@ import {
     switchDisplay,
     setNavbarButtons,
     displayPopup,
+    playSound,
+    playFiftyFiftySoundEffect,
 } from "./generalFunctions.js";
 
 function prepareGame() {
@@ -21,6 +23,7 @@ function prepareGame() {
 }
 
 function inGame() {
+    playSound("startQuestion");
     drawQuestion();
     displayQuestion();
     changeStanOfButtons(false);
@@ -75,14 +78,14 @@ function displayQuestion() {
 
 async function checkAnswer(selectedButton) {
     const answer = selectedButton.classList[1];
-
+    playSound("checkingQuestion");
     changeStanOfButtons(true);
     setSelectedAnswer(selectedButton, answer, "rgb(199, 125, 14)");
-    await awaitTimeout(4500);
+    await awaitTimeout(4600);
 
     if (game.currentQuestion.right_answer == answer) {
+        playSound("win");
         setSelectedAnswer(selectedButton, answer, "rgb(5, 255, 13)");
-        await awaitTimeout(4500);
 
         if (game.numberOfQuestion == 1) {
             game.priceQuaranteed = 1000;
@@ -98,6 +101,7 @@ async function checkAnswer(selectedButton) {
             )
         );
 
+        await awaitTimeout(4500);
         setDefaultValues(selectedButton, answer);
         if (game.numberOfQuestion != 11) {
             game.numberOfQuestion += 1;
@@ -106,6 +110,7 @@ async function checkAnswer(selectedButton) {
             endGame(false);
         }
     } else {
+        playSound("fail");
         for (let button of elementsOfHtml.answers) {
             if (button.classList.contains(game.currentQuestion.right_answer)) {
                 var rightButton = button;
@@ -113,7 +118,7 @@ async function checkAnswer(selectedButton) {
         }
         setSelectedAnswer(selectedButton, answer, "rgb(255, 30, 0)");
         setRightAnswer(rightButton);
-        await awaitTimeout(4000);
+        await awaitTimeout(4500);
         setDefaultValues(selectedButton, answer, rightButton);
         endGame(false);
     }
@@ -128,7 +133,7 @@ function endGame(isFrombutton) {
 
     if (isFrombutton) {
         var amountWon = game.currentWon;
-        Array.from(elementsOfHtml.priceLabels).map((label) => {
+        Array.from(elementsOfHtml.priceLabels).forEach((label) => {
             label.classList.remove("price-label--activated");
         });
         changeStanOfButtons(true);
@@ -145,7 +150,7 @@ function endGame(isFrombutton) {
     game.startTime = undefined;
     elementsOfHtml.questionNumber.innerText = "";
     elementsOfHtml.questionContent.innerText = "";
-    Array.from(elementsOfHtml.answers).map((button) => {
+    Array.from(elementsOfHtml.answers).forEach((button) => {
         button.innerHTML = "";
     });
 
@@ -154,12 +159,12 @@ function endGame(isFrombutton) {
 }
 
 function changeStanOfButtons(disabled) {
-    Array.from(elementsOfHtml.answers).map((button) => {
+    Array.from(elementsOfHtml.answers).forEach((button) => {
         button.disabled = disabled;
     });
 
     if (game.isFiftyFiftyAvailable) {
-        Array.from(elementsOfHtml.gameBtns).map((button) => {
+        Array.from(elementsOfHtml.gameBtns).forEach((button) => {
             button.disabled = disabled;
         });
     } else {
@@ -195,7 +200,7 @@ function setSelectedAnswer(selectedButton, beforeVariable, currentColor) {
 }
 
 function setDefaultValues(selectedButton, beforeVariable, rightButton) {
-    Array.from(elementsOfHtml.priceLabels).map((label) => {
+    Array.from(elementsOfHtml.priceLabels).forEach((label) => {
         label.classList.remove("price-label--activated");
     });
 
@@ -262,12 +267,13 @@ function loadEndGameContainer(amountWon, result) {
     ) {
         postScore({ user_id: user.userId, points: result });
     }
-
+    playSound("millioner");
     document.body.style.backgroundImage = "url(images/background.png)";
     switchDisplay(5);
 }
 
 function fiftyFifty() {
+    playFiftyFiftySoundEffect();
     game.isFiftyFiftyAvailable = false;
     elementsOfHtml.gameBtns[0].disabled = true;
     elementsOfHtml.gameBtns[0].style.backgroundColor = "#4d0004";
@@ -278,7 +284,7 @@ function fiftyFifty() {
 
     badAnswers.splice(Math.floor(Math.random() * badAnswers.length), 1);
 
-    Array.from(elementsOfHtml.answers).map((button) => {
+    Array.from(elementsOfHtml.answers).forEach((button) => {
         if (badAnswers.includes(button.classList[1])) {
             button.innerHTML = "";
             button.disabled = true;

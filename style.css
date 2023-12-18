@@ -271,12 +271,12 @@ input:hover,
     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
-.back:focus,
+/* .back:focus,
 .navbar__logo a:focus,
 input:focus,
 .button-style1:focus {
     outline: 2px solid rgba(255, 255, 255, 0.8);
-}
+} */
 
 #register-button::before,
 #login-button::before,
@@ -880,6 +880,7 @@ h5 {
 .back--modifier2 {
     top: -29px;
     right: 0;
+    width: 30px;
 }
 
 /* ADD QUESTION  */
@@ -930,12 +931,12 @@ input[type="number"]::-webkit-outer-spin-button {
 /* SOUND CONTROLLER */
 #sound-controller {
     background-color: rgb(255, 255, 255);
-    padding: 10px;
+    padding: 0 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 0px;
     display: flex;
     align-items: center;
 }
@@ -948,13 +949,17 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .back--modifier3 {
     position: static;
-    padding: 5px;
-    margin-right: 10px;
+    margin-right: 15px;
+    width: 30px;
 }
 
 .back--modifier3 i {
     font-size: 1.5rem;
     color: rgb(73, 73, 73);
+}
+
+.fa-slash {
+    position: absolute;
 }
 
 #volume {
@@ -999,14 +1004,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 #progress::-webkit-progress-value {
     background-color: rgb(73, 73, 73);
-}
-
-#slider-value {
-    color: black;
-    width: 28px;
-    height: 20px;
-    margin-left: 10px;
-    text-align: center;
 }
 
 @media screen and (max-width: 700px) {
