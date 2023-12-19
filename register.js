@@ -72,13 +72,13 @@ async function register() {
                     switchDisplay(0);
                     displayPopup(
                         "Pomyślnie zarejestrowano i aktywowano konto, możesz się zalogować.",
-                        0
+                        1
                     );
                 } else {
                     switchDisplay(0);
                     displayPopup(
                         "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
-                        0
+                        1
                     );
                 }
                 document.getElementById(
@@ -90,15 +90,15 @@ async function register() {
         } else {
             displayPopup(
                 "Wystąpił błąd podczas wysyłania kodu aktywacyjnego, spróbuj ponownie później.",
-                2
+                3
             );
         }
     } else if (checkUserDataResponse.status == 226) {
-        displayPopup("Login lub email są niedostępne.", 2);
+        displayPopup("Login lub email są niedostępne.", 3);
     } else {
         displayPopup(
             "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
-            2
+            3
         );
     }
     document.getElementById("register-button").disabled = false;

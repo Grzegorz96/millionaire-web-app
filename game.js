@@ -6,6 +6,7 @@ import {
     displayPopup,
     playSound,
     playFiftyFiftySoundEffect,
+    checkSessionOfUser,
 } from "./generalFunctions.js";
 
 function prepareGame() {
@@ -17,7 +18,7 @@ function prepareGame() {
     } else {
         displayPopup(
             "Wystąpił błąd podczas pobierania pytań, spróbuj ponownie później.",
-            0
+            1
         );
     }
 }
@@ -239,9 +240,14 @@ function loadGameContainer() {
 }
 
 function loadMainContainer() {
+    if (
+        localStorage.getItem("accessToken") ||
+        localStorage.getItem("refreshToken")
+    ) {
+        if (!checkSessionOfUser(false)) return;
+    }
     elementsOfHtml.amountAndResult[0].innerText = "";
     elementsOfHtml.amountAndResult[1].innerText = "";
-    // W tym miejscu sprawdzać czy sesja dalej trwa i albo przelaczyc ekran na główny albo wylogować
     setNavbarButtons();
     switchDisplay(0);
 }
@@ -324,13 +330,13 @@ async function postScore(data) {
         } else {
             displayPopup(
                 `Twój wynik: ${data.points}pkt, został dodany do listy najlepszych wyników !`,
-                3
+                4
             );
         }
     } else {
         displayPopup(
             "Wystąpił błąd podczas dodawania punktów do listy najlepszych wyników.",
-            3
+            4
         );
     }
 }

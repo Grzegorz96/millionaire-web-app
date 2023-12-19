@@ -46,6 +46,30 @@ body {
     flex-direction: column;
 }
 
+/* ENTER APP LABEL */
+#enter-app {
+    position: absolute;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background: #2c2c2c;
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#enter-app__logo {
+    width: 90%;
+    max-width: 700px;
+    border-radius: 15px;
+}
+
 /* HEADER  */
 header {
     background-color: rgba(0, 204, 255, 0.301);
@@ -208,8 +232,8 @@ footer {
     width: 90%;
 }
 
-.popup--start-container {
-    width: 50%;
+.popup--modifier {
+    max-width: 600px;
 }
 
 .popup--activated {

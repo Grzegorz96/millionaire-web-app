@@ -61,7 +61,7 @@ async function getLoggedInUserInfo() {
     } else {
         displayPopup(
             "Wystąpił błąd podczas pobierania danych użytkownika, spróbuj ponownie później.",
-            0
+            1
         );
     }
 }
@@ -94,7 +94,7 @@ async function patchLoggedInUserInfo(data) {
             checkUserData(i);
         }
 
-        displayPopup("Użytkownik pomyślnie zaktualizowany.", 4);
+        displayPopup("Użytkownik pomyślnie zaktualizowany.", 5);
     } else if (updateUserDataResponse.status == 201) {
         localStorage.setItem(
             "accessToken",
@@ -105,7 +105,7 @@ async function patchLoggedInUserInfo(data) {
     } else {
         displayPopup(
             "Wystąpił błąd podczas wysyłania danych użytkownika, spróbuj ponownie później.",
-            4
+            5
         );
     }
 }
@@ -128,7 +128,7 @@ async function deleteLoggedInUser() {
     );
 
     if (deleteUserResponse.status == 200) {
-        logout();
+        logout("Konto pomyślnie usunięte.");
     } else if (deleteUserResponse.status == 201) {
         localStorage.setItem(
             "accessToken",
@@ -139,7 +139,7 @@ async function deleteLoggedInUser() {
     } else {
         displayPopup(
             "Wystąpił błąd podczas usuwania użytkownika, spróbuj ponownie później.",
-            4
+            5
         );
     }
 }

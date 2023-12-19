@@ -66,17 +66,17 @@ function checkSessionOfUser(firstInit) {
         const jwtRefreshToken = parseJwt(localStorage.getItem("refreshToken"));
         if (jwtRefreshToken) {
             if (Date.now() >= jwtRefreshToken.exp * 1000) {
-                logout();
+                logout("Twoja sesja wygasła.");
             } else {
                 if (firstInit) user.userId = jwtRefreshToken.sub;
                 return true;
             }
         } else {
-            logout();
+            logout("Twoja sesja wygasła.");
         }
     } else {
         if (!firstInit) {
-            logout();
+            logout("Twoja sesja wygasła.");
         }
     }
 }
@@ -131,6 +131,8 @@ function changeVolume() {
 }
 
 function setupSounds() {
+    elementsOfHtml.progressBar.value = elementsOfHtml.sliderVolume.value;
+
     for (let sound in sounds) {
         sounds[sound].volume = elementsOfHtml.sliderVolume.value / 100;
     }
@@ -143,7 +145,7 @@ function setupSounds() {
         mixer.currentSound.play();
     };
 
-    sounds.startSoundrack.onended = () => {
+    sounds.startSoundtrack.onended = () => {
         mixer.currentSound = sounds.mainTheme;
         mixer.currentSound.play();
     };
@@ -167,6 +169,18 @@ function playFiftyFiftySoundEffect() {
     sounds.fiftyFifty.play();
 }
 
+function enterApp() {
+    document.getElementById("enter-app").style.display = "none";
+    mixer.currentSound.play();
+}
+
+function displayLogoutMessage() {
+    if (sessionStorage.getItem("message")) {
+        displayPopup(sessionStorage.getItem("message"), 0);
+        sessionStorage.removeItem("message");
+    }
+}
+
 export {
     switchDisplay,
     setNavbarButtons,
@@ -180,4 +194,6 @@ export {
     setupSounds,
     playSound,
     playFiftyFiftySoundEffect,
+    enterApp,
+    displayLogoutMessage,
 };

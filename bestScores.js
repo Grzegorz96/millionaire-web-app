@@ -36,7 +36,7 @@ async function getBestScores() {
     } else {
         displayPopup(
             "Wystąpił błąd podczas pobierania najlepszych wyników, spróbuj ponownie później.",
-            0
+            1
         );
     }
 }

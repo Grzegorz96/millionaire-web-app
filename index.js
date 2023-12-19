@@ -16,6 +16,8 @@ import {
     changeVolume,
     setupSounds,
     playSound,
+    enterApp,
+    displayLogoutMessage,
 } from "./generalFunctions.js";
 import { enterToLogin, login, logout } from "./login.js";
 import { enterToRegister, register, checkPassword } from "./register.js";
@@ -27,7 +29,6 @@ import {
     deleteUser,
 } from "./userPanel.js";
 import { enterToAddQuestionPanel, sendQuestion } from "./addQuestions.js";
-import { mixer } from "./config.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -53,9 +54,10 @@ window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
 window.changeSoundState = changeSoundState;
 window.changeVolume = changeVolume;
 window.playSound = playSound;
+window.enterApp = enterApp;
 
+displayLogoutMessage();
 getQuestions();
+setupSounds();
 checkSessionOfUser(true);
 setNavbarButtons();
-setupSounds();
-mixer.currentSound.play();

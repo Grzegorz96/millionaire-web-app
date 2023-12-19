@@ -19,14 +19,9 @@ const sounds = {
     millioner: new Audio("sounds/millioner_mp3.mp3"),
     questionTheme: new Audio("sounds/question_theme_mp3.mp3"),
     startQuestion: new Audio("sounds/start_question_mp3.mp3"),
-    startSoundrack: new Audio("sounds/start_soundtrack_mp3.mp3"),
+    startSoundtrack: new Audio("sounds/start_soundtrack_mp3.mp3"),
     win: new Audio("sounds/win_mp3.mp3"),
     fail: new Audio("sounds/fail_mp3.mp3"),
-};
-
-const mixer = {
-    currentSound: sounds.startSoundrack,
-    previousVolume: undefined,
 };
 
 const elementsOfHtml = {
@@ -50,6 +45,11 @@ const elementsOfHtml = {
     soundButton: document.getElementById("sound-button"),
     sliderVolume: document.getElementById("volume"),
     progressBar: document.getElementById("progress"),
+};
+
+const mixer = {
+    currentSound: sounds.startSoundtrack,
+    previousVolume: elementsOfHtml.sliderVolume.value,
 };
 
 export { elementsOfHtml, game, user, sounds, mixer };

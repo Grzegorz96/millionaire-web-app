@@ -47,22 +47,23 @@ async function login() {
         } else {
             displayPopup(
                 "Wystąpił błąd podczas logowania, spróbuj ponownie później.",
-                1
+                2
             );
         }
     } else if (loginResponse.status == 401) {
-        displayPopup("Użytkownik o podanym loginie lub haśle nie istnieje!", 1);
+        displayPopup("Użytkownik o podanym loginie lub haśle nie istnieje!", 2);
     } else {
         displayPopup(
             "Wystąpił błąd podczas logowania, spróbuj ponownie później.",
-            1
+            2
         );
     }
     document.getElementById("login-button").disabled = false;
 }
 
-function logout() {
+function logout(message) {
     localStorage.clear();
+    sessionStorage.setItem("message", message);
     location.reload();
 }
 
