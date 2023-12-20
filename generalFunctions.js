@@ -140,20 +140,14 @@ function setupSounds() {
     sounds.mainTheme.loop = true;
     sounds.questionTheme.loop = true;
 
-    sounds.startQuestion.onended = () => {
-        mixer.currentSound = sounds.questionTheme;
+    const queueSound = (sound) => {
+        mixer.currentSound = sounds[sound];
         mixer.currentSound.play();
     };
 
-    sounds.startSoundtrack.onended = () => {
-        mixer.currentSound = sounds.mainTheme;
-        mixer.currentSound.play();
-    };
-
-    sounds.millioner.onended = () => {
-        mixer.currentSound = sounds.mainTheme;
-        mixer.currentSound.play();
-    };
+    sounds.startQuestion.onended = () => queueSound("questionTheme");
+    sounds.startSoundtrack.onended = () => queueSound("mainTheme");
+    sounds.millioner.onended = () => queueSound("mainTheme");
 }
 
 function playSound(sound) {
@@ -171,13 +165,16 @@ function playFiftyFiftySoundEffect() {
 
 function enterApp() {
     document.getElementById("enter-app").style.display = "none";
+    document.querySelector("header").style.display = "block";
+    document.querySelector("main").style.display = "block";
+    document.querySelector("footer").style.display = "block";
     mixer.currentSound.play();
 }
 
 function displayLogoutMessage() {
-    if (sessionStorage.getItem("message")) {
-        displayPopup(sessionStorage.getItem("message"), 0);
-        sessionStorage.removeItem("message");
+    if (sessionStorage.getItem("logoutMessage")) {
+        displayPopup(sessionStorage.getItem("logoutMessage"), 0);
+        sessionStorage.removeItem("logoutMessage");
     }
 }
 

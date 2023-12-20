@@ -15,7 +15,6 @@ import {
     changeSoundState,
     changeVolume,
     setupSounds,
-    playSound,
     enterApp,
     displayLogoutMessage,
 } from "./generalFunctions.js";
@@ -53,7 +52,6 @@ window.sendQuestion = sendQuestion;
 window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
 window.changeSoundState = changeSoundState;
 window.changeVolume = changeVolume;
-window.playSound = playSound;
 window.enterApp = enterApp;
 
 displayLogoutMessage();

@@ -63,7 +63,7 @@ async function login() {
 
 function logout(message) {
     localStorage.clear();
-    sessionStorage.setItem("message", message);
+    sessionStorage.setItem("logoutMessage", message);
     location.reload();
 }
 

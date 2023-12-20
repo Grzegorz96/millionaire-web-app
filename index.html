@@ -846,29 +846,30 @@
             </div>
         </main>
         <footer>
-            <div></div>
-        </footer>
-        <div id="sound-controller">
-            <button
-                class="back back--modifier3"
-                id="sound-button"
-                type="button"
-                onclick="changeSoundState()"
-            >
-                <i class="fa-solid fa-volume-high"></i>
-            </button>
-            <div id="slider">
-                <input
-                    id="volume"
-                    oninput="changeVolume()"
-                    type="range"
-                    min="0"
-                    max="100"
-                    value="10"
-                />
-                <progress id="progress" min="0" max="100"></progress>
+            <div class="foot">
+                <div id="sound-controller">
+                    <button
+                        class="back back--modifier3"
+                        id="sound-button"
+                        type="button"
+                        onclick="changeSoundState()"
+                    >
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <div id="slider">
+                        <input
+                            id="volume"
+                            oninput="changeVolume()"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="10"
+                        />
+                        <progress id="progress" min="0" max="100"></progress>
+                    </div>
+                </div>
             </div>
-        </div>
+        </footer>
         <script type="module" src="index.js" defer></script>
     </body>
 </html>
