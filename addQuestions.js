@@ -22,15 +22,15 @@ async function sendQuestion() {
     if (!checkSessionOfUser(false)) return;
 
     const data = {
-        tresc: elementsOfHtml.addQuestionEntries[0].value,
-        odp: [
+        content: elementsOfHtml.addQuestionEntries[0].value,
+        answers: [
             elementsOfHtml.addQuestionEntries[1].value,
             elementsOfHtml.addQuestionEntries[2].value,
             elementsOfHtml.addQuestionEntries[3].value,
             elementsOfHtml.addQuestionEntries[4].value,
         ],
-        odp_poprawna: elementsOfHtml.addQuestionEntries[5].value,
-        trudnosc: elementsOfHtml.addQuestionEntries[6].value,
+        right_answer: elementsOfHtml.addQuestionEntries[5].value,
+        difficulty: elementsOfHtml.addQuestionEntries[6].value,
     };
 
     await postQuestion(data);

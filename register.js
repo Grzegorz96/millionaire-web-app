@@ -18,6 +18,40 @@ function checkPassword() {
     }
 }
 
+function checkActivationNumber(activationNumber) {
+    if (elementsOfHtml.authorizationEntry.value != activationNumber) {
+        elementsOfHtml.authorizationEntry.setCustomValidity(
+            "Numer aktywacyjny jest błędny."
+        );
+    } else {
+        elementsOfHtml.authorizationEntry.setCustomValidity("");
+    }
+}
+
+async function addUserToDatabase(event, data) {
+    event.preventDefault();
+    document.getElementById("authorization-button").disabled = true;
+    const registerResponse = await postData(
+        "https://Grzegorz96.pythonanywhere.com/users/register",
+        data
+    );
+
+    if (registerResponse.status == 201) {
+        switchDisplay(0);
+        displayPopup(
+            "Pomyślnie zarejestrowano i aktywowano konto, możesz się zalogować.",
+            1
+        );
+    } else {
+        switchDisplay(0);
+        displayPopup(
+            "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
+            1
+        );
+    }
+    document.getElementById("authorization-button").disabled = false;
+}
+
 async function register() {
     document.getElementById("register-button").disabled = true;
 
@@ -47,45 +81,11 @@ async function register() {
                 "email-info"
             ).innerText = `Numer aktywacyjny został wysłany na adres: ${data.email}`;
             elementsOfHtml.authorizationEntry.value = "";
-            elementsOfHtml.authorizationEntry.oninput = () => {
-                if (
-                    elementsOfHtml.authorizationEntry.value != activationNumber
-                ) {
-                    elementsOfHtml.authorizationEntry.setCustomValidity(
-                        "Numer aktywacyjny jest błędny."
-                    );
-                } else {
-                    elementsOfHtml.authorizationEntry.setCustomValidity("");
-                }
-            };
-            document.getElementById("authorization-form").onsubmit = async (
-                event
-            ) => {
-                event.preventDefault();
-                document.getElementById("authorization-button").disabled = true;
-                const registerResponse = await postData(
-                    "https://Grzegorz96.pythonanywhere.com/users/register",
-                    data
-                );
+            elementsOfHtml.authorizationEntry.oninput = () =>
+                checkActivationNumber(activationNumber);
 
-                if (registerResponse.status == 201) {
-                    switchDisplay(0);
-                    displayPopup(
-                        "Pomyślnie zarejestrowano i aktywowano konto, możesz się zalogować.",
-                        1
-                    );
-                } else {
-                    switchDisplay(0);
-                    displayPopup(
-                        "Wystąpił błąd podczas rejestracji, spróbuj ponownie później.",
-                        1
-                    );
-                }
-                document.getElementById(
-                    "authorization-button"
-                ).disabled = false;
-            };
-
+            document.getElementById("authorization-form").onsubmit = (event) =>
+                addUserToDatabase(event, data);
             switchDisplay(3);
         } else {
             displayPopup(

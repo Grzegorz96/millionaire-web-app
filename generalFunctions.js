@@ -140,14 +140,14 @@ function setupSounds() {
     sounds.mainTheme.loop = true;
     sounds.questionTheme.loop = true;
 
-    const queueSound = (sound) => {
+    const soundQueue = (sound) => {
         mixer.currentSound = sounds[sound];
         mixer.currentSound.play();
     };
 
-    sounds.startQuestion.onended = () => queueSound("questionTheme");
-    sounds.startSoundtrack.onended = () => queueSound("mainTheme");
-    sounds.millioner.onended = () => queueSound("mainTheme");
+    sounds.startQuestion.onended = () => soundQueue("questionTheme");
+    sounds.startSoundtrack.onended = () => soundQueue("mainTheme");
+    sounds.millioner.onended = () => soundQueue("mainTheme");
 }
 
 function playSound(sound) {
