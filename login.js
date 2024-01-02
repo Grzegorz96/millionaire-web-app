@@ -6,7 +6,9 @@ import {
 import { elementsOfHtml, user } from "./config.js";
 import { getData, postData } from "./requests.js";
 
-function enterToLogin() {
+function enterToLogin(fromDropDownMenu) {
+    if (fromDropDownMenu) elementsOfHtml.toggleBtn.click();
+
     Array.from(elementsOfHtml.loginEntries).forEach((input) => {
         input.value = "";
     });

@@ -2,7 +2,9 @@ import { switchDisplay, displayPopup } from "./generalFunctions.js";
 import { elementsOfHtml } from "./config.js";
 import { postData } from "./requests.js";
 
-function enterToRegister() {
+function enterToRegister(fromDropDownMenu) {
+    if (fromDropDownMenu) elementsOfHtml.toggleBtn.click();
+
     Array.from(elementsOfHtml.registerEntries).forEach((input) => {
         input.value = "";
     });

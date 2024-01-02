@@ -61,6 +61,18 @@ function displayQuestion() {
         "price-label--activated"
     );
 
+    // highlighting the achieved div with the guaranteed amount.
+    if (
+        game.numberOfQuestion > 0 &&
+        elementsOfHtml.priceLabels[
+            game.numberOfQuestion - 1
+        ].classList.contains("price-guaranteed")
+    ) {
+        elementsOfHtml.priceLabels[game.numberOfQuestion - 1].classList.add(
+            "price-guaranteed--achieved"
+        );
+    }
+
     // Displaying number of current question.
     elementsOfHtml.questionNumber.innerText = `Pytanie: ${
         game.numberOfQuestion + 1
@@ -154,6 +166,9 @@ function endGame(isFrombutton) {
     Array.from(elementsOfHtml.answers).forEach((button) => {
         button.innerHTML = "";
     });
+    Array.from(elementsOfHtml.priceLabels).forEach((label) => {
+        label.classList.remove("price-guaranteed--achieved");
+    });
 
     const result = Math.floor(amountWon / gameDuration);
     loadEndGameContainer(amountWon, result);
@@ -235,6 +250,8 @@ function loadGameContainer() {
     for (let element of elementsOfHtml.loggedOutBtns) {
         element.classList.remove("navbar-buttons--activated");
     }
+
+    elementsOfHtml.toggleBtn.style.display = "none";
     document.body.style.backgroundImage = "url(images/in-game.jpg)";
     switchDisplay(4);
 }
@@ -249,6 +266,7 @@ function loadMainContainer() {
     elementsOfHtml.amountAndResult[0].innerText = "";
     elementsOfHtml.amountAndResult[1].innerText = "";
     setNavbarButtons();
+    elementsOfHtml.toggleBtn.removeAttribute("style");
     switchDisplay(0);
 }
 

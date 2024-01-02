@@ -45,6 +45,10 @@ const elementsOfHtml = {
     soundButton: document.getElementById("sound-button"),
     sliderVolume: document.getElementById("volume"),
     progressBar: document.getElementById("progress"),
+    toggleBtn: document.querySelector(".navbar__toggle-btn"),
+    toggleBtnIcon: document.querySelector(".navbar__toggle-btn i"),
+    dropDownMenu: document.querySelector(".dropdown-menu"),
+    dropDownMenuIsOpen: false,
 };
 
 const mixer = {

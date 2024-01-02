@@ -6,7 +6,9 @@ import {
 } from "./generalFunctions.js";
 import { postData } from "./requests.js";
 
-function enterToAddQuestionPanel() {
+function enterToAddQuestionPanel(fromDropDownMenu) {
+    if (fromDropDownMenu) elementsOfHtml.toggleBtn.click();
+
     if (!checkSessionOfUser(false)) return;
 
     Array.from(elementsOfHtml.addQuestionEntries).forEach((input) => {

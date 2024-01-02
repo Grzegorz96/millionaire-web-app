@@ -23,7 +23,9 @@ function checkUserData(indexOfEntry) {
     }
 }
 
-async function enterToUserPanel() {
+async function enterToUserPanel(fromDropDownMenu) {
+    if (fromDropDownMenu) elementsOfHtml.toggleBtn.click();
+
     if (!checkSessionOfUser(false)) return;
 
     if (!user.userData) {

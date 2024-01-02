@@ -41,7 +41,7 @@
             <nav class="navbar">
                 <div class="navbar__logo">
                     <a href="/"
-                        ><img src="images/logo.png" alt="program logo"
+                        ><img src="images/icon.png" alt="program logo"
                     /></a>
                 </div>
                 <ul class="navbar__list">
@@ -89,7 +89,58 @@
                         <i class="fa-solid fa-user-plus"></i> Zarejestruj się
                     </button>
                 </ul>
+                <button class="navbar__toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </nav>
+
+            <div class="dropdown-menu">
+                <button
+                    class="navbar__list-item logged-in button-style1"
+                    onclick="enterToAddQuestionPanel(true)"
+                    type="button"
+                >
+                    <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
+                </button>
+
+                <button
+                    class="navbar__list-item logged-in button-style1"
+                    onclick="enterToUserPanel(true)"
+                    type="button"
+                >
+                    <i class="fa-solid fa-user"></i>
+                    Twoje konto
+                </button>
+
+                <button
+                    class="navbar__list-item logged-in button-style1"
+                    onclick="logout('Użytkownik pomyślnie wylogowany.')"
+                    type="button"
+                >
+                    <i
+                        class="fa-solid fa-right-from-bracket"
+                        id="logged-out-element"
+                    ></i>
+                    Wyloguj
+                </button>
+
+                <button
+                    class="navbar__list-item logged-out button-style1"
+                    onclick="enterToLogin(true)"
+                    type="button"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Zaloguj się
+                </button>
+
+                <button
+                    class="navbar__list-item logged-out button-style1"
+                    onclick="enterToRegister(true)"
+                    type="button"
+                >
+                    <i class="fa-solid fa-user-plus"></i> Zarejestruj się
+                </button>
+            </div>
         </header>
         <main>
             <div class="start-container container--activated">

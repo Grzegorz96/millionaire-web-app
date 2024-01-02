@@ -28,6 +28,7 @@ import {
     deleteUser,
 } from "./userPanel.js";
 import { enterToAddQuestionPanel, sendQuestion } from "./addQuestions.js";
+import { disableDropdownMenu } from "./dropDownMenu.js";
 
 window.switchDisplay = switchDisplay;
 window.prepareGame = prepareGame;
@@ -53,6 +54,7 @@ window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
 window.changeSoundState = changeSoundState;
 window.changeVolume = changeVolume;
 window.enterApp = enterApp;
+window.onresize = disableDropdownMenu;
 
 displayLogoutMessage();
 getQuestions();
