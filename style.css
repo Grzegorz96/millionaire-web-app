@@ -108,8 +108,6 @@ header {
 }
 
 .navbar__list {
-    list-style: none;
-    font-size: 1.2rem;
     display: flex;
     gap: 1rem;
 }
@@ -121,7 +119,7 @@ header {
     gap: 0.4rem;
 }
 
-#logged-out-element {
+.logged-out-element {
     transform: rotate(230deg);
 }
 
@@ -726,7 +724,7 @@ input:focus:not(:focus-visible),
 }
 
 .mid:focus:not(:focus-visible) {
-    border-block: none;
+    border-block: 3px solid white;
 }
 
 .selected-answer {

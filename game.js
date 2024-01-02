@@ -101,11 +101,11 @@ async function checkAnswer(selectedButton) {
         setSelectedAnswer(selectedButton, answer, "rgb(5, 255, 13)");
 
         if (game.numberOfQuestion == 1) {
-            game.priceQuaranteed = 1000;
+            game.priceGuaranteed = 1000;
         } else if (game.numberOfQuestion == 7) {
-            game.priceQuaranteed = 40000;
+            game.priceGuaranteed = 40000;
         } else if (game.numberOfQuestion == 11) {
-            game.priceQuaranteed = 1000000;
+            game.priceGuaranteed = 1000000;
         }
         game.currentWon = Number(
             elementsOfHtml.priceLabels[game.numberOfQuestion].innerText.slice(
@@ -151,14 +151,14 @@ function endGame(isFrombutton) {
         });
         changeStanOfButtons(true);
     } else {
-        var amountWon = game.priceQuaranteed;
+        var amountWon = game.priceGuaranteed;
     }
 
     game.isFiftyFiftyAvailable = true;
     elementsOfHtml.gameBtns[0].style.backgroundColor = "rgb(24, 28, 46)";
     game.numberOfQuestion = 0;
     game.currentQuestion = undefined;
-    game.priceQuaranteed = 0;
+    game.priceGuaranteed = 0;
     game.currentWon = 0;
     game.startTime = undefined;
     elementsOfHtml.questionNumber.innerText = "";

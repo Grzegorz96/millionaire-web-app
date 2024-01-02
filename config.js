@@ -8,7 +8,7 @@ const game = {
     currentQuestion: undefined,
     bestFivePlayers: undefined,
     numberOfQuestion: 0,
-    priceQuaranteed: 0,
+    priceGuaranteed: 0,
     currentWon: 0,
 };
 
