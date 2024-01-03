@@ -98,6 +98,7 @@
                     class="navbar__list-item logged-in button-style1"
                     onclick="enterToAddQuestionPanel(true)"
                     type="button"
+                    tabindex="-1"
                 >
                     <i class="fa-solid fa-square-plus"></i> Dodaj pytanie
                 </button>
@@ -106,6 +107,7 @@
                     class="navbar__list-item logged-in button-style1"
                     onclick="enterToUserPanel(true)"
                     type="button"
+                    tabindex="-1"
                 >
                     <i class="fa-solid fa-user"></i>
                     Twoje konto
@@ -115,6 +117,7 @@
                     class="navbar__list-item logged-in button-style1"
                     onclick="logout('Użytkownik pomyślnie wylogowany.')"
                     type="button"
+                    tabindex="-1"
                 >
                     <i
                         class="fa-solid fa-right-from-bracket logged-out-element"
@@ -126,6 +129,7 @@
                     class="navbar__list-item logged-out button-style1"
                     onclick="enterToLogin(true)"
                     type="button"
+                    tabindex="-1"
                 >
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Zaloguj się
@@ -135,6 +139,7 @@
                     class="navbar__list-item logged-out button-style1"
                     onclick="enterToRegister(true)"
                     type="button"
+                    tabindex="-1"
                 >
                     <i class="fa-solid fa-user-plus"></i> Zarejestruj się
                 </button>
@@ -621,12 +626,14 @@
                                 />
                                 <label for="change-firstname">Imię</label>
                             </div>
-                            <button
-                                class="user-button button-style1"
-                                type="submit"
-                            >
-                                Aktualizuj
-                            </button>
+                            <div class="user-button-wrapper">
+                                <button
+                                    class="user-button button-style1"
+                                    type="submit"
+                                >
+                                    Aktualizuj
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="h-form">
@@ -653,13 +660,14 @@
                                 />
                                 <label for="change-lastname">Nazwisko</label>
                             </div>
-
-                            <button
-                                class="user-button button-style1"
-                                type="submit"
-                            >
-                                Aktualizuj
-                            </button>
+                            <div class="user-button-wrapper">
+                                <button
+                                    class="user-button button-style1"
+                                    type="submit"
+                                >
+                                    Aktualizuj
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="h-form">
@@ -693,12 +701,14 @@
                                 />
                                 <label for="change-password">Hasło</label>
                             </div>
-                            <button
-                                class="user-button button-style1"
-                                type="submit"
-                            >
-                                Aktualizuj
-                            </button>
+                            <div class="user-button-wrapper">
+                                <button
+                                    class="user-button button-style1"
+                                    type="submit"
+                                >
+                                    Aktualizuj
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="h-form">
@@ -721,14 +731,15 @@
                                 />
                                 <label for="change-login">Login</label>
                             </div>
-
-                            <button
-                                class="user-button--disabled button-style1"
-                                disabled
-                                type="submit"
-                            >
-                                Aktualizuj
-                            </button>
+                            <div class="user-button-wrapper">
+                                <button
+                                    class="user-button--disabled button-style1"
+                                    disabled
+                                    type="submit"
+                                >
+                                    Aktualizuj
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="h-form">
@@ -750,13 +761,15 @@
                                 />
                                 <label for="change-email">Email</label>
                             </div>
-                            <button
-                                class="user-button--disabled button-style1"
-                                disabled
-                                type="submit"
-                            >
-                                Aktualizuj
-                            </button>
+                            <div class="user-button-wrapper">
+                                <button
+                                    class="user-button--disabled button-style1"
+                                    disabled
+                                    type="submit"
+                                >
+                                    Aktualizuj
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -866,7 +879,7 @@
                                 required
                             />
                             <label for="add-question-right-answer"
-                                >Poprawna odp...</label
+                                >Poprawna odpowiedź</label
                             >
                         </div>
                         <div class="form__input--container">

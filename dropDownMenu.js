@@ -5,9 +5,17 @@ elementsOfHtml.toggleBtn.onclick = function () {
     elementsOfHtml.dropDownMenuIsOpen =
         elementsOfHtml.dropDownMenu.classList.contains("dropdown-menu--open");
 
-    elementsOfHtml.toggleBtnIcon.classList = elementsOfHtml.dropDownMenuIsOpen
-        ? "fa-solid fa-xmark"
-        : "fa-solid fa-bars";
+    if (elementsOfHtml.dropDownMenuIsOpen) {
+        elementsOfHtml.toggleBtnIcon.classList = "fa-solid fa-x";
+        Array.from(elementsOfHtml.dropDownMenu.children).forEach(
+            (button) => (button.tabIndex = 0)
+        );
+    } else {
+        elementsOfHtml.toggleBtnIcon.classList = "fa-solid fa-bars";
+        Array.from(elementsOfHtml.dropDownMenu.children).forEach(
+            (button) => (button.tabIndex = -1)
+        );
+    }
 };
 
 function disableDropdownMenu() {
