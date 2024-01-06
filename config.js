@@ -1,5 +1,7 @@
+// User object.
 const user = { userData: undefined, userId: undefined };
 
+// Game object.
 const game = {
     isFiftyFiftyAvailable: true,
     startTime: undefined,
@@ -10,8 +12,13 @@ const game = {
     numberOfQuestion: 0,
     priceGuaranteed: 0,
     currentWon: 0,
+    listOfAmounts: [
+        500, 1000, 2000, 5000, 10000, 20000, 40000, 75000, 125000, 250000,
+        500000, 1000000,
+    ],
 };
 
+// Sounds object.
 const sounds = {
     checkingQuestion: new Audio("sounds/checking_question_mp3.mp3"),
     fiftyFifty: new Audio("sounds/fifty_fifty_wav.wav"),
@@ -24,6 +31,7 @@ const sounds = {
     fail: new Audio("sounds/fail_mp3.mp3"),
 };
 
+// HTML elements object.
 const elementsOfHtml = {
     containers: document.querySelector("main").children,
     loggedInBtns: document.getElementsByClassName("logged-in"),
@@ -51,9 +59,11 @@ const elementsOfHtml = {
     dropDownMenuIsOpen: false,
 };
 
+// Sound mixer object.
 const mixer = {
     currentSound: sounds.startSoundtrack,
     previousVolume: elementsOfHtml.sliderVolume.value,
 };
 
+// Objects export.
 export { elementsOfHtml, game, user, sounds, mixer };

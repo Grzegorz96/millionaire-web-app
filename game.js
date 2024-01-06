@@ -1,5 +1,6 @@
+// Import of required modules.
 import { elementsOfHtml, game, user } from "./config.js";
-import { getData, postData } from "./requests.js"; // CRUD functions on database.
+import { getData, postData } from "./requests.js";
 import {
     switchDisplay,
     setNavbarButtons,
@@ -9,13 +10,23 @@ import {
     checkSessionOfUser,
 } from "./generalFunctions.js";
 
+// Function responsible for preparing the game.
 function prepareGame() {
+    // If the dropdown menu is currently open, close it automatically.
+    if (elementsOfHtml.dropDownMenuIsOpen) elementsOfHtml.toggleBtn.click();
+
+    // A case where questions have been successfully downloaded.
     if (game.questions) {
+        // Calling the function that loads the game container.
         loadGameContainer();
+        // Asynchronous download of top five players.
         getBestFiveScores();
+        // Assigning a new game start time.
         game.startTime = new Date();
+        // Starting the game function.
         inGame();
     } else {
+        // Otherwise, display an error message.
         displayPopup(
             "Wystąpił błąd podczas pobierania pytań, spróbuj ponownie później.",
             1
@@ -23,16 +34,24 @@ function prepareGame() {
     }
 }
 
+// Function repeated for each subsequent question.
 function inGame() {
-    playSound("startQuestion");
+    // Randomizing a new question with the current difficulty level.
     drawQuestion();
+    // Displaying the question on the game panel.
     displayQuestion();
+    // Play the question start sound.
+    playSound("startQuestion");
+    // Enabling answer buttons and game buttons.
     changeStanOfButtons(false);
 }
 
+// Function responsible for draw a question.
 function drawQuestion() {
+    // An empty list of questions with the current difficulty level.
     const actualLevelOfQuestions = [];
 
+    // if the list is empty, questions with the current difficulty level will be added to it.
     while (!actualLevelOfQuestions.length) {
         for (let question of game.currentQuestions) {
             if (question.difficulty == game.numberOfQuestion) {
@@ -40,28 +59,34 @@ function drawQuestion() {
             }
         }
 
+        // In case nothing has been added to the list, which means that the questions with the current level have ended, the list of current questions will be overwritten and the
+        // questions will be added to the actualLevelOfQuestions again.
         if (!actualLevelOfQuestions.length) {
-            game.currentQuestions = [...game.questions]; // if we use every question from particular difficuly level we need to refresh our current list.
+            game.currentQuestions = [...game.questions];
         }
     }
 
+    // Drawing question from the list.
     const question =
         actualLevelOfQuestions[
-            Math.floor(Math.random() * actualLevelOfQuestions.length) // Drawing index of question.
+            Math.floor(Math.random() * actualLevelOfQuestions.length)
         ];
 
-    game.currentQuestions.splice(game.currentQuestions.indexOf(question), 1); // Removing question from currenQuestions.
+    // Removing question from currenQuestions.
+    game.currentQuestions.splice(game.currentQuestions.indexOf(question), 1);
 
+    // Assigning a question to the currentQuestion property on the game object.
     game.currentQuestion = question;
 }
 
+// Function responsible for displaying a question.
 function displayQuestion() {
-    // highlighting the current div with the amount to be won.
+    // Highlighting the current div with the amount to be won.
     elementsOfHtml.priceLabels[game.numberOfQuestion].classList.add(
         "price-label--activated"
     );
 
-    // highlighting the achieved div with the guaranteed amount.
+    // Highlighting the achieved div with the guaranteed amount.
     if (
         game.numberOfQuestion > 0 &&
         elementsOfHtml.priceLabels[
@@ -89,33 +114,37 @@ function displayQuestion() {
     }
 }
 
+// Function responsible for checking the selected answer.
 async function checkAnswer(selectedButton) {
+    // Assign the selected answer (A, B, C, D) from the selected button.
     const answer = selectedButton.classList[1];
-    playSound("checkingQuestion");
+    // Disabling answer buttons and game buttons.
     changeStanOfButtons(true);
+    // Calling a function that changes the color of the selected button.
     setSelectedAnswer(selectedButton, answer, "rgb(199, 125, 14)");
+    // Playing the question checking sound.
+    playSound("checkingQuestion");
+    // Timeout lasting 4.6 seconds.
     await awaitTimeout(4600);
 
+    // The case when the selected answer is equal to the correct answer to the question
     if (game.currentQuestion.right_answer == answer) {
-        playSound("win");
+        // Calling a function that changes the color of the selected button.
         setSelectedAnswer(selectedButton, answer, "rgb(5, 255, 13)");
+        // Playing the win sound.
+        playSound("win");
 
-        if (game.numberOfQuestion == 1) {
-            game.priceGuaranteed = 1000;
-        } else if (game.numberOfQuestion == 7) {
-            game.priceGuaranteed = 40000;
-        } else if (game.numberOfQuestion == 11) {
-            game.priceGuaranteed = 1000000;
-        }
-        game.currentWon = Number(
-            elementsOfHtml.priceLabels[game.numberOfQuestion].innerText.slice(
-                0,
-                -2
-            )
-        );
+        // If the current question number is 1, 6 or 11, the guaranteed amount will be updated.
+        if ([1, 6, 11].includes(game.numberOfQuestion))
+            game.priceGuaranteed = game.listOfAmounts[game.numberOfQuestion];
 
+        // Updating the current winning amount.
+        game.currentWon = game.listOfAmounts[game.numberOfQuestion];
+
+        // Timeout lasting 4.5 seconds.
         await awaitTimeout(4500);
-        setDefaultValues(selectedButton, answer);
+        //
+        setDefaultValues(selectedButton);
         if (game.numberOfQuestion != 11) {
             game.numberOfQuestion += 1;
             inGame();
@@ -123,7 +152,6 @@ async function checkAnswer(selectedButton) {
             endGame(false);
         }
     } else {
-        playSound("fail");
         for (let button of elementsOfHtml.answers) {
             if (button.classList.contains(game.currentQuestion.right_answer)) {
                 var rightButton = button;
@@ -131,8 +159,9 @@ async function checkAnswer(selectedButton) {
         }
         setSelectedAnswer(selectedButton, answer, "rgb(255, 30, 0)");
         setRightAnswer(rightButton);
+        playSound("fail");
         await awaitTimeout(4500);
-        setDefaultValues(selectedButton, answer, rightButton);
+        setDefaultValues(selectedButton, rightButton);
         endGame(false);
     }
 }
@@ -141,10 +170,10 @@ function awaitTimeout(delay) {
     return new Promise((resolve) => setTimeout(resolve, delay));
 }
 
-function endGame(isFrombutton) {
+function endGame(isFromButton) {
     const gameDuration = (new Date() - game.startTime) / 1000; // time of game duration in seconds.
 
-    if (isFrombutton) {
+    if (isFromButton) {
         var amountWon = game.currentWon;
         Array.from(elementsOfHtml.priceLabels).forEach((label) => {
             label.classList.remove("price-label--activated");
@@ -155,7 +184,7 @@ function endGame(isFrombutton) {
     }
 
     game.isFiftyFiftyAvailable = true;
-    elementsOfHtml.gameBtns[0].style.backgroundColor = "rgb(24, 28, 46)";
+    elementsOfHtml.gameBtns[0].removeAttribute("style");
     game.numberOfQuestion = 0;
     game.currentQuestion = undefined;
     game.priceGuaranteed = 0;
@@ -201,10 +230,8 @@ function setRightAnswer(rightButton) {
 }
 
 function setSelectedAnswer(selectedButton, beforeVariable, currentColor) {
-    if (!selectedButton.classList.contains("selected-answer")) {
-        selectedButton.classList.add("selected-answer");
-        selectedButton.children[0].style.color = "white";
-    }
+    selectedButton.classList.add("selected-answer");
+    selectedButton.children[0].style.color = "white";
 
     document
         .querySelector(":root")
@@ -215,29 +242,15 @@ function setSelectedAnswer(selectedButton, beforeVariable, currentColor) {
         .style.setProperty(`--selected-answer-background`, currentColor);
 }
 
-function setDefaultValues(selectedButton, beforeVariable, rightButton) {
+function setDefaultValues(selectedButton, rightButton) {
     Array.from(elementsOfHtml.priceLabels).forEach((label) => {
         label.classList.remove("price-label--activated");
     });
 
-    document
-        .querySelector(":root")
-        .style.setProperty(`--${beforeVariable}`, "rgb(24, 28, 46)");
-
-    document
-        .querySelector(":root")
-        .style.setProperty(`--selected-answer-background`, "none");
-
+    document.querySelector(":root").removeAttribute("style");
     selectedButton.classList.remove("selected-answer");
 
     if (rightButton) {
-        document
-            .querySelector(":root")
-            .style.setProperty(
-                `--${game.currentQuestion.right_answer}`,
-                "rgb(24, 28, 46)"
-            );
-
         rightButton.classList.remove("right-answer");
     }
 }
@@ -291,13 +304,12 @@ function loadEndGameContainer(amountWon, result) {
     ) {
         postScore({ user_id: user.userId, points: result });
     }
-    playSound("millioner");
-    document.body.style.backgroundImage = "url(images/background.png)";
+    document.body.removeAttribute("style");
     switchDisplay(5);
+    playSound("millioner");
 }
 
 function fiftyFifty() {
-    playFiftyFiftySoundEffect();
     game.isFiftyFiftyAvailable = false;
     elementsOfHtml.gameBtns[0].disabled = true;
     elementsOfHtml.gameBtns[0].style.backgroundColor = "#4d0004";
@@ -314,6 +326,7 @@ function fiftyFifty() {
             button.disabled = true;
         }
     });
+    playFiftyFiftySoundEffect();
 }
 
 // Loading of questions.
@@ -370,6 +383,7 @@ async function getBestFiveScores() {
     }
 }
 
+// export functions.
 export {
     prepareGame,
     checkAnswer,

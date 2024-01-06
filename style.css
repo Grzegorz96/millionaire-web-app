@@ -13,39 +13,35 @@
     color: #fff;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
 /* DELETING ALL SCROLLBARS */
 ::-webkit-scrollbar {
     display: none;
 }
-/* FOR EXPLORER */
-body {
-    -ms-overflow-style: none;
-}
-/* FOR MOZILLA */
-html {
-    scrollbar-width: none;
-}
 
 body {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background: #2c2c2c;
     background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /* ENTER APP LABEL */
 #enter-app {
     position: absolute;
     z-index: 999;
-    width: 100vw;
-    height: 100vh;
-    background: #2c2c2c;
-    background-image: url(images/background.png);
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -197,7 +193,7 @@ main {
 
 /* FOOTER */
 footer {
-    background-color: rgba(37, 0, 122, 0.377);
+    background-color: transparent;
     width: 100%;
     height: 40px;
 }
@@ -258,7 +254,7 @@ footer {
     top: 48%;
     width: 90%;
     height: 145px;
-    z-index: 1;
+    z-index: 1001;
     border-radius: 15px;
     position: absolute;
     background-color: rgb(24, 28, 46);
@@ -469,7 +465,7 @@ input:focus:not(:focus-visible),
 }
 
 #authorization-button {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* GAME */
@@ -583,9 +579,9 @@ input:focus:not(:focus-visible),
     position: absolute;
     border-right: 47px solid rgb(240, 236, 10);
     border-top: 33px solid transparent;
-    border-bottom: 34px solid transparent;
+    border-bottom: 33px solid transparent;
     top: -33px;
-    left: 4px;
+    left: 3px;
 }
 
 #question-number-mid {
@@ -616,9 +612,9 @@ input:focus:not(:focus-visible),
     position: absolute;
     border-left: 47px solid rgb(240, 236, 10);
     border-top: 33px solid transparent;
-    border-bottom: 34px solid transparent;
+    border-bottom: 33px solid transparent;
     top: -33px;
-    right: 4px;
+    right: 3px;
 }
 
 #answers {
@@ -661,9 +657,9 @@ input:focus:not(:focus-visible),
 .left::before {
     content: "";
     position: absolute;
-    border-top: 28px solid transparent;
-    border-bottom: 28px solid transparent;
-    left: 4px;
+    border-top: 27px solid transparent;
+    border-bottom: 27px solid transparent;
+    left: 3px;
 }
 
 .l-A::before {
@@ -740,9 +736,9 @@ input:focus:not(:focus-visible),
 .right::before {
     content: "";
     position: absolute;
-    border-top: 28px solid transparent;
-    border-bottom: 28px solid transparent;
-    right: 4px;
+    border-top: 27px solid transparent;
+    border-bottom: 27px solid transparent;
+    right: 3px;
 }
 
 #question-content {
@@ -774,10 +770,10 @@ input:focus:not(:focus-visible),
     content: "";
     position: absolute;
     border-right: 67px solid rgb(24, 28, 46);
-    border-top: 58px solid transparent;
-    border-bottom: 58px solid transparent;
-    top: -57.5px;
-    left: 4px;
+    border-top: 57px solid transparent;
+    border-bottom: 57px solid transparent;
+    top: -57px;
+    left: 3px;
 }
 
 #question-content-mid {
@@ -800,9 +796,9 @@ input:focus:not(:focus-visible),
     content: "";
     position: absolute;
     border-left: 67px solid rgb(24, 28, 46);
-    border-top: 58px solid transparent;
-    border-bottom: 58px solid transparent;
-    top: -57.5px;
+    border-top: 57px solid transparent;
+    border-bottom: 57px solid transparent;
+    top: -57px;
     left: -70px;
 }
 
@@ -909,8 +905,8 @@ input:focus:not(:focus-visible),
 }
 
 .back--modifier1 {
-    top: 6px;
-    right: 6px;
+    top: 4px;
+    right: 4px;
 }
 
 /* USER PANEL */
@@ -1314,7 +1310,7 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-/* JUSTIFY DROPBOX ON PHONES */
+/* JUSTIFY DROPDOWN MENU ON PHONES */
 @media screen and (max-width: 576px) {
     .dropdown-menu {
         left: 1rem;
