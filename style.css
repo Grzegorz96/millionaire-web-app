@@ -1,16 +1,18 @@
+/* CSS global variables. */
 :root {
     --A: rgb(24, 28, 46);
     --B: rgb(24, 28, 46);
     --C: rgb(24, 28, 46);
     --D: rgb(24, 28, 46);
-    --selected-answer-background: none;
 }
 
+/* Default values for each element. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: #fff;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -19,7 +21,7 @@ html {
     overflow: hidden;
 }
 
-/* DELETING ALL SCROLLBARS */
+/* Deleting all scrollbars */
 ::-webkit-scrollbar {
     display: none;
 }
@@ -121,7 +123,6 @@ header {
     font-size: 1.5rem;
     cursor: pointer;
     display: none;
-    -webkit-tap-highlight-color: transparent;
     width: 30px;
     border-radius: 8px;
     justify-content: center;
@@ -561,6 +562,7 @@ input:focus:not(:focus-visible),
 }
 
 #question-number {
+    z-index: -2;
     position: relative;
     display: flex;
     align-items: center;
@@ -585,7 +587,6 @@ input:focus:not(:focus-visible),
 }
 
 #question-number-mid {
-    z-index: -2;
     box-shadow: 0px 5px 25px rgb(138, 137, 77), 0px -5px 25px rgb(138, 137, 77),
         -55px 0px 25px rgb(138, 137, 77), 55px 0px 25px rgb(138, 137, 77);
     font-size: 30px;
@@ -1315,5 +1316,72 @@ input[type="number"]::-webkit-outer-spin-button {
     .dropdown-menu {
         left: 1rem;
         width: unset;
+    }
+}
+
+@media screen and (max-height: 770px) {
+    #question-answers {
+        gap: 5px;
+    }
+
+    #question-content-mid {
+        height: 90px;
+    }
+
+    #question-content-left {
+        border-right: 40px solid rgb(255, 255, 255);
+        border-top: 45px solid transparent;
+        border-bottom: 45px solid transparent;
+    }
+
+    #question-content-left::before {
+        border-right: 37px solid rgb(24, 28, 46);
+        border-top: 42px solid transparent;
+        border-bottom: 42px solid transparent;
+        top: -42px;
+    }
+
+    #question-content-right {
+        border-left: 40px solid white;
+        border-top: 45px solid transparent;
+        border-bottom: 45px solid transparent;
+    }
+
+    #question-content-right::before {
+        border-left: 37px solid rgb(24, 28, 46);
+        border-top: 42px solid transparent;
+        border-bottom: 42px solid transparent;
+        top: -42px;
+        left: -40px;
+    }
+
+    #question-number-mid {
+        height: 40px;
+    }
+
+    #question-number-left {
+        border-right: 30px solid white;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+    }
+
+    #question-number-left::before {
+        border-right: 27px solid rgb(240, 236, 10);
+        border-top: 17px solid transparent;
+        border-bottom: 17px solid transparent;
+        top: -17px;
+    }
+
+    #question-number-right {
+        border-left: 30px solid white;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+    }
+
+    #question-number-right::before {
+        border-left: 27px solid rgb(240, 236, 10);
+        border-top: 17px solid transparent;
+        border-bottom: 17px solid transparent;
+        top: -17px;
     }
 }
