@@ -29,7 +29,7 @@ import {
     deleteUser,
 } from "./userPanel.js";
 import { enterToAddQuestionPanel, sendQuestion } from "./addQuestions.js";
-import { disableDropdownMenu } from "./dropDownMenu.js";
+import { disableDropDownMenu } from "./dropDownMenu.js";
 
 // Assigning the required functions as methods on the window object. Creating global functions that are accessible from index.html
 window.switchDisplay = switchDisplay;
@@ -56,7 +56,7 @@ window.changeTypeOfPasswordInput = changeTypeOfPasswordInput;
 window.changeSoundState = changeSoundState;
 window.changeVolume = changeVolume;
 window.enterApp = enterApp;
-window.onresize = disableDropdownMenu;
+window.onresize = disableDropDownMenu;
 
 // Performing the application setup procedure.
 displayLogoutMessage();

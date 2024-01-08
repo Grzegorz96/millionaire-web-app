@@ -25,7 +25,7 @@ elementsOfHtml.toggleBtn.onclick = function () {
 };
 
 // Function responsible for automatically closing the dropdown menu when the browser window is expanded to a certain size.
-function disableDropdownMenu() {
+function disableDropDownMenu() {
     // When the browser window increases in size to larger than 768px and the dropdown menu is open at that time, the dropdown menu will automatically close.
     if (window.innerWidth > 768 && elementsOfHtml.dropDownMenuIsOpen) {
         elementsOfHtml.toggleBtn.click();
@@ -33,4 +33,4 @@ function disableDropdownMenu() {
 }
 
 // export function.
-export { disableDropdownMenu };
+export { disableDropDownMenu };

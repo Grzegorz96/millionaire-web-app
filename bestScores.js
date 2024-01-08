@@ -6,7 +6,6 @@ import { elementsOfHtml } from "./config.js";
 // The function responsible for downloading the list of the best players and dynamically building an HTML structure depending on how many results it downloads.
 async function getBestScores() {
     // If the dropdown menu is currently open, close it automatically.
-    console.log(elementsOfHtml.dropDownMenuIsOpen);
     if (elementsOfHtml.dropDownMenuIsOpen) elementsOfHtml.toggleBtn.click();
 
     // Sending a request to download the list of top players.
