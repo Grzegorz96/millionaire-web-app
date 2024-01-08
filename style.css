@@ -901,6 +901,7 @@ input:focus:not(:focus-visible),
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
+    width: 100%;
     max-width: 400px;
     max-height: 100%;
 }
@@ -1183,6 +1184,7 @@ input[type="number"]::-webkit-outer-spin-button {
         position: relative;
         grid-template-rows: 80px auto;
         padding: 10px;
+        height: 100%;
     }
 
     #buttons-price {
@@ -1319,7 +1321,7 @@ input[type="number"]::-webkit-outer-spin-button {
     }
 }
 
-@media screen and (max-height: 770px) {
+@media screen and (max-height: 773px) {
     #question-answers {
         gap: 5px;
     }
