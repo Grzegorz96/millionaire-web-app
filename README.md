@@ -36,9 +36,9 @@ bestScores.js:
 - The bestScores.js module takes care of fetching the list of top players and dynamically rendering and displaying it on the UI.
 
 addQuestions.js:
-The addQuestions.js module is responsible for displaying the question addition panel and sending new questions to the API.
+- The addQuestions.js module is responsible for displaying the question addition panel and sending new questions to the API.
 
 generalFunctions.js:
 - The last module, generalFunctions.js, contains functions used in other modules, such as changing navigation buttons, displaying and removing popups, checking user sessions, functions responsible for playing sound in the program, and other general-purpose functions.
 
-- The entire structure of the program is located in one HTML file called index.html, on the HTML side there is also validation of data entered by the user, while the application styles are described in the style.css file, which covers both styling of elements and aspects of application responsiveness.
+The entire structure of the program is located in one HTML file called index.html, on the HTML side there is also validation of data entered by the user, while the application styles are described in the style.css file, which covers both styling of elements and aspects of application responsiveness.
