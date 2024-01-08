@@ -10,3 +10,5 @@ The program consists of 11 modules, each of which plays a unique role in the fun
 
 index.js:
 - The index.js module acts as a connector between modules. It is imported directly into the HTML file, and the rest of the modules are imported there. This assigns functions to the window object, allowing you to use them directly from the HTML file. Furthermore, this module is responsible for performing the program setup functions.
+config.js:
+-config.js contains objects such as user, game, sounds, elementsOfHtml, and mixer, which are used in other modules. This is the place for program configuration objects.
