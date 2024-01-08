@@ -12,4 +12,33 @@ index.js:
 - The index.js module acts as a connector between modules. It is imported directly into the HTML file, and the rest of the modules are imported there. This assigns functions to the window object, allowing you to use them directly from the HTML file. Furthermore, this module is responsible for performing the program setup functions.
 
 config.js:
-- config.js contains objects such as user, game, sounds, elementsOfHtml, and mixer, which are used in other modules. This is the place for program configuration objects.
+- The config.js contains objects such as user, game, sounds, elementsOfHtml, and mixer, which are used in other modules. This is the place for program configuration objects.
+
+dropDownMenu.js:
+- The dropDownMenu.js module is responsible for the function of the toggleBtn button, which opens and closes the dropdown menu, ensuring interactivity of the user interface. It also has an automatic closing dropdown menu feature.
+
+requests.js:
+- The requests.js is responsible for creating queries and sending them to the server, as well as returning responses to parent functions. In this way, the module manages communication between the frontend and backend.
+
+game.js:
+- The game.js module is responsible for all functions related to the game, from its display, through logic, to functions making requests to the API.
+
+login.js:
+- The login.js module is responsible for displaying the login panel and handling the user login and logout process.
+
+register.js:
+- The register.js module is responsible for displaying the registration panel, handling the registration process and user activation.
+
+userPanel.js:
+- The userPanel.js module is responsible for displaying the user panel, retrieving user information, updating user data and deleting a user.
+
+bestScores.js:
+- The bestScores.js module takes care of fetching the list of top players and dynamically rendering and displaying it on the UI.
+
+addQuestions.js:
+The addQuestions.js module is responsible for displaying the question addition panel and sending new questions to the API.
+
+generalFunctions.js:
+- The last module, generalFunctions.js, contains functions used in other modules, such as changing navigation buttons, displaying and removing popups, checking user sessions, functions responsible for playing sound in the program, and other general-purpose functions.
+
+- The entire structure of the program is located in one HTML file called index.html, on the HTML side there is also validation of data entered by the user, while the application styles are described in the style.css file, which covers both styling of elements and aspects of application responsiveness.
