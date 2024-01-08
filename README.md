@@ -8,5 +8,5 @@ The MILLIONAIRE web.app is my original creation, serving as a clone of the popul
 
 The program consists of 11 modules, each of which plays a unique role in the functioning of the application. Below is a brief description of each module:
 
--index.js:
+- index.js:
 The index.js module acts as a connector between modules. It is imported directly into the HTML file, and the rest of the modules are imported there. This assigns functions to the window object, allowing you to use them directly from the HTML file. Furthermore, this module is responsible for performing the program setup functions.
