@@ -2,7 +2,7 @@
 
 # MILLIONAIRE web.app
 
-The MILLIONAIRE web.app is my original creation, serving as a clone of the popular TV game show "Who Wants to Be a Millionaire." Users can assume the role of a player and compete with other participants in a points-based ranking system. All data-related operations are conducted through a dedicated API interface and a database. The application is hosted on Netlify, with the backend and database situated on PythonAnywhere servers. Thanks to carefully implemented responsive design, the program is accessible on all devices with internet access, allowing users to engage with it from any location. Additionally, the program has been designed to enable users to log in during sessions that persist until logout or automatic session expiration, ensuring convenience and security in using the application.
+The MILLIONAIRE web.app is my original creation, serving as a clone of the popular TV game show "Who Wants to Be a Millionaire." Users can assume the role of a player and compete with other participants in a points-based ranking system. All data-related operations are conducted through a dedicated API interface and a database. The application is hosted on Netlify, with the backend and database situated on PythonAnywhere servers. Thanks to carefully implemented responsive design, the program is accessible on all devices with internet access, allowing users to engage with it from any location. Additionally, the program has been designed to enable users to log in during sessions that persist until logout or automatic session expiration, ensuring convenience and security in using the application thanks to JSON Web Tokens.
 
 ## Description of the modules
 
@@ -42,3 +42,33 @@ generalFunctions.js:
 - The last module, generalFunctions.js, contains functions used in other modules, such as changing navigation buttons, displaying and removing popups, checking user sessions, functions responsible for playing sound in the program, and other general-purpose functions.
 
 The entire structure of the program is located in one HTML file called index.html, on the HTML side there is also validation of data entered by the user, while the application styles are described in the style.css file, which covers both styling of elements and aspects of application responsiveness.
+
+
+## Features
+
+- Two-step login verification:
+###### - Getting access token, refresh token and user id.
+###### - Getting informations about user using tokens and id.
+- User logout.
+- Three-step registration verification:
+###### - Checking if the user is not already in the database.
+###### - Email confirmation by the user with an activation code.
+###### - Placing validated user data in the database.
+- Deleting account.
+- JSON Web Token for user authentication.
+- Sending emails with an activation number to the account.
+- Adding your own questions by the user.
+- Updating and displaying logged in user.
+- Displaying scores of top players.
+- Adding scores of top players.
+- Automatic refresh of JWT access tokens.
+- Download questions from the database and randomizing questions to the user, taking into account the current level.
+- Sounds system.
+- Sound controller that allows to mute, unmute and change the sound volume.
+- Random rejection of two incorrect answers. 
+- System of points.
+- Ending the game with a guaranteed amount during a wrong answer, arbitrarily withdrawing from the game or by answering all questions correctly.
+- Validation of entered data.
+- Handling response errors from the server.
+- Dynamic highlighting of the guaranteed amounts earned and the current amount.
+- Automatic replenishment of the question list when the questions run out.
