@@ -30,7 +30,6 @@ import {
 } from "./userPanel.js";
 import { enterToAddQuestionPanel, sendQuestion } from "./addQuestions.js";
 import { disableDropdownMenu } from "./dropDownMenu.js";
-import { user } from "./config.js";
 
 // Assigning the required functions as methods on the window object. Creating global functions that are accessible from index.html
 window.switchDisplay = switchDisplay;
