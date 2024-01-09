@@ -180,8 +180,8 @@ Screenshot of using the fifty-fifty function
 ### View for mobile devices:
 ##### Screenshot of the enter app panel
 ##### Screenshot of the start panel
-![enter_app_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d)
-![start_panel_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15)
+![enter_app_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d){:width="100px"}
+![start_panel_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15){:width="100px"}
 
 
 
