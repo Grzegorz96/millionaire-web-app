@@ -147,3 +147,34 @@ E-mail: grzesstrzeszewski@gmail.com
 
 
 ## Screnshoots
+##### Screenshot of the enter app panel
+![enter_app](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6c33cf71-27c2-4a3e-8d40-e03f8f48d0e9)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
