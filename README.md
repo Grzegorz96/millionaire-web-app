@@ -179,11 +179,11 @@ Screenshot of using the fifty-fifty function
 
 ### View for mobile devices:
 ##### Screenshot of the enter app panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/d4d3ca0d-9bd2-487f-a3d0-7fa3d798556e" width="100"> 
 ##### Screenshot of the start panel
-![enter_app_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d | width=100) 
-![start_panel_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15) {:width="100px"}
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15" width="100"> 
-![Tekst alternatywny](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d | width=400)
+
+
 
 
 
