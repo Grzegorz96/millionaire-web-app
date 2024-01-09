@@ -229,5 +229,11 @@ Screenshot of the user panel
 ##### Screenshot of in game panel for tablets
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/b3afab61-d36f-45d9-aa29-67295fe20a24" width="400">
 
-##### Screenshot of in game panel for smaller mobile devices.
+##### Screenshot of in game panel for smaller mobile devices
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6150292b-2a0d-4dfc-a0dd-09ef96b551a0" width="400">
+
+##### Screenshot of in game panel for smaller mobile devices
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6150292b-2a0d-4dfc-a0dd-09ef96b551a0" width="400">
+
+##### Screenshot of the message with activation number
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/25810b36-d6fe-4475-9d13-971d5b1a55fb" width="400">
