@@ -402,6 +402,9 @@ function fiftyFifty() {
     elementsOfHtml.gameBtns[0].disabled = true;
     elementsOfHtml.gameBtns[0].style.backgroundColor = "#4d0004";
 
+    // Playing the fiftyFifty sound effect.
+    playFiftyFiftySoundEffect();
+
     // Remove the correct answer from the list.
     const badAnswers = ["A", "B", "C", "D"].filter(
         (answer) => answer != game.currentQuestion.right_answer
@@ -417,9 +420,6 @@ function fiftyFifty() {
             button.disabled = true;
         }
     });
-
-    // Playing the fiftyFifty sound effect.
-    playFiftyFiftySoundEffect();
 }
 
 // Function responsible for downloading questions.
