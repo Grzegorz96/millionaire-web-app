@@ -133,7 +133,7 @@ While working on this project, I acquired the skill of integrating programs runn
 
 ## Authors
 
-- [@Grzegorz96](https://www.github.com/Grzegorz96)
+[@Grzegorz96](https://www.github.com/Grzegorz96)
 
 
 ## Contact
