@@ -183,7 +183,7 @@ Screenshot of using the fifty-fifty function
 ![enter_app_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d | width=100) 
 ![start_panel_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15) {:width="100px"}
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15" width="100"> 
-
+![Tekst alternatywny](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d | width=400)
 
 
 
