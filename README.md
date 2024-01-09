@@ -196,7 +196,7 @@ Screenshot of the user panel
 ##### Screenshot of the add question panel
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/3793bb10-4662-4150-b6cf-bbd102ce101b" width="500"> 
 
-Screenshot of the user panel
+##### Screenshot of the user panel
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/087337ec-9e84-4c51-896d-691e3a5ab828" width="500"> 
 
 ##### Screenshot of selecting answer in game panel
