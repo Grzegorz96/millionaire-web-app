@@ -147,7 +147,7 @@ E-mail: grzesstrzeszewski@gmail.com
 
 
 ## Screnshoots
-#### View for desktop and laptop screens:
+### View for desktop and laptop screens:
 ##### Screenshot of the enter app panel
 ![enter_app](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6c33cf71-27c2-4a3e-8d40-e03f8f48d0e9)
 ##### Screenshot of the start panel
@@ -177,9 +177,9 @@ Screenshot of using the fifty-fifty function
 ##### Screenshot of one of the information pop-ups.
 ![popup_enter_app](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/229e0962-2039-429c-878d-8894d953db7c)
 
-
-
-
+### View for mobile devices:
+##### Screenshot of the enter app panel
+![enter_app_phone](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/27b6abd0-5081-48d8-945b-aa018edde44d)
 
 
 
