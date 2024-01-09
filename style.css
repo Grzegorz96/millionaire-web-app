@@ -259,7 +259,8 @@ footer {
     border-radius: 15px;
     position: absolute;
     background-color: rgb(24, 28, 46);
-    font-size: 1.5rem;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .popup p {
@@ -969,7 +970,7 @@ h5 {
 }
 
 .back--modifier2 {
-    top: -29px;
+    top: -27px;
     right: 0;
     width: 30px;
 }
