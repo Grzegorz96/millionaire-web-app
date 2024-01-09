@@ -149,14 +149,22 @@ E-mail: grzesstrzeszewski@gmail.com
 ## Screnshoots
 ##### Screenshot of the enter app panel
 ![enter_app](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6c33cf71-27c2-4a3e-8d40-e03f8f48d0e9)
-
-
-
-
-
-
-
-
+##### Screenshot of the start panel
+![start_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/388e4555-21c7-4736-a92b-9a1a81e49441)
+##### Screenshot of the login panel
+![login_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/325c7cf6-25e8-488d-a0aa-ba0480b03ef7)
+##### Screenshot of the register panel
+![register_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/b80d30fd-5b28-4503-8455-1a247e4bac0d)
+##### Screenshot of the account activation panel
+![auth_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/b93940d3-07dd-4ee4-bbe0-eec3556d1a76)
+##### Screenshot of the add question panel
+![add_question](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/8401444f-bd4e-4d61-ba3e-c30b54cc2083)
+##### Screenshot of selecting answer in game panel
+![select_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/10cf9675-882e-44cb-9325-e65f58d9f644)
+##### Screenshot of selecting right answer in game panel
+![right_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/a4a6556e-3631-485e-bc11-238acdbaed85)
+Screenshot of using the fifty-fifty function
+![fifty_fifty](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/c904f89d-1bbe-40dc-b498-3424a587752b)
 
 
 
