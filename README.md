@@ -121,6 +121,6 @@ The entire structure of the program is located in one HTML file called index.htm
 - Alternatively, open the file and press the key combination Alt+L, Alt+O, or click "Go Live" on the bottom navigation bar.
 ###### Check the local server:
 - After completing the above steps, the project will be running on a local server on the default port 5500.
-- In your browser, open the address http://localhost:5500 to view your application.
+- In your browser, open the address http://127.0.0.1:5500 to view your application.
 
 
