@@ -62,6 +62,8 @@ The entire structure of the program is located in one HTML file called index.htm
 - Displaying scores of top players.
 - Adding scores of top players.
 - Automatic refresh of JWT access tokens.
+- Automatic verification of the current user session.
+- Automatic login of a user with an active session.
 - Download questions from the database and randomizing questions to the user, taking into account the current level.
 - Sounds system.
 - Sound controller that allows to mute, unmute and change the sound volume.
@@ -72,3 +74,53 @@ The entire structure of the program is located in one HTML file called index.htm
 - Handling response errors from the server.
 - Dynamic highlighting of the guaranteed amounts earned and the current amount.
 - Automatic replenishment of the question list when the questions run out.
+- Responsive appearance of the application, it can be used on all devices.
+- Information pop-up system.
+- Dropdown menu.
+- Automatic closing dropdown Menu.
+
+
+## Technology used
+**Client:** 
+- Languages: JavaScript, CSS, HTML
+- Hosting for web application: www.netlify.com
+
+**Server:** 
+- Languages: Python, SQL
+- Third Party Libraries: Flask, PyJWT, mysql-connector-python, python-dotenv
+- Hosting for API: www.pythonanywhere.com
+- Hosting for MySQL database: www.pythonanywhere.com
+
+
+## Installation
+
+### To quickly launch the Millionaire web application:
+- Enter the link: https://millionaire-web-app.netlify.app/
+
+### For manually launching the application on the IDE:
+#### Requirements:
+##### Programs:
+- Web browser.
+- IDE, for example Visual Studio Code.
+
+#### Instruction:
+- Download millionaire-web-app repository:
+```bash
+ git clone https://github.com/Grzegorz96/millionaire-web-app.git
+```
+- Go to the millionaire-web-app directory.
+- Open the millionaire-web-app on your IDE.
+- To run the project on a local server on port 5500 using Visual Studio Code:
+###### Download the "Live Server" extension:
+- Go to the "Extensions" tab (Ctrl+Shift+X).
+- Search for "Live Server."
+- Install the extension named "Live Server" by Ritwick Dey.
+###### Launch the "Live Server" extension:
+- Locate the HTML file or any other file you want to run.
+- Right-click on the file and choose "Open with Live Server" from the context menu.
+- Alternatively, open the file and press the key combination Alt+L, Alt+O, or click "Go Live" on the bottom navigation bar.
+###### Check the local server:
+- After completing the above steps, the project will be running on a local server on the default port 5500.
+- In your browser, open the address http://localhost:5500/ to view your application.
+
+
