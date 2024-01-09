@@ -166,7 +166,7 @@ Screenshot of the user panel
 ![select_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/10cf9675-882e-44cb-9325-e65f58d9f644)
 ##### Screenshot of selecting right answer in game panel
 ![right_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/a4a6556e-3631-485e-bc11-238acdbaed85)
-Screenshot of using the fifty-fifty function
+##### Screenshot of using the fifty-fifty function
 ![fifty_fifty](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/c904f89d-1bbe-40dc-b498-3424a587752b)
 ##### Screenshot of selecting wrong answer in game panel
 ![wrong_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/4ec52510-b513-4116-b04e-7b216c770555)
@@ -179,18 +179,55 @@ Screenshot of using the fifty-fifty function
 
 ### View for mobile devices:
 ##### Screenshot of the enter app panel
-<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/d4d3ca0d-9bd2-487f-a3d0-7fa3d798556e" width="400">
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/d4d3ca0d-9bd2-487f-a3d0-7fa3d798556e" width="500">
 
 ##### Screenshot of the start panel
-<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15" width="400"> 
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/efff8982-90dd-4b3e-b619-941c2d577c15" width="500"> 
 
+##### Screenshot of the login panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/0cadf033-db7b-4edc-8b3a-0e8fd8ec32e7" width="500"> 
 
+##### Screenshot of the register panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/aaa8b8ff-bb66-478e-a00d-be6a83ce7ffa" width="500"> 
 
+##### Screenshot of the account activation panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/1c7d9615-4f06-457e-8df8-f2fe9851a00d" width="500"> 
 
+##### Screenshot of the add question panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/3793bb10-4662-4150-b6cf-bbd102ce101b" width="500"> 
 
+Screenshot of the user panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/087337ec-9e84-4c51-896d-691e3a5ab828" width="500"> 
 
+##### Screenshot of selecting answer in game panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/2ff9c8ac-a50e-49a3-8e17-6962d2ab6bce" width="500"> 
 
+##### Screenshot of selecting right answer in game panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/43c833bb-3f4e-44cd-9046-1b1cdf1f3074" width="500">
 
+##### Screenshot of using the fifty-fifty function
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/2d64b2bb-0f0b-4d2e-905b-8f45da29f8cc" width="500">
 
+##### Screenshot of selecting wrong answer in game panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/1688c47c-e8bc-4736-af33-f37445b998aa" width="500">
 
+##### Screenshot of the end game panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/064854b5-8a44-477d-898c-2a75bf820b82" width="500">
 
+##### Screenshot of the best scores panel
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/965b96c4-4a43-4534-8f94-2a34207823f6" width="500">
+
+##### Screenshot of one of the information pop-ups.
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/8e622b10-8a22-4a05-8455-562d5d8b20cf" width="500">
+
+##### Screenshot of the drop-down menu while logged in
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/cd716c2e-15f6-4e46-8aa1-94a060255cb1" width="500">
+
+##### Screenshot of the drop-down menu while logged out
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/c3b4b5dd-de89-4911-b534-a091f915ac3d" width="500">
+
+##### Screenshot of in game panel for tablets
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/b3afab61-d36f-45d9-aa29-67295fe20a24" width="500">
+
+##### Screenshot of in game panel for smaller mobile devices.
+<img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/6150292b-2a0d-4dfc-a0dd-09ef96b551a0" width="500">
