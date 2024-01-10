@@ -133,7 +133,6 @@ header {
 .dropdown-menu {
     z-index: 1000;
     display: none;
-    flex-direction: column;
     position: absolute;
     right: 1rem;
     top: 100px;
@@ -151,6 +150,7 @@ header {
 }
 
 .dropdown-menu button {
+    width: calc(100% - 30px);
     margin-inline: 15px;
     margin-top: 15px;
 }
@@ -1283,15 +1283,12 @@ input[type="number"]::-webkit-outer-spin-button {
         display: none;
     }
 
-    .navbar__toggle-btn,
-    .dropdown-menu {
+    .navbar__toggle-btn {
         display: flex;
     }
 
-    .user-details {
-        display: block;
-    }
-
+    .dropdown-menu,
+    .user-details,
     .change-user-form {
         display: block;
     }
