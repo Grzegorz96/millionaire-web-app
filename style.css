@@ -147,7 +147,7 @@ header {
 }
 
 .dropdown-menu--open {
-    max-height: 600px;
+    max-height: 201px;
 }
 
 .dropdown-menu button {
