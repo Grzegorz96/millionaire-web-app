@@ -174,7 +174,7 @@ E-mail: grzesstrzeszewski@gmail.com
 ![end_game_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/e2ecfcb5-b260-4935-98df-fe676f183da0)
 ##### Screenshot of the best scores panel
 ![best_scores](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/2f97b2c4-0521-45eb-b8df-dec41fa855ad)
-##### Screenshot of one of the information pop-ups.
+##### Screenshot of one of the information pop-ups
 ![popup_enter_app](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/229e0962-2039-429c-878d-8894d953db7c)
 
 ### View for mobile devices:
@@ -217,7 +217,7 @@ E-mail: grzesstrzeszewski@gmail.com
 ##### Screenshot of the best scores panel
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/965b96c4-4a43-4534-8f94-2a34207823f6" width="400">
 
-##### Screenshot of one of the information pop-ups.
+##### Screenshot of one of the information pop-ups
 <img src="https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/8e622b10-8a22-4a05-8455-562d5d8b20cf" width="400">
 
 ##### Screenshot of the drop-down menu while logged in
