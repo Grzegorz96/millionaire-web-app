@@ -160,7 +160,7 @@ E-mail: grzesstrzeszewski@gmail.com
 ![auth_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/b93940d3-07dd-4ee4-bbe0-eec3556d1a76)
 ##### Screenshot of the add question panel
 ![add_question](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/8401444f-bd4e-4d61-ba3e-c30b54cc2083)
-Screenshot of the user panel
+##### Screenshot of the user panel
 ![user_panel](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/4d8fd01d-1138-4a65-bf32-9dc061585429)
 ##### Screenshot of selecting answer in game panel
 ![select_answer](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/10cf9675-882e-44cb-9325-e65f58d9f644)
