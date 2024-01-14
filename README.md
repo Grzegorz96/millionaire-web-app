@@ -1,8 +1,8 @@
 ![logo frontend](https://github.com/Grzegorz96/millionaire-web-app/assets/129303867/609cef58-7234-4025-a068-92302835e51d)
 
-# MILLIONAIRE web.app
+# MILLIONAIRE.webapp
 
-The MILLIONAIRE web.app is my original creation, a web application version, serving as a clone of the popular TV game show "Who Wants to Be a Millionaire." Users can assume the role of a player and compete with other participants in a points-based ranking system. All data-related operations are conducted through a dedicated API interface and a database. The application is hosted on Netlify, with the backend and database situated on PythonAnywhere servers. Thanks to carefully implemented responsive design, the program is accessible on all devices with internet access, allowing users to engage with it from any location. Additionally, the program has been designed in such a way that upon user login, a session is automatically created, lasting until logout or automatic expiration, ensuring convenience and security in using the application through the use of JSON Web Tokens.
+The MILLIONAIRE.webapp is my original creation, a web application version, serving as a clone of the popular TV game show "Who Wants to Be a Millionaire." Users can assume the role of a player and compete with other participants in a points-based ranking system. All data-related operations are conducted through a dedicated API interface and a database. The application is hosted on Netlify, with the backend and database situated on PythonAnywhere servers. Thanks to carefully implemented responsive design, the program is accessible on all devices with internet access, allowing users to engage with it from any location. Additionally, the program has been designed in such a way that upon user login, a session is automatically created, lasting until logout or automatic expiration, ensuring convenience and security in using the application through the use of JSON Web Tokens.
 
 ## Description of the modules
 
@@ -123,7 +123,7 @@ The entire structure of the program is located in one HTML file called index.htm
 - After completing the above steps, the project will be running on a local server on the default port 5500.
 - In your browser, open the address http://127.0.0.1:5500 to view your application.
 
-Program MILLIONAIRE web.app connects to the enpoints on the cloud server, you don't need to create a local backend server.
+Program MILLIONAIRE.webapp connects to the enpoints on the cloud server, you don't need to create a local backend server.
 
 
 ## Lessons Learned
