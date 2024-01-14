@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
     color: #fff;
     -webkit-tap-highlight-color: transparent;
 }
@@ -29,7 +30,7 @@ html {
 body {
     height: 100%;
     width: 100%;
-    background: #2c2c2c;
+    background-color: #2c2c2c;
     background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
@@ -146,7 +147,7 @@ header {
 }
 
 .dropdown-menu--open {
-    max-height: 201px;
+    max-height: 247px;
 }
 
 .dropdown-menu button {
@@ -208,7 +209,6 @@ footer {
 
 /* LOGIN */
 #login-form {
-    font-family: Helvetica, sans-serif;
     font-size: 20px;
     backdrop-filter: blur(8px);
     background: linear-gradient(
@@ -259,7 +259,6 @@ footer {
     border-radius: 15px;
     position: absolute;
     background-color: rgb(24, 28, 46);
-    font-family: Helvetica, sans-serif;
     font-size: 20px;
 }
 
@@ -416,7 +415,6 @@ input:focus:not(:focus-visible),
 /* REGISTER */
 #register-form {
     position: relative;
-    font-family: Helvetica, sans-serif;
     backdrop-filter: blur(8px);
     background: linear-gradient(
         to left,
@@ -444,7 +442,6 @@ input:focus:not(:focus-visible),
 /* AUTH-WINDOW */
 #authorization-form {
     position: relative;
-    font-family: Helvetica, sans-serif;
     backdrop-filter: blur(8px);
     background: linear-gradient(
         to left,
@@ -902,8 +899,6 @@ input:focus:not(:focus-visible),
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
-    width: 100%;
-    max-width: 400px;
     max-height: 100%;
 }
 
@@ -915,7 +910,6 @@ input:focus:not(:focus-visible),
 /* USER PANEL */
 #user-forms {
     position: relative;
-    font-family: Helvetica, sans-serif;
     backdrop-filter: blur(8px);
     background: linear-gradient(
         to left,
@@ -978,7 +972,6 @@ h5 {
 /* ADD QUESTION  */
 #add-question-form {
     position: relative;
-    font-family: Helvetica, sans-serif;
     backdrop-filter: blur(8px);
     background: linear-gradient(
         to left,
@@ -1097,17 +1090,15 @@ input[type="number"]::-webkit-outer-spin-button {
     background-color: rgb(73, 73, 73);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 700px), screen and (max-height: 840px) {
     .game {
         position: relative;
-        grid-template-rows: 80px auto;
         padding: 10px;
     }
 
     #buttons-price {
         display: flex;
         flex-direction: column-reverse;
-        align-items: center !important;
     }
 
     #price-label-container {
@@ -1148,6 +1139,34 @@ input[type="number"]::-webkit-outer-spin-button {
 
     #question-content {
         margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-height: 840px) {
+    .game {
+        grid-template-rows: 80px auto;
+        height: 100%;
+    }
+
+    #buttons-price {
+        align-items: flex-end;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .game {
+        grid-template-rows: 75px auto;
+    }
+
+    .price-label {
+        font-size: 0.7rem;
+    }
+
+    #buttons-price {
+        align-items: center;
+    }
+
+    #question-content {
         max-width: 100%;
     }
 
@@ -1174,106 +1193,36 @@ input[type="number"]::-webkit-outer-spin-button {
         max-width: 100%;
         gap: 5px;
     }
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
 }
 
-@media screen and (max-height: 840px) {
-    .game {
-        position: relative;
-        grid-template-rows: 80px auto;
-        padding: 10px;
-        height: 100%;
-    }
-
-    #buttons-price {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: flex-end;
-    }
-
-    #price-label-container {
-        width: 100%;
-        border-radius: 0;
-        left: 0;
-        top: 0;
-        position: absolute;
-        flex-direction: row;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-    }
-
-    .price-label {
-        text-align: center;
-        height: auto;
-        width: 100%;
-        font-size: 0.8rem;
-        border: none;
-        border-block: 2px solid white;
-        border-left: 2px solid white;
-    }
-
-    .price-label:first-child {
-        border-radius: 0;
-        border-top-left-radius: 15px;
-    }
-
-    .price-label:last-child {
-        border-radius: 0;
-        border-top-right-radius: 15px;
-        border-right: 2px solid white;
-    }
-
-    #question-number {
-        margin-block: 8px;
-    }
-
-    #question-content {
-        margin-bottom: 15px;
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .price-label {
-        font-size: 0.7rem;
-    }
-
-    .game {
-        grid-template-rows: 75px auto;
-    }
-}
-
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 640px) {
     .price-label {
         font-size: 0.6rem;
     }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 570px) {
     .price-label {
         font-size: 0.5rem;
     }
-
     .game {
         grid-template-rows: 70px auto;
     }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 500px) {
     .price-label {
         font-size: 0.4rem;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
     #price-label-container {
         display: none;
     }
 
     .game {
-        grid-template-rows: 58px auto;
+        grid-template-rows: 51px auto;
     }
 }
 
