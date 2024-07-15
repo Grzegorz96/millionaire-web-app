@@ -192,7 +192,7 @@ E-mail: grzesstrzeszewski@gmail.com
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/start_panel_phone.jpg" width="400"> 
 
 ##### Screenshot of the login panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/login_panel_phone.jpg" width="400"> 
+<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/login_panel_mobile.jpg" width="400"> 
 
 ##### Screenshot of the register panel
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/register_panel_phone.jpg" width="400"> 
@@ -231,7 +231,7 @@ E-mail: grzesstrzeszewski@gmail.com
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_loged_in.jpg" width="400">
 
 ##### Screenshot of the drop-down menu while logged out
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_loged_out.jpg" width="400">
+<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_logged_out.jpg" width="400">
 
 ##### Screenshot of in game panel for tablets
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_tablet.png" width="400">
