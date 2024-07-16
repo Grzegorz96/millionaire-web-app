@@ -220,17 +220,4 @@ E-mail: grzesstrzeszewski@gmail.com
 ##### Screenshot of in game panel for tablets
 ![in_game_tablet](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_tablet.png)
 ##### Screenshot of the message with activation number
-![activate_number_message](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.jpg)
-
-
-
-
-
-
-
-
-
-
-
-##### Screenshot of the message with activation number
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.jpg" width="400">
