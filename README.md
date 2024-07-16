@@ -166,11 +166,11 @@ E-mail: grzesstrzeszewski@gmail.com
 ##### Screenshot of the account activation panel
 ![auth_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/auth_panel.png)
 ##### Screenshot of the add question panel
-![add_question](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/add_question.png)
+![add_question_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/add_question_panel.png)
 ##### Screenshot of the user panel
 ![user_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/user_panel.png)
 ##### Screenshot of selecting answer in game panel
-![select_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/select_answer.png)
+![selected_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/selected_answer.png)
 ##### Screenshot of selecting right answer in game panel
 ![right_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/right_answer.png)
 ##### Screenshot of using the fifty-fifty function
@@ -182,9 +182,57 @@ E-mail: grzesstrzeszewski@gmail.com
 ##### Screenshot of the best scores panel
 ![best_scores](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/best_scores.png)
 ##### Screenshot of one of the information pop-ups
-![popup_enter_app](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/popup_enter_app.png)
+![popup](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/pc/popup.png)
 
 ### View for mobile devices:
+##### Screenshot of the enter app panel
+![enter_app](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/enter_app.png)
+##### Screenshot of the start panel
+![start_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/start_panel.png)
+##### Screenshot of the login panel
+![login_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/login_panel.png)
+##### Screenshot of the register panel
+![register_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/register_panel.png)
+##### Screenshot of the account activation panel
+![auth_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/auth_panel.png)
+##### Screenshot of the add question panel
+![add_question_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/add_question_panel.png)
+##### Screenshot of the user panel
+![user_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/user_panel.png)
+##### Screenshot of selecting answer in game panel
+![selected_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/selected_answer.png)
+##### Screenshot of selecting right answer in game panel
+![right_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/right_answer.png)
+##### Screenshot of using the fifty-fifty function
+![fifty_fifty](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/fifty_fifty.png)
+##### Screenshot of selecting wrong answer in game panel
+![wrong_answer](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/wrong_answer.png)
+##### Screenshot of the end game panel
+![end_game_panel](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/end_panel.png)
+##### Screenshot of the best scores panel
+![best_scores](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/best_scores.png)
+##### Screenshot of one of the information pop-ups
+![popup](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/popup.png)
+##### Screenshot of the drop-down menu while logged in
+![dropdown_logged_in](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_logged_in.png)
+##### Screenshot of the drop-down menu while logged out
+![dropdown_logged_out](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_logged_out.png)
+##### Screenshot of in game panel for tablets
+![in_game_tablet](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_tablet.png)
+##### Screenshot of the message with activation number
+![activate_number_message](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.png)
+
+
+
+
+
+
+
+
+
+
+
+
 ##### Screenshot of the enter app panel
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/enter_app_phone.jpg" width="400">
 
