@@ -220,7 +220,7 @@ E-mail: grzesstrzeszewski@gmail.com
 ##### Screenshot of in game panel for tablets
 ![in_game_tablet](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_tablet.png)
 ##### Screenshot of the message with activation number
-![activate_number_message](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.png)
+![activate_number_message](https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.jpg)
 
 
 
@@ -231,61 +231,6 @@ E-mail: grzesstrzeszewski@gmail.com
 
 
 
-
-
-##### Screenshot of the enter app panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/enter_app_phone.jpg" width="400">
-
-##### Screenshot of the start panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/start_panel_phone.jpg" width="400"> 
-
-##### Screenshot of the login panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/login_panel_mobile.jpg" width="400"> 
-
-##### Screenshot of the register panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/register_panel_phone.jpg" width="400"> 
-
-##### Screenshot of the account activation panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/auth_panel_phone.jpg" width="400"> 
-
-##### Screenshot of the add question panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/add_question_phone.jpg" width="400"> 
-
-##### Screenshot of the user panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/user_panel_phone.jpg" width="400"> 
-
-##### Screenshot of selecting answer in game panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/select_answer_phone.jpg" width="400"> 
-
-##### Screenshot of selecting right answer in game panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/right_answer_phone.jpg" width="400">
-
-##### Screenshot of using the fifty-fifty function
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/fifty_fifty_phone.jpg" width="400">
-
-##### Screenshot of selecting wrong answer in game panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/wrong_answer_phone.jpg" width="400">
-
-##### Screenshot of the end game panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/end_panel_phone.jpg" width="400">
-
-##### Screenshot of the best scores panel
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/best_scores_phone.jpg" width="400">
-
-##### Screenshot of one of the information pop-ups
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/popup_enter_app_phone.jpg" width="400">
-
-##### Screenshot of the drop-down menu while logged in
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_loged_in.jpg" width="400">
-
-##### Screenshot of the drop-down menu while logged out
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/dropdown_logged_out.jpg" width="400">
-
-##### Screenshot of in game panel for tablets
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_tablet.png" width="400">
-
-##### Screenshot of in game panel for smaller mobile devices
-<img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/in_game_mobile.png" width="400">
 
 ##### Screenshot of the message with activation number
 <img src="https://raw.githubusercontent.com/Grzegorz96/millionaire-web-app/master/docs/readme-images/mobile/activate_number_message.jpg" width="400">
