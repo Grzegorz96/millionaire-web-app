@@ -10,13 +10,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Milionerzy</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        <script
+            src="https://kit.fontawesome.com/a64d185819.js"
             crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
+        ></script>
         <link rel="stylesheet" href="style.css" type="text/css" />
         <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     </head>
@@ -201,6 +198,7 @@
                             class="login-input"
                             id="login-login"
                             type="text"
+                            autocomplete="on"
                             placeholder=""
                             aria-label="Login-login"
                             pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9]+"
@@ -222,6 +220,7 @@
                             class="login-input"
                             id="login-password"
                             type="password"
+                            autocomplete="new-password"
                             placeholder=""
                             aria-label="Login-password"
                             pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9!@#$%^&*]+"
@@ -299,6 +298,7 @@
                                 class="register-input"
                                 id="register-login"
                                 type="text"
+                                autocomplete="on"
                                 placeholder=""
                                 aria-label="Register-login"
                                 pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9]+"
@@ -320,6 +320,7 @@
                                 class="register-input"
                                 id="register-password"
                                 type="password"
+                                autocomplete="new-password"
                                 placeholder=""
                                 aria-label="Register-password"
                                 pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9!@#$%^&*]+"
@@ -342,6 +343,7 @@
                                 class="register-input"
                                 id="register-confirm-password"
                                 type="password"
+                                autocomplete="new-password"
                                 placeholder=""
                                 aria-label="Register-confirm-password"
                                 pattern="[A-ZĘÓĄŚŁŻŹĆŃa-zęóąśłżźćń0-9!@#$%^&*]+"
@@ -691,6 +693,7 @@
                                     class="user-data-input password"
                                     id="change-password"
                                     type="password"
+                                    autocomplete="new-password"
                                     placeholder=""
                                     aria-label="Change-password"
                                     pattern="[a-zęóąśłżźćńA-ZĘÓĄŚŁŻŹĆŃ0-9!@#$%^&*]+"
